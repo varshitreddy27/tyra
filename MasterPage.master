@@ -1,0 +1,63 @@
+<%@ Master Language="C#" AutoEventWireup="true" Inherits="B24.Sales3.UI.MasterPage" Codebehind="MasterPage.master.cs" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+  <title>Sales3</title>
+</head>
+<body>
+  <form id="form1" runat="server">
+      <asp:ScriptManager ID="Sales3ScriptManager" runat="server">
+    </asp:ScriptManager>
+    <!-- menu -->
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+        <tr><td colspan="3" bgcolor="#003000"><img src="images/_.gif" height="1" width="1"></td></tr>
+        <tr>
+          <td rowspan="2" bgcolor="#e0ffe0" width="1%">
+            <a href="default.asp">
+              <img src="images/b24saleslogo_sm.gif" align="top" border="0" height="65" width="100"></a></td>
+          <td class="b24-doc-title" bgcolor="#e0ffe0" valign="top">B24 Sales</td>
+          <td bgcolor="#e0ffe0" align=right style="padding-right:6px;">
+            <asp:LoginView ID="LoginView1" runat="server">
+              <LoggedInTemplate><span class="UserBar"><%=welcomeString %></span></LoggedInTemplate>
+              <AnonymousTemplate>&nbsp;</AnonymousTemplate>
+            </asp:LoginView>
+          <%--  <b24:B24LoginStatus ID="LoginStatus" runat="server" LoginText="" LogoutText="" />--%>
+          </td>
+        </tr>
+        <tr>
+          <td bgcolor="#e0ffe0" valign="top">
+            <table border="0" cellpadding="0" cellspacing="0">
+                <tr>
+                  <td class="b24-navmenu" bgcolor="#e0ffe0">
+                    <asp:Menu runat=server ID=MainMenu Orientation=horizontal StaticMenuItemStyle-ItemSpacing=3px
+                              Enabled=true StaticMenuStyle-CssClass="b24-navmenu" StaticMenuItemStyle-Font-Underline=true>
+                      <Items>
+                        <asp:MenuItem Value=Home NavigateUrl="~/default.asp" Text="Home" SeparatorImageUrl="images/menu_sep.gif"></asp:MenuItem>
+                        <asp:MenuItem Value=Tools NavigateUrl="~/tools.asp" Text="Tools" SeparatorImageUrl="images/menu_sep.gif"></asp:MenuItem>
+                        <asp:MenuItem Value=Login NavigateUrl="~/abandonsession.aspx" Text="Logout" SeparatorImageUrl="images/menu_sep.gif"></asp:MenuItem>
+                        <asp:MenuItem Value=Cart NavigateUrl="~/Cart.aspx" Text="Cart" SeparatorImageUrl="images/menu_sep.gif"></asp:MenuItem> 
+                        <asp:MenuItem Value=Help NavigateUrl="~/help.asp" Text="Help"></asp:MenuItem>
+                      </Items>
+                    </asp:Menu>
+                  </td>
+                </tr>
+                <tr>
+                  <td bgcolor="#e0ffe0" height="10">
+                    <img src="images/_.gif" alt="" border="0" height="10" width="1"></td>
+                </tr>
+            </table>
+          </td>
+          <td bgcolor="#e0ffe0">&nbsp;</td>
+        </tr>
+        <tr><td colspan=3 align="left" bgcolor="#e0ffe0" valign="top"></td></tr>
+        <tr><td colspan=3 bgcolor="#003000"><img src="images/_.gif" height="1" width="1"></td></tr>
+    </table>
+    <!-- Content -->
+    <asp:Label ID="ErrorLabel" runat=server CssClass="Error" />
+    <div id=Content>
+    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+    </asp:ContentPlaceHolder>
+    </div>
+  </form>
+</body>
+</html>

@@ -1,0 +1,127 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="BaseMaster.Master.cs"
+    Inherits="B24.Sales3.UI.BaseMaster" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Books24x7 Sales4</title>
+    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.2.min.js" type="text/javascript"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.9.0/jquery-ui.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        var TimeToFade = 3000.0;
+
+        function fadeMessageBlock(eid,message) {
+            var element = document.getElementById(eid);
+            if (element == null)
+                return;
+            element.style.visibility = "visible"
+            element.innerHTML = "<p>" + message + "</p>";
+            element.FadeTimeLeft = TimeToFade;
+            setTimeout("animateFade(" + new Date().getTime() + ",'" + eid + "')", 33);
+        }
+
+        function animateFade(lastTick, eid) {
+            var curTick = new Date().getTime();
+            var elapsedTicks = curTick - lastTick;
+
+            var element = document.getElementById(eid);
+
+            if (element.FadeTimeLeft <= elapsedTicks) {
+                element.style.opacity = element.FadeState == 1 ? '1' : '0';
+                element.style.filter = 'alpha(opacity = '
+        + (element.FadeState == 1 ? '100' : '0') + ')';
+                element.FadeState = element.FadeState == 1 ? 2 : -2;
+                return;
+            }
+
+            element.FadeTimeLeft -= elapsedTicks;
+            var newOpVal = element.FadeTimeLeft / TimeToFade;
+            if (element.FadeState == 1)
+                newOpVal = 1 - newOpVal;
+
+            element.style.opacity = newOpVal;
+            element.style.filter = 'alpha(opacity = ' + (newOpVal * 100) + ')';
+
+            setTimeout("animateFade(" + curTick + ",'" + eid + "')", 33);
+        }
+    </script>
+</head>
+<body>
+    <form id="MasterForm" runat="server">
+    <asp:ScriptManager ID="Sales3ScriptManager" runat="server">
+    </asp:ScriptManager>
+    <div class="salesgutterbg"> 
+        <div id="Login" class="salesbg">
+        <table style="width: 100%" cellpadding="0" cellspacing="0">
+            <tr>
+                <td rowspan="2">
+                    <div><asp:Image ID="Logo" runat="server" ImageUrl="~/images/salesapplogo-blue.png"/></div>
+                </td>
+                <%--<td style="font-family: Verdana,sans-serif !important;font-size: 2.0em;letter-spacing:2px; color:#FFFFFF;vertical-align:top;padding-top:8px">
+                    <asp:Label ID="TitleLabel" runat="server" Text="Books24x7 Sales"></asp:Label>
+                </td>  This isn't needed because it is in the logo--%>
+                <td colspan="2" class="salesusertext">
+                    <div><asp:Label ID="WelcomeUser" runat="server" Text="" ></asp:Label>&nbsp;|&nbsp;<asp:LoginStatus ID="Sales3LoginStatus" runat="server" OnLoggingOut="Sales3LoginStatus_LoggingOut" /></div>
+                </td>               
+            </tr>
+            <tr>
+                <td>    
+                </td>
+                
+                <td class="salesbgnav">
+                   <asp:UpdatePanel ID="MenuUpdatePanel" runat="server" ChildrenAsTriggers="false" UpdateMode="Conditional" >
+                <ContentTemplate>
+                    <asp:Menu ID="ModuleMenu" runat="server" Orientation="Horizontal" StaticDisplayLevels="1"
+                MaximumDynamicDisplayLevels="1" OnMenuItemClick="ModuleMenu_MenuItemClick" StaticMenuItemStyle-ItemSpacing="0px">
+                <StaticMenuStyle CssClass="primaryStaticMenu " />
+                <StaticMenuItemStyle CssClass="primaryStaticMenuItem salesbgnav" />
+                <StaticHoverStyle CssClass="primaryStaticHover" />
+                <StaticSelectedStyle CssClass="primaryStaticSelected" />
+                <Items>
+                    
+                </Items>
+                    </asp:Menu>
+                </ContentTemplate>
+            </asp:UpdatePanel> 
+                </td>
+                
+            </tr>
+        </table>
+    </div>
+    <div class="salesbg">
+        <%--<div class="moduleMenuBacground salesbgnav">
+            
+         </div>--%>
+     
+        <!--Sub module menu will be exposed as property from the master page. Calling page can add items to this menu.
+        In default this menu is set to false. If any module has submodule then visible this menu control through code-->
+        <!--Add item from appropriate page-->
+        <asp:Panel ID="SubModuleMenuPanel" runat="server" Visible="false">
+            
+                <div class="subModuleMenuBacground">
+                    <asp:Menu ID="SubModuleMenu" runat="server" Orientation="Horizontal"  StaticDisplayLevels="1"  
+                    MaximumDynamicDisplayLevels="0" StaticMenuItemStyle-ItemSpacing="0px" DynamicMenuItemStyle-ItemSpacing="0"  StaticMenuItemStyle-HorizontalPadding="0" StaticMenuStyle-HorizontalPadding="0">
+                    <StaticMenuStyle CssClass="subStaticMenu" />
+                    <StaticMenuItemStyle CssClass="subStaticMenuItem" />
+                    <StaticHoverStyle CssClass="subStaticHover" />
+                    <StaticSelectedStyle CssClass="subStaticSelected" />
+                    <Items>                   
+                    </Items>
+                    </asp:Menu>
+                </div>
+              
+        </asp:Panel>
+     </div>
+    <div class=" salescontentbg">
+        <asp:ContentPlaceHolder ID="Content" runat="server"></asp:ContentPlaceHolder>
+    </div> 
+      
+    
+   
+        <div id="fadeBlock" style="border: 1px solid #333333; background-color:#CCCCCC; width:250px; visibility:hidden;
+            height:35px; filter: Alpha(Opacity=1);text-align:center; float:right; position:fixed;margin:0px 2px;bottom:0px;right:0px;display:block;">
+        </div>
+     </div>   
+    </form>
+</body>
+</html>

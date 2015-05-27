@@ -1,0 +1,99 @@
+BODY {font-family:Verdana, Arial, Helvetica, sans-serif;font-size:12px;background:#FFFFFF;
+      scrollbar-face-color:#CCFFCC;scrollbar-highlight-color:#CCFFCC;scrollbar-shadow-color:#336633;scrollbar-arrow-color:#336633;scrollbar-base-color:#000000;scrollbar-dark-shadow-color:#009900;}
+TABLE {font-family:Verdana, Arial, Helvetica, sans-serif;font-size:12px;}
+SELECT {font-family:Verdana, Arial, Helvetica, sans-serif;font-size:12px;background:#FFFFFF;}
+.INPUT {font-family:Verdana, Arial, Helvetica, sans-serif;font-size:12px;background:#000066;color:#FFFFFF;}
+.Button {font-size:9px;font-weight:bold;background:yellow;color:#004000;text-align:center;}
+
+.b24-doc-title {font-size:22px;font-weight:bold;color:#008000;}
+.b24-doc-title2 {font-size:18px;font-weight:bold;color:#008000;}
+.b24-doc-subtitle {font-size:18px;font-weight:normal;color:#008000;}
+.b24-doc-para {width:400px;}
+.b24-helptext {font-size:10px; color:#306030;width:400px;}
+
+.b24-formbanner {font-size:18px;font-weight:normal;color:#008000;background:#CCFFCC;width:95%;border-left:solid 5px #004000;border-top:solid 2px #004000;padding-left:10px;padding-bottom:10px;}
+.b24-formbody   {width:95%;border-left:solid 5px #004000;padding-left:10px;padding-bottom:100px;}
+
+.b24-form {margin-top:0px;margin-bottom:0px;color:#000000;font-size:10px;font-family:Verdana, Arial, Helvetica, sans-serif;}
+.b24-formbg {border:solid #CCCCCC 1px;background:#D0D0D0;}
+.b24-formtitle {background:#006600;color:#FFFFFF;font-weight:bold;font-size:12px;padding:2px;}
+.b24-formtitle2 {font-weight:bold;font-size:10px;font-family:Verdana, Arial, Helvetica;}
+.b24-formtitle3 {font-weight:bold;font-size:12px;font-family:Verdana, Arial, Helvetica;}
+.b24-formtableheading {font-weight:bold;font-size:12px;font-family:Verdana, Arial, Helvetica;color:#006600;background:#F0FFF0;border:solid #003300 1px;}
+.b24-formdescription {font-family:Arial, Helvetica, sans-serif;color:#333333;}
+.b24-formelement {padding-left:4px;margin-left:10px;margin-right:20px;font-family:Arial, Helvetica, sans-serif;font-size:10px;}
+.b24-formseparator {size:1px;height:1px;width:100%;color:#666666;background:#CCCCCC;}
+.b24-forminput {}
+.b24-forminputlabel{font-size:12px;}
+.b24-forminputhelp {color:#808080;}
+.b24-formfineprint {font-size:10pt;color:#404040;font-style:italic;text-align:center;}
+.b24-formrequired {color#FF0000;font-style:italic;}
+.b24-tipslink {font-family:Arial, Helvetica, sans-serif; font-size:10px;text-align:right;}
+.b24-formrequired {color:#FF0000;font-style:italic;}
+.b24-assistancerequired {font-size:14px;font-weight:bold;color:#FF0000;}
+
+.b24-helpmenu {font-family:verdana, arial, helvetica, sans-serif;}
+.b24-helpmenu-title {font-size:10px;color:#000000;font-weight:bold;}
+.b24-helpmenu-item {font-size:9px;}
+
+.b24-error {font-family:verdana, arial, helvetica;font-size:12px;font-weight:normal;color:#000000;}
+.b24-errortext {font-weight:bold;color:#FF0000;}
+.b24-errorcode {color:#FF8080;}
+
+.b24-reportlist {font-size:10px;}
+.b24-reportlist-title {font-weight:bold;font-size:13px;color:black;}
+.b24-reportlist-data {font-size:11px;margin-bottom:5px;}
+.b24-reportlist-selected {font-size:13px;margin-bottom:5px;background:yellow;font-weight:bold;}
+.b24-report {font-size:11px; background:#808080; color:#000000;margin-left:0px;margin-top:0px;margin-bottom:10px;}
+.b24-report-frame {margin-left:25px;}
+.b24-report-title {background:#99CC99; color:#000000;}
+.b24-report-data {font-size:9px;background:#FFFFFF;color:#000000;text-align:left;}
+.b24-report-data-gray {background:#eeeeee; font-size:9px;color:#000000;text-align:left;}
+.b24-report-selected {font-size:9px;background:yellow;color:#004000;text-align:left;}
+.b24-report-vtitle {font-size:10px;font-weight:bold;background:#FFFFFF; color:#000000;}
+.b24-report-vdata {font-size:9px;background:#FFFFFF;color:#000000;}
+.b24-report-link {font-family:arial;font-size:10px;font-weight:bold;color:#FF0000;}
+.b24-report-link-label {font-family:arial;font-size:10px;font-weight:bold;color:#006600;}
+.b24-report-action {font-family:arial;font-size:14px;font-weight:bold;background:#FFFF80;color:#004000;}
+.b24-report-banner {color:#003300;font-size:14px;font-weight:bold;margin-top:10px;margin-bottom:5px;}
+.b24-report-parambox {font-family:arial, helvetica;font-weight:bold;font-size:11px;color:red; background:#99CC99;border-top:medium outset #EEEEEE;border-left:medium outset #EEEEEE;border-bottom:medium outset #AAAAAA;border-right:medium outset #AAAAAA; width:200px;}
+.b24-report-parambox TABLE {background:#99CC99;}
+.b24-report-parambox TABLE TR TD INPUT {background:#FFFFFF;color:#003300;}
+
+.b24-subscription {color:#004000;background:#FFFFFF;border:1px #002000 solid;padding:5px;margin:2px;}
+.b24-subscriptionitem-label {text-align:right;}
+.b24-subscriptionitem-data {text-align:left;}
+
+.b24-upgradebox {font-family:verdana,arial,helvetica;font-weight:bold;font-size:12px;color:#004000; background:#99CC99;border-top:medium outset #EEEEEE;border-left:medium outset #EEEEEE;border-bottom:medium outset #AAAAAA;border-right:medium outset #AAAAAA; width:200px;}
+.b24-upgradebox FORM {background:#99CC99;}
+.b24-upgradebox TABLE TR TD INPUT {background:#FFFFFF;color:#003300;}
+.b24-upgradebox-help {font-weight:bold;font-size:12px;color:#400000;background:#CCFFCC;padding:3px;text-align:center;width:100%;border:1px solid #004000}
+
+.access-scrambled {color:#800000;}
+.access-preview {color:#000040;}
+.user-login {color:#808080;}
+.user-email {color:#000040;}
+.subscription-starts {color:green;}
+.subscription-expires {color:maroon;}
+
+.b24-navmenu {font-family:arial,helvetica,sans-serif;font-size:12px;color:#666565}
+.b24-navmenu-separator, .b24-navmenu A {color:#003333;text-decoration-none;font-weight:bold;}
+
+.b24-menu   {font-family:arial,helvetica,sans-serif;font-size:12px;color:#666565}
+.b24-menu-selected {font-weight:bold;}
+.b24-menu-title {font-size:13px;font-weight:bold;}
+.b24-menu-item {font-weight:normal;}
+
+.b24-development {font-weight:normal;color:#E0A080;width:90%;}
+
+.b24-supportdoc-td1 {padding:0px; margin:0px; xborder:solid 1px black;}
+.b24-supportdoc-td2 {background:#E0FFE0; padding:0px; margin:0px; xborder:solid 1px black;}
+
+.highlight {background:yellow;}
+.debug {font-face:comic sans ms;font-size:9px;background:#FFFFFF;color:#000000;}
+.debugwrite {font-face:comic sans ms;font-size:9px;background:#FFFFFF;color:#000066;}
+.debugwriteform {font-face:comic sans ms;font-size:9px;background:#000066;color:#FFFFFF;}
+.debugwritecookie {font-face:comic sans ms;font-size:9px;background:#BB7A5E;color:#FFFFFF;}
+.alwayswrite {font-face:comic sans ms;font-size:9px;background:#FFFFFF;color:#BB7A5E;}
+.xmldebugwrite {font-face:comic sans ms;font-size:9pt;background:#FFFFFF;color:#339966;}
+

@@ -1,0 +1,435 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AppName" xml:space="preserve">
+    <value>Application name not found in the list</value>
+  </data>
+  <data name="BindValues" xml:space="preserve">
+    <value>Unable to bind values</value>
+  </data>
+  <data name="CompanyName" xml:space="preserve">
+    <value>Company name not provided</value>
+  </data>
+  <data name="DateComparison" xml:space="preserve">
+    <value>End date should be greater than start date</value>
+  </data>
+  <data name="DepartmentName" xml:space="preserve">
+    <value>Department name not provided</value>
+  </data>
+  <data name="DomainNotUpdated" xml:space="preserve">
+    <value>Could not update email domain</value>
+  </data>
+  <data name="DomainUpdated" xml:space="preserve">
+    <value>Updated email domain</value>
+  </data>
+  <data name="EndDate" xml:space="preserve">
+    <value>End date not provided</value>
+  </data>
+  <data name="EndDateValid" xml:space="preserve">
+    <value>End date not valid</value>
+  </data>
+  <data name="ErrorAddingRule" xml:space="preserve">
+    <value>Error adding rule</value>
+  </data>
+  <data name="ErrorDeletingRule" xml:space="preserve">
+    <value>Error deleting rule</value>
+  </data>
+  <data name="ErrorGettingRules" xml:space="preserve">
+    <value>Error getting rules for subscription</value>
+  </data>
+  <data name="ErrorUpdatingRule" xml:space="preserve">
+    <value>Error updating rule</value>
+  </data>
+  <data name="FileExists" xml:space="preserve">
+    <value>File already exists</value>
+  </data>
+  <data name="LibraryTrialSubscriptionNotCreated" xml:space="preserve">
+    <value>Unable to create library trial subscription</value>
+  </data>
+  <data name="PartnerLogoFail" xml:space="preserve">
+    <value>Could not upload the logo</value>
+  </data>
+  <data name="PartnerLogoSuccess" xml:space="preserve">
+    <value>Partner logo image uploaded successfully</value>
+  </data>
+  <data name="PartnerName" xml:space="preserve">
+    <value>Partner name not provided</value>
+  </data>
+  <data name="PathName" xml:space="preserve">
+    <value>Path name not provided</value>
+  </data>
+  <data name="RuleAdded" xml:space="preserve">
+    <value>Rule added</value>
+  </data>
+  <data name="RuleDeleted" xml:space="preserve">
+    <value>Rule deleted</value>
+  </data>
+  <data name="RuleUpdated" xml:space="preserve">
+    <value>Rule updated</value>
+  </data>
+  <data name="SelectCategory" xml:space="preserve">
+    <value>Please select categories</value>
+  </data>
+  <data name="SelectImage" xml:space="preserve">
+    <value>Select image file only</value>
+  </data>
+  <data name="SelectLogo" xml:space="preserve">
+    <value>Select the logo image to upload</value>
+  </data>
+  <data name="SharedSecretNotUpdated" xml:space="preserve">
+    <value>Shared secret code not updated</value>
+  </data>
+  <data name="SharedSecretUpdated" xml:space="preserve">
+    <value>Updated shared secret</value>
+  </data>
+  <data name="SignOnFail" xml:space="preserve">
+    <value>Could not save the single sign on subscription</value>
+  </data>
+  <data name="SignOnSuccess" xml:space="preserve">
+    <value>Single sign on subscription updated successfully</value>
+  </data>
+  <data name="StartDate" xml:space="preserve">
+    <value>Start date not provided</value>
+  </data>
+  <data name="StartsDateValid" xml:space="preserve">
+    <value>Start date not valid</value>
+  </data>
+  <data name="SubFail" xml:space="preserve">
+    <value>Could not update subscription</value>
+  </data>
+  <data name="SubFlagFail" xml:space="preserve">
+    <value>Could not update the subscription flag</value>
+  </data>
+  <data name="SubFlagSuccess" xml:space="preserve">
+    <value>Subscription flag updated successfully</value>
+  </data>
+  <data name="SubscriptonNotLoaded" xml:space="preserve">
+    <value>Could not load subscription</value>
+  </data>
+  <data name="SubSuccess" xml:space="preserve">
+    <value>Subscription updated successfully</value>
+  </data>
+  <data name="SubType" xml:space="preserve">
+    <value>Subscription type not found in the list</value>
+  </data>
+  <data name="TargetFolder" xml:space="preserve">
+    <value>Target folder does not exists</value>
+  </data>
+  <data name="UsersNotAdded" xml:space="preserve">
+    <value>Could not add one or more users</value>
+  </data>
+  <data name="ErrorSales3" xml:space="preserve">
+    <value>Sales3 error</value>
+  </data>
+  <data name="UsersAdded" xml:space="preserve">
+    <value>Added users</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>An error occured while  loading the page</value>
+  </data>
+  <data name="NullReference" xml:space="preserve">
+    <value>Null refrence exception</value>
+  </data>
+  <data name="ErrorLoadControl" xml:space="preserve">
+    <value>Error loading the control</value>
+  </data>
+  <data name="InvalidEmail" xml:space="preserve">
+    <value>Invalid email</value>
+  </data>
+  <data name="PasswordFail" xml:space="preserve">
+    <value>Fail to update password</value>
+  </data>
+  <data name="PasswordMatch" xml:space="preserve">
+    <value>Confirm password must match with the new password</value>
+  </data>
+  <data name="PasswordUpdate" xml:space="preserve">
+    <value>Password updated</value>
+  </data>
+  <data name="Required" xml:space="preserve">
+    <value>Required</value>
+  </data>
+  <data name="UserDetailFail" xml:space="preserve">
+    <value>Fail to update user details</value>
+  </data>
+  <data name="UserDetailSuccess" xml:space="preserve">
+    <value>User details updated</value>
+  </data>
+  <data name="PasswordLength" xml:space="preserve">
+    <value>Password must be between 3 and 63 characters</value>
+  </data>
+  <data name="ImpersonateFail" xml:space="preserve">
+    <value>Impersonation failed</value>
+  </data>
+  <data name="UserLoadError" xml:space="preserve">
+    <value>Error loading user details</value>
+  </data>
+  <data name="ImpersonatePermission" xml:space="preserve">
+    <value>Couldn't impersonate this user. The user might be a super user or sales manager or general admin.</value>
+  </data>
+  <data name="ImpersonateAppError" xml:space="preserve">
+    <value>This application doesn't support tickets</value>
+  </data>
+  <data name="DomainNotSelected" xml:space="preserve">
+    <value>Please enter domain to add or select a domain to remove.</value>
+  </data>
+  <data name="SharedSecretNotSelected" xml:space="preserve">
+    <value>Please enter sharedsecret.</value>
+  </data>
+  <data name="LibraryRulesAuthError" xml:space="preserve">
+    <value>Cannot edit auth rules for a non-library subscription</value>
+  </data>
+  <data name="SubscriptionFlagNotLoaded" xml:space="preserve">
+    <value>Could not load subscription flags</value>
+  </data>
+  <data name="CostCenterDeleted" xml:space="preserve">
+    <value>Cost Center Deleted</value>
+  </data>
+  <data name="CostCenterUpdated" xml:space="preserve">
+    <value>Cost Center Updated Successfully</value>
+  </data>
+  <data name="ErrorDeletingCostCenter" xml:space="preserve">
+    <value>Error on Deleting Cost Center</value>
+  </data>
+  <data name="SubscriptionAlertCreated" xml:space="preserve">
+    <value>Subscription alert created</value>
+  </data>
+  <data name="SubscriptionAlertNotCreated" xml:space="preserve">
+    <value>Could not create new alert</value>
+  </data>
+  <data name="SubscriptionAlertNotUpdated" xml:space="preserve">
+    <value>Could not update the subscription alert </value>
+  </data>
+  <data name="SubscriptionAlertUpdated" xml:space="preserve">
+    <value>Subscription alert updated</value>
+  </data>
+  <data name="ErrorUpdatingCostCenter" xml:space="preserve">
+    <value>Error on updating Cost Center</value>
+  </data>
+  <data name="ApplicationChanged" xml:space="preserve">
+    <value>Application name changed</value>
+  </data>
+  <data name="CollectionAdded" xml:space="preserve">
+    <value>Collection added successfully</value>
+  </data>
+  <data name="CollectionDeleted" xml:space="preserve">
+    <value>Collection deleted</value>
+  </data>
+  <data name="CollectionNotAdded" xml:space="preserve">
+    <value>Could not add a collection </value>
+  </data>
+  <data name="CollectionNotDeleted" xml:space="preserve">
+    <value>Could not delete collection</value>
+  </data>
+  <data name="CollectionNotUpdated" xml:space="preserve">
+    <value>Fail to update collection</value>
+  </data>
+  <data name="CollectionUpdated" xml:space="preserve">
+    <value>Collection updated successfully</value>
+  </data>
+  <data name="ErrorAddingExtendAttribute" xml:space="preserve">
+    <value>Error on  Adding Extend Attribute</value>
+  </data>
+  <data name="ExtendAttributeAdded" xml:space="preserve">
+    <value>Extend Attribute Added Successfully</value>
+  </data>
+  <data name="CostCenterAdded" xml:space="preserve">
+    <value>CostCenter added successfully</value>
+  </data>
+  <data name="SelfRegistrationFailed" xml:space="preserve">
+    <value>Update Self Registration Instructions Failed</value>
+  </data>
+  <data name="SelfRegistrationFetchFailed" xml:space="preserve">
+    <value>Could Not Retrieve Self Registration Instructions</value>
+  </data>
+  <data name="SelfRegistrationUpdated" xml:space="preserve">
+    <value>Updated Self Registration Instructions</value>
+  </data>
+  <data name="PartnerLogoGetFail" xml:space="preserve">
+    <value>Could not load Partner Logo</value>
+  </data>
+  <data name="ExtendTrialFail" xml:space="preserve">
+    <value>Could not update the Extend Trial</value>
+  </data>
+  <data name="SelfRegistraionUpdateFailed" xml:space="preserve">
+    <value>Could not update self registration</value>
+  </data>
+  <data name="SelfRegistrationCannotEnable" xml:space="preserve">
+    <value>Error: You cannot enable self reg without defining some domain rules.</value>
+  </data>
+  <data name="SelfRegistrationChanged" xml:space="preserve">
+    <value>Self registration updated</value>
+  </data>
+  <data name="AccountUpdateSeatNotEnough" xml:space="preserve">
+    <value>There are not enough seats for all the users specified. Remove some users and/or increase the seat count.</value>
+  </data>
+  <data name="AccountUpdateUnAssignUserError" xml:space="preserve">
+    <value>Could not unassign the user from subscription.</value>
+  </data>
+  <data name="DeleteCollectionFail" xml:space="preserve">
+    <value>Could not delete the collection from subscription.</value>
+  </data>
+  <data name="UpdateAccountLoadError" xml:space="preserve">
+    <value>Could Load the Update Account Deatils</value>
+  </data>
+  <data name="EmailSettingsFail" xml:space="preserve">
+    <value>Could not update the Email Settings</value>
+  </data>
+  <data name="EmailSettingsLoadFail" xml:space="preserve">
+    <value>Could not load Email Settings</value>
+  </data>
+  <data name="EmailSettingsSuccess" xml:space="preserve">
+    <value>Email Settings Updated Successful</value>
+  </data>
+  <data name="UserEntilementFailed" xml:space="preserve">
+    <value>Could not update entitlement</value>
+  </data>
+  <data name="UserEntitlementUpdated" xml:space="preserve">
+    <value>User entitlements updated</value>
+  </data>
+  <data name="UserAdministratorConfirm" xml:space="preserve">
+    <value>Please confirm administrator reassignment.</value>
+  </data>
+  <data name="UserAdministratorAdded" xml:space="preserve">
+    <value>User added to subscription administrator</value>
+  </data>
+  <data name="UserAdministratorRemoved" xml:space="preserve">
+    <value>User removed from subscription administrator</value>
+  </data>
+  <data name="RemoveRestoreConfirm" xml:space="preserve">
+    <value>Please check "confirm" and resubmit.</value>
+  </data>
+  <data name="UserUpdated" xml:space="preserve">
+    <value>User updated</value>
+  </data>
+  <data name="RemoveRestoreUserFail" xml:space="preserve">
+    <value>Could not remove or restore user</value>
+  </data>
+  <data name="EmailSendingFail" xml:space="preserve">
+    <value>Could not send email</value>
+  </data>
+  <data name="WelcomeMessageCannotModify" xml:space="preserve">
+    <value>Can't modify email id for this subscription</value>
+  </data>
+  <data name="WelcomeMessageFailed" xml:space="preserve">
+    <value>Modification is failed</value>
+  </data>
+  <data name="WelcomeMessageUpdated" xml:space="preserve">
+    <value>Welcome message sender is successfully modified</value>
+  </data>
+</root>

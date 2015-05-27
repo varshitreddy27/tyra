@@ -1,0 +1,41 @@
+<!-- #include VIRTUAL="/Zinc/init.asa" -->
+<SCRIPT LANGUAGE=JavaScript RUNAT=Server>
+function Application_OnStart()
+  {
+  GlobalInit();
+  Application("hostapp") = "Salesapp"           // the name of hosting application
+  //Application("hostapp") = "Sales3" 
+  Application("appname") = "Salesapp"       // the application access name for logins
+  //Application("appname") = "b24library"  
+  Application("collection") = "default"       // the book collection to search against
+  Application("frontpage") = "report.asp"     // the start page for the application
+
+  Application("PWD") = ""+"poledog";
+  Application("UID") = ""+"production";
+
+  var livedsn = "booksNVEG08DB01" //"" + Application("Salesserver"); 
+  var localdsn = "books"
+
+  Application("DSN") = localdsn
+  Application("userDSN") = localdsn
+  Application("searchDSN") = localdsn
+
+  Application("advreportDSN") = ""+Application("Reportsserver")    // for live offline reports
+
+
+  //--- ASP won't allow Array() here! ---
+  Application("DSNcount") = 1
+  Application("DSNlive0") = livedsn
+
+  Application("DSNlive") = livedsn
+  Application("userDSNlive") = livedsn
+  Application("searchDSNlive") = livedsn
+
+//  Application("GUIDDSN") = ""+GUIDserver
+
+  Application("method") = "POST"              // method to use for forms: "GET" or "POST"
+
+  Application("xslfolder") = physicaldrive+"\\Tayra\\sales3\\sales3\\xsl\\"
+  Application("xmlfolder") = physicaldrive+"\\Tayra\\sales3\\sales3\\xml\\"
+  }
+</SCRIPT>
