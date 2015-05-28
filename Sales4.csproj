@@ -49,7 +49,7 @@
     </Reference>
     <Reference Include="IGEClient, Version=1.0.9.8, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\Zorilla.net\Zorilla.net_Release\bin\IGEClient.dll</HintPath>
+      <HintPath>..\..\IGEClient\IGEClient\bin\Debug\IGEClient.dll</HintPath>
     </Reference>
     <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL" />
     <Reference Include="System" />
