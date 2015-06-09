@@ -80,10 +80,6 @@
     <Content Include="App_Themes\Classic\sales3.css" />
     <Content Include="CreateTrial.aspx" />
     <Content Include="Default.aspx" />
-    <Content Include="Deprecated\abandonsession.asp" />
-    <Content Include="Deprecated\loggedout.asp" />
-    <Content Include="Deprecated\login.asp" />
-    <Content Include="Deprecated\sales3.css" />
     <Content Include="images\b24saleslogo_sm.gif" />
     <Content Include="images\b_arrowright.gif" />
     <Content Include="images\Calendar.gif" />
@@ -507,7 +503,6 @@
     </Content>
     <Content Include="Cart.aspx" />
     <Content Include="Error.aspx" />
-    <Content Include="global.asa" />
     <Content Include="Impersonate.aspx" />
     <Content Include="LibraryPersistentUrl.aspx" />
     <Content Include="LibraryReportAccess.aspx" />
