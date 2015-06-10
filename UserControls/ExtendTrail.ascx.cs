@@ -17,6 +17,8 @@ namespace B24.Sales3.UserControl
         #region Private Members
         GlobalVariables global = GlobalVariables.GetInstance();
         Logger logger;
+        private BasePage baseObject;
+
         #endregion
 
         #region Public Property
@@ -105,6 +107,7 @@ namespace B24.Sales3.UserControl
             }
             if (!Page.IsPostBack)
             {
+                baseObject = this.Page as BasePage;
                 try
                 {
                     //Initialize the control values
@@ -158,7 +161,7 @@ namespace B24.Sales3.UserControl
 
                         Subscription.Status = SubscriptionStatus.Active;          // activate, in case it isn't
 
-                        SubscriptionFactory subsctiptionFactory = new SubscriptionFactory(global.UserConnStr);
+                        SubscriptionFactory subsctiptionFactory = new SubscriptionFactory(baseObject.UserConnStr);
                         subsctiptionFactory.PutSubscription(Subscription, UserId, string.Empty);
                     }
                     else
@@ -290,8 +293,7 @@ namespace B24.Sales3.UserControl
         private void InitControls()
         {
             PermissionFactory permissionFactory = new PermissionFactory(global.UserConnStr);
-            BasePage basePage = Page as BasePage;
-            Permission permission = permissionFactory.LoadPermissionsById(UserId, basePage.User.Identity.Name, String.Empty);
+            Permission permission = permissionFactory.LoadPermissionsById(UserId, baseObject.User.Identity.Name, String.Empty);
 
             UserFactory userFactory = new UserFactory(global.UserConnStr);
             User user = userFactory.GetUserByID(UserId);
