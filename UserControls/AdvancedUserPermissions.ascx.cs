@@ -14,6 +14,7 @@ namespace B24.Sales3.UserControl
         GlobalVariables global = GlobalVariables.GetInstance();
         Logger logger = new Logger(Logger.LoggerType.Sales3);
         Boolean editButtonView = false;
+        private BasePage baseObject;
 
         #endregion
 
@@ -76,6 +77,7 @@ namespace B24.Sales3.UserControl
             }
             if (!Page.IsPostBack)
             {
+                baseObject = this.Page as BasePage;
                 InitializeControl();
             }
 
@@ -91,7 +93,7 @@ namespace B24.Sales3.UserControl
         {
             try
             {
-                UserFactory userFactory = new UserFactory(global.UserConnStr);
+                UserFactory userFactory = new UserFactory(baseObject.UserConnStr);
                 if (CFACheckBox.Checked)
                 {
                     role = "CFA";
@@ -180,7 +182,7 @@ namespace B24.Sales3.UserControl
         /// </summary>
         private void InitializeControl()
         {
-            UserFactory userFactory = new UserFactory(global.UserConnStr);
+            UserFactory userFactory = new UserFactory(baseObject.UserConnStr);
             isCFA = userFactory.HasRole(User.UserID, "CFA");
             isCTA = userFactory.HasRole(User.UserID, "CBTA");
             if (isCFA == true)
