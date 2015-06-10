@@ -21,7 +21,7 @@ namespace B24.Sales3.UserControl
 
         private Logger logger = new Logger(Logger.LoggerType.Sales3);
         private GlobalVariables global = GlobalVariables.GetInstance();
-        private B24.Common.Web.BasePage basePage;
+        private B24.Common.Web.BasePage baseObject;
         private string task = string.Empty;
         private string reportName = string.Empty;
         private Guid reportQId = Guid.Empty;
@@ -72,7 +72,7 @@ namespace B24.Sales3.UserControl
         {
             try
             {
-                basePage = this.Page as B24.Common.Web.BasePage;
+                baseObject = this.Page as B24.Common.Web.BasePage;
                 GetValuesFromHiddenField();
                 InitPopulate();
                 LoadReport();
@@ -158,7 +158,7 @@ namespace B24.Sales3.UserControl
         private void LoadReport()
         {
             int reportType = 5;
-            Guid availableResultGuidParam = basePage.User.UserID;
+            Guid availableResultGuidParam = baseObject.User.UserID;
             string paramPrefix = "availablegeneral ";
             if (subscription != null)
             {
@@ -166,8 +166,8 @@ namespace B24.Sales3.UserControl
                 availableResultGuidParam = subscription.SubscriptionID;
                 paramPrefix = "availableSched ";
             }
-            ReportFactory reportfactory = new ReportFactory(global.UserConnStr);
-            List<B24.Common.Report> reportList = reportfactory.GetAvailableReports(basePage.User.UserID, reportType);
+            ReportFactory reportfactory = new ReportFactory(baseObject.UserConnStr);
+            List<B24.Common.Report> reportList = reportfactory.GetAvailableReports(baseObject.User.UserID, reportType);
             AvailableReportGridview.DataSource = reportList;
             AvailableReportGridview.DataBind();
 
@@ -242,7 +242,7 @@ namespace B24.Sales3.UserControl
                 }
                 else if (task == ReportTask.DownLoad.ToString())
                 {
-                    ReportFactory reportFactory = new ReportFactory(global.UserConnStr);
+                    ReportFactory reportFactory = new ReportFactory(baseObject.UserConnStr);
                     string reportString = reportFactory.GetReportView(reportQId, ReportTask.DownLoad.ToString());
                     Response.Clear();
                     Response.AddHeader("content-disposition", "attachment;filename=b24_report_" + DateTime.Now.ToString("yyMMddHHmmss") + ".xls");
@@ -260,19 +260,19 @@ namespace B24.Sales3.UserControl
                 }
                 else if (task == ReportTask.Delete.ToString())
                 {
-                    ReportFactory reportFactory = new ReportFactory(global.UserConnStr);
+                    ReportFactory reportFactory = new ReportFactory(baseObject.UserConnStr);
                     if (subscription != null)
                     {
                         reportFactory.DeleteReport(subscription.SubscriptionID, reportQId);
                     }
                     else
                     {
-                        reportFactory.DeleteReport(basePage.User.UserID, reportQId);
+                        reportFactory.DeleteReport(baseObject.User.UserID, reportQId);
                     }
                 }
                 else if (task == ReportTask.View.ToString())
                 {
-                    ReportFactory reportFactory = new ReportFactory(global.UserConnStr);
+                    ReportFactory reportFactory = new ReportFactory(baseObject.UserConnStr);
                     string reportHTML = reportFactory.GetReportView(reportQId, ReportTask.View.ToString());
                     ReportResultViewPlaceHolder.Controls.Add(new LiteralControl(reportHTML));
                     ReportView.ActiveViewIndex = 2;
@@ -299,9 +299,9 @@ namespace B24.Sales3.UserControl
         {
             try
             {
-                ReportFactory reportFactory = new ReportFactory(global.UserConnStr);
+                ReportFactory reportFactory = new ReportFactory(baseObject.UserConnStr);
                 SqlCommand reportParameterDetails = reportFactory.GetReportParamDetails(reportName);
-                List<ReportParameter> reportParameterUI = reportFactory.GetReportUIDetails(basePage.User.UserID, (subscription == null) ? basePage.User.UserID : subscription.SubscriptionID, reportName);
+                List<ReportParameter> reportParameterUI = reportFactory.GetReportUIDetails(baseObject.User.UserID, (subscription == null) ? baseObject.User.UserID : subscription.SubscriptionID, reportName);
                 userInputCount = 0;
                 foreach (SqlParameter parameter in reportParameterDetails.Parameters)
                 {
@@ -500,7 +500,7 @@ namespace B24.Sales3.UserControl
         {
             try
             {
-                ReportFactory reportFactory = new ReportFactory(global.UserConnStr);
+                ReportFactory reportFactory = new ReportFactory(baseObject.UserConnStr);
                 SqlCommand reportParameterDetails = reportFactory.GetReportParamDetails(reportName);
                 foreach (SqlParameter param in reportParameterDetails.Parameters)
                 {
@@ -508,12 +508,12 @@ namespace B24.Sales3.UserControl
                     {
                         case "@userid":
                             if (subscription == null)
-                                reportParameterDetails.Parameters[param.ParameterName].Value = basePage.User.UserID;
+                                reportParameterDetails.Parameters[param.ParameterName].Value = baseObject.User.UserID;
                             else
                                 reportParameterDetails.Parameters[param.ParameterName].Value = subscription.SubscriptionID;
                             break;
                         case "@internalrequesterid":
-                            reportParameterDetails.Parameters[param.ParameterName].Value = basePage.User.UserID;
+                            reportParameterDetails.Parameters[param.ParameterName].Value = baseObject.User.UserID;
                             break;
                         case "@noemail":
                             reportParameterDetails.Parameters[param.ParameterName].Value = 0;
