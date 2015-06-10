@@ -153,7 +153,7 @@ namespace B24.Sales3.UserControl
         public void EnableAddButton()
         {
             baseObject = this.Page as BasePage;
-            PermissionFactory permFactory = new PermissionFactory(global.UserConnStr);
+            PermissionFactory permFactory = new PermissionFactory(baseObject.UserConnStr);
             Permission permissions = permFactory.LoadPermissionsById(UserId, baseObject.User.Identity.Name, String.Empty);
 
             if (permissions.SalesMarketing == 1 || permissions.SalesManager == 1 || permissions.GeneralAdmin == 1 || permissions.SuperUser == 1)
