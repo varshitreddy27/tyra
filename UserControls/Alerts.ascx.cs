@@ -24,6 +24,7 @@ namespace B24.Sales3.UserControl
         GlobalVariables global = GlobalVariables.GetInstance();
         Logger logger;
         private LinkButton alertLB;
+        BasePage baseObject;
         
         #endregion
 
@@ -87,7 +88,8 @@ namespace B24.Sales3.UserControl
             }
 
             if (!IsPostBack)
-            {               
+            {
+                baseObject = Page as BasePage;
                 try
                 { 
                     InitControls();
@@ -227,7 +229,7 @@ namespace B24.Sales3.UserControl
                 sa.SendEmail = Convert.ToInt16(sendEmailCbx.Checked);
 
                 if (subscriptionAlertFactory == null)
-                    subscriptionAlertFactory = new SubscriptionAlertFactory(global.UserConnStr);
+                    subscriptionAlertFactory = new SubscriptionAlertFactory(baseObject.UserConnStr);
 
                 if (newAlert)
                     subscriptionAlertFactory.PutSubscriptionAlert(sa);
@@ -259,7 +261,7 @@ namespace B24.Sales3.UserControl
         /// </summary>
         public void BindGVData()
         {
-            subscriptionAlertFactory = new SubscriptionAlertFactory(global.UserConnStr);
+            subscriptionAlertFactory = new SubscriptionAlertFactory(baseObject.UserConnStr);
             Collection<SubscriptionAlert> alertList = subscriptionAlertFactory.GetSubscriptionAlertList(Subscription.SubscriptionID);
 
             if (alertList.Count < 1)
@@ -304,7 +306,7 @@ namespace B24.Sales3.UserControl
                 Guid alertID = new Guid(alertidstr);
                 Collection<SubscriptionAlert> alertDetails = new Collection<SubscriptionAlert>();
                 if (subscriptionAlertFactory == null)
-                    subscriptionAlertFactory = new SubscriptionAlertFactory(global.UserConnStr);
+                    subscriptionAlertFactory = new SubscriptionAlertFactory(baseObject.UserConnStr);
                 alertDetails = subscriptionAlertFactory.GetSubscriptionAlertData(alertID);
                 if (alertDetails.Count > 0)
                 {
@@ -317,8 +319,8 @@ namespace B24.Sales3.UserControl
                     DueOnTextBox.Text = Convert.ToString(alertDetails[0].DueDate);
                     notesTbx.Text = alertDetails[0].Notes;
                     sendEmailCbx.Checked = Convert.ToBoolean(alertDetails[0].SendEmail);
-                    
-                    UserFactory userfactory = new UserFactory(global.UserConnStr);
+
+                    UserFactory userfactory = new UserFactory(baseObject.UserConnStr);
                     User creator = userfactory.GetUserByID(alertDetails[0].CreatorId);
                     
                     createdLbl.Visible = true;
@@ -359,7 +361,7 @@ namespace B24.Sales3.UserControl
         {
             Guid alertID = new Guid(alertidstr);
             if (subscriptionAlertFactory == null)
-                subscriptionAlertFactory = new SubscriptionAlertFactory(global.UserConnStr);
+                subscriptionAlertFactory = new SubscriptionAlertFactory(baseObject.UserConnStr);
             subscriptionAlertFactory.DeleteSubscriptionAlert(alertID);
         }
         /// <summary>
@@ -367,9 +369,10 @@ namespace B24.Sales3.UserControl
         /// </summary>
         private void InitControls()
         {
-            PermissionFactory permissionFactory = new PermissionFactory(global.UserConnStr);
-            BasePage basePage = Page as BasePage;
-            Permission permissions = permissionFactory.LoadPermissionsById(UserId, basePage.User.Identity.Name, String.Empty);
+
+            PermissionFactory permissionFactory = new PermissionFactory(baseObject.UserConnStr);
+
+            Permission permissions = permissionFactory.LoadPermissionsById(UserId, baseObject.User.Identity.Name, String.Empty);
 
             if (permissions.SuperUser == 1 || permissions.SalesManager == 1 || permissions.GeneralAdmin == 1)
             {
