@@ -20,6 +20,8 @@ namespace B24.Sales3.UserControl
         GlobalVariables global = GlobalVariables.GetInstance();
         Logger logger = new Logger(Logger.LoggerType.UserInfo);
         bool editButtonView = false;
+        private BasePage baseObject;
+
         #endregion
 
         #region Property
@@ -80,6 +82,7 @@ namespace B24.Sales3.UserControl
             }
             if (!Page.IsPostBack)
             {
+                baseObject = this.Page as BasePage;
                 LoadEmailSettings();
             }
         }
@@ -106,7 +109,7 @@ namespace B24.Sales3.UserControl
 
             try
             {
-                UserPreferencesFactory userPreferencesFactory = new UserPreferencesFactory(global.UserConnStr);
+                UserPreferencesFactory userPreferencesFactory = new UserPreferencesFactory(baseObject.UserConnStr);
 
                 UserPreferences userPreferences = new UserPreferences();
 
@@ -204,8 +207,8 @@ namespace B24.Sales3.UserControl
         {
             try
             {
-                UserPreferencesFactory userPreferencesFactory = new UserPreferencesFactory(global.UserConnStr);
-                MasterDataFactory masterDataFactory = new MasterDataFactory(global.UserConnStr);
+                UserPreferencesFactory userPreferencesFactory = new UserPreferencesFactory(baseObject.UserConnStr);
+                MasterDataFactory masterDataFactory = new MasterDataFactory(baseObject.UserConnStr);
 
                 UserPreferences userPreferences = new UserPreferences();
 
