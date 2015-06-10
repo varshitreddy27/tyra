@@ -209,7 +209,7 @@ namespace B24.Sales3.BLL
         /// <returns></returns>
         private Subscription GetSubscription(Guid subscriptionId)
         {
-            SubscriptionFactory subscriptionFactory = new SubscriptionFactory(global.UserConnStr);
+            SubscriptionFactory subscriptionFactory = new SubscriptionFactory(basePage.UserConnStr);
             return subscriptionFactory.GetSubscriptionByID(subscriptionId);
         }
         /// <summary>
