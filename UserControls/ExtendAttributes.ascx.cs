@@ -15,6 +15,7 @@ public partial class ExtendAttributes : System.Web.UI.UserControl
     #region Private Members
     private GlobalVariables global = GlobalVariables.GetInstance();
     private Logger logger = new Logger(Logger.LoggerType.AccountInfo);
+    private BasePage baseObject;
     #endregion
 
     #region Public Property
@@ -63,7 +64,7 @@ public partial class ExtendAttributes : System.Web.UI.UserControl
         try
         {
             B24.Common.ExtendAttributes extendAttr = new B24.Common.ExtendAttributes();
-            ExtendAttributesFactory extendAttrFac = new ExtendAttributesFactory(global.UserConnStr);
+            ExtendAttributesFactory extendAttrFac = new ExtendAttributesFactory(baseObject.UserConnStr);
 
             extendAttr.AttributeName = TextAttributeName.Text.Trim();
             extendAttr.AttributeType = DropDownAttributeType.SelectedValue;
@@ -125,6 +126,7 @@ public partial class ExtendAttributes : System.Web.UI.UserControl
     }
     protected void Page_Load(object sender, EventArgs e)
     {
+        baseObject = this.Page as BasePage;
         if (SubscriptionId == null || SubscriptionId == Guid.Empty)
         {
             return;
