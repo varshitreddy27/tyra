@@ -1,5 +1,6 @@
 ﻿using System;
 using B24.Common;
+using B24.Common.Web;
 using B24.Common.Logs;
 using System.Data.SqlClient;
 using System.Globalization;
@@ -17,6 +18,7 @@ namespace B24.Sales3.UserControl
         private Logger logger = new Logger(Logger.LoggerType.Sales3);
         private UserFactory userFactory;
         private User user;
+        private BasePage baseObject;
 
         /// <summary>
         /// check condition to show form
@@ -88,6 +90,7 @@ namespace B24.Sales3.UserControl
                 {
                     return;
                 }
+                baseObject = this.Page as B24.Common.Web.BasePage;
                 IntitializeControls();
                 if (!Page.IsPostBack && hasAccess)
                 {
@@ -109,7 +112,7 @@ namespace B24.Sales3.UserControl
         /// </summary>
         private void IntitializeControls()
         {
-            userFactory = new UserFactory(global.UserConnStr);
+            userFactory = new UserFactory(baseObject.UserConnStr);
             user = userFactory.GetUserByID(UserId);
             SendButton.Visible = SendButtonView;
             CalculateLevel();
@@ -138,7 +141,7 @@ namespace B24.Sales3.UserControl
         /// </summary>
         private void ShowForm()
         {
-            UserPreferencesFactory userPreferenceFactory = new UserPreferencesFactory(global.UserConnStr);
+            UserPreferencesFactory userPreferenceFactory = new UserPreferencesFactory(baseObject.UserConnStr);
             UserPreferences userPreference = userPreferenceFactory.Get(UserId);
             bool migrated = false;
             bool isFlag30 = false;
@@ -150,7 +153,7 @@ namespace B24.Sales3.UserControl
             {
                 migrated = true;
             }
-            SubscriptionFlagFactory subscriptionFlagFactory = new SubscriptionFlagFactory(global.UserConnStr);
+            SubscriptionFlagFactory subscriptionFlagFactory = new SubscriptionFlagFactory(baseObject.UserConnStr);
             List<B24.Common.SubscriptionFlag> subscriptionFlagList = subscriptionFlagFactory.GetAllSubscriptionFlags(user.SubscriptionID);
 
             foreach (B24.Common.SubscriptionFlag subscriptionFlag in subscriptionFlagList)
