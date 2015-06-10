@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Web.UI;
 using B24.Common;
+using B24.Common.Web;
 using B24.Common.Logs;
 using System.Globalization;
 using B24.Sales3.UserControl;
@@ -14,6 +15,7 @@ namespace B24.Sales3.UserControl
     {
         #region Private Members
         GlobalVariables global = GlobalVariables.GetInstance();
+        private BasePage baseObject; 
         #endregion
 
         #region Public Property
@@ -41,6 +43,7 @@ namespace B24.Sales3.UserControl
         {
             if (!Page.IsPostBack)
             {
+                baseObject = this.Page as BasePage;
                 try
                 {
                     LoadSubscriptionData();
@@ -67,7 +70,7 @@ namespace B24.Sales3.UserControl
         /// </summary>
         private void LoadSubscriptionData()
         {
-            UserFactory userFactory = new UserFactory(global.UserConnStr);
+            UserFactory userFactory = new UserFactory(baseObject.UserConnStr);
             User getUser = userFactory.GetUserByID(UserId);
 
             User getuserRoyalityInfo = new User();
@@ -102,7 +105,7 @@ namespace B24.Sales3.UserControl
         public void UpdateData()
         {
             //To get updated expire date when extend the trail period. 
-            SubscriptionFactory subscriptionFactory = new SubscriptionFactory(global.UserConnStr);
+            SubscriptionFactory subscriptionFactory = new SubscriptionFactory(baseObject.UserConnStr);
             Subscription = subscriptionFactory.GetSubscriptionByID(Subscription.SubscriptionID);
             //ExpiresLabel.Text = Subscription.Expires.ToString("MMM dd, yyyy", CultureInfo.InvariantCulture);
             LoadSubscriptionData();
