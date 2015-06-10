@@ -86,10 +86,10 @@ namespace B24.Sales3.UserControl
             {
                 return;
             }
-
+            baseObject = Page as BasePage;
             if (!IsPostBack)
             {
-                baseObject = Page as BasePage;
+                
                 try
                 { 
                     InitControls();
