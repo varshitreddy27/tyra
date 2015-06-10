@@ -30,6 +30,8 @@ namespace B24.Sales3.UI
         /// masterPage object is created to valus from the BaseMaster page details
         /// </summary>
         BaseMaster masterPage;
+
+        private BasePage basePage;
         /// <summary>
         /// userID variable declaration
         /// </summary>
@@ -50,6 +52,7 @@ namespace B24.Sales3.UI
             try
             {
                 masterPage = this.Master as BaseMaster;
+                basePage = this.Page as BasePage;
                 GetValuesFromQueryString();
                 // Check the user has access
                 if (!CheckAccess())
@@ -123,9 +126,9 @@ namespace B24.Sales3.UI
                 if (subModule > 0 && userId != null && userId != Guid.Empty)
                 {
                     // subscription of the user for user administrator
-                    SubscriptionFactory subscriptionFactory = new SubscriptionFactory(global.UserConnStr);
+                    SubscriptionFactory subscriptionFactory = new SubscriptionFactory(basePage.UserConnStr);
                     Subscription subscription = subscriptionFactory.GetSubscriptionByUserID(userId);
-                    UserFactory userfactory = new UserFactory(global.UserConnStr);
+                    UserFactory userfactory = new UserFactory(basePage.UserConnStr);
                     User user = userfactory.GetUserByID(userId);
 
                     // Subscription Info Details Control
