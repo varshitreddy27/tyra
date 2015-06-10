@@ -15,7 +15,7 @@ namespace B24.Sales3.UserControls
     {
         #region Private Member
 
-        B24.Common.Web.BasePage basePage;
+        B24.Common.Web.BasePage baseObject;
         GlobalVariables global = GlobalVariables.GetInstance();
         Logger logger = new Logger(Logger.LoggerType.Sales3);
 
@@ -39,7 +39,7 @@ namespace B24.Sales3.UserControls
         /// <param name="e"></param>
         protected void Page_Load(object sender, EventArgs e)
         {
-            basePage = this.Page as B24.Common.Web.BasePage;
+            baseObject = this.Page as B24.Common.Web.BasePage;
         }
 
         /// <summary>
@@ -51,8 +51,8 @@ namespace B24.Sales3.UserControls
         {
             try
             {
-                SubscriptionFactory subscriptionFactory = new SubscriptionFactory(global.UserConnStr);
-                List<Subscription> lookupResult = subscriptionFactory.SubscriptionLookup(basePage.User.UserID, SubIDTextBox.Text, CompanyNameTextBox.Text, SalespersonFirstNameTextBox.Text, SalespersonLastNameTextBox.Text, ContractNumberTextBox.Text, ExactMatchCheckBox.Checked, ActiveAccountsOnlyCheckBox.Checked);
+                SubscriptionFactory subscriptionFactory = new SubscriptionFactory(baseObject.UserConnStr);
+                List<Subscription> lookupResult = subscriptionFactory.SubscriptionLookup(baseObject.User.UserID, SubIDTextBox.Text, CompanyNameTextBox.Text, SalespersonFirstNameTextBox.Text, SalespersonLastNameTextBox.Text, ContractNumberTextBox.Text, ExactMatchCheckBox.Checked, ActiveAccountsOnlyCheckBox.Checked);
                 if (lookupResult.Count > 0)
                 {
                     ResultCountLabel.Text = lookupResult.Count.ToString(CultureInfo.InvariantCulture);
@@ -124,9 +124,9 @@ namespace B24.Sales3.UserControls
                 CheckBox cartCheckBox;
                 string cartChecked = string.Empty;
 
-                if (!string.IsNullOrEmpty(basePage.State["subCart"]))
+                if (!string.IsNullOrEmpty(baseObject.State["subCart"]))
                 {
-                    cartChecked = basePage.State["subCart"];
+                    cartChecked = baseObject.State["subCart"];
                 }
                 foreach (GridViewRow row in ResultGridView.Rows)
                 {
@@ -154,8 +154,8 @@ namespace B24.Sales3.UserControls
                     string[] checkedItems = cartChecked.Split(',').Distinct().ToArray().Where(item => !string.IsNullOrEmpty(item)).ToArray();
                     cartChecked = string.Join(",", checkedItems);
                 }
-                basePage.State.Add("subCart", cartChecked);
-                basePage.State.Save();
+                baseObject.State.Add("subCart", cartChecked);
+                baseObject.State.Save();
                 UpdateCart(null, null);
 
                 System.Web.UI.ScriptManager.RegisterStartupScript(Page, this.GetType(), "fade" + DateTime.Now.Ticks, "fadeMessageBlock('fadeBlock','Updated cart');", true);
@@ -180,13 +180,13 @@ namespace B24.Sales3.UserControls
             {
                 CheckBox cartCheckBox;
                 string cartChecked = string.Empty;
-                if (string.IsNullOrEmpty(basePage.State["subCart"]))
+                if (string.IsNullOrEmpty(baseObject.State["subCart"]))
                 {
                     return;
                 }
                 else
                 {
-                    cartChecked = basePage.State["subCart"].ToString();
+                    cartChecked = baseObject.State["subCart"].ToString();
                 }
                 for (int i = 0; i < ResultGridView.Rows.Count; i++)
                 {
