@@ -79,9 +79,10 @@ namespace B24.Sales3.UserControl
             if (Subscription == null)
             {
                 return;
-            }
+            } 
             if (!Page.IsPostBack)
             {
+                baseObject = this.Page as BasePage;
                 InitializeControls();
             }
             Multiview.ActiveViewIndex = 1;
@@ -95,7 +96,7 @@ namespace B24.Sales3.UserControl
         {
             try
             {
-                RegistrationRuleFactory registartionRuleFactory = new RegistrationRuleFactory(global.UserConnStr);
+                RegistrationRuleFactory registartionRuleFactory = new RegistrationRuleFactory(baseObject.UserConnStr);
 
                 // Add New Domainrule 
                 if (NewDomainRuleTextBox.Text != String.Empty)
@@ -142,7 +143,7 @@ namespace B24.Sales3.UserControl
 
                 //Enable Sef Registration
                 // Verify that we have some rules for this sub before proceeding
-                RegistrationRuleFactory registrationRuleFactory = new RegistrationRuleFactory(global.UserConnStr);
+                RegistrationRuleFactory registrationRuleFactory = new RegistrationRuleFactory(baseObject.UserConnStr);
                 List<RegistrationRule> ruleList = registrationRuleFactory.GetRules(Subscription.SubscriptionID);
                 if (ruleList.Count > 0)
                 {
@@ -155,7 +156,7 @@ namespace B24.Sales3.UserControl
                     {
                         Subscription.CorpSubscription = Guid.Empty;
                     }
-                    SubscriptionFactory subscriptionfactory = new SubscriptionFactory(global.UserConnStr);
+                    SubscriptionFactory subscriptionfactory = new SubscriptionFactory(baseObject.UserConnStr);
                     subscriptionfactory.PutSubscription(Subscription, UserId, Login);
                     updateSuccess = true;
                 }
@@ -166,7 +167,7 @@ namespace B24.Sales3.UserControl
                 if (ruleList.Count == 0)
                 {
                     Subscription.CorpSubscription = Guid.Empty;
-                    SubscriptionFactory subscriptionfactory = new SubscriptionFactory(global.UserConnStr);
+                    SubscriptionFactory subscriptionfactory = new SubscriptionFactory(baseObject.UserConnStr);
                     subscriptionfactory.PutSubscription(Subscription, UserId, Login);
                 }
             }
@@ -213,8 +214,8 @@ namespace B24.Sales3.UserControl
         /// </summary>
         private void InitializeControls()
         {
-            SubscriptionFactory subscriptionFactory = new SubscriptionFactory(global.UserConnStr);
-            masterDataFactory = new MasterDataFactory(global.UserConnStr);
+            SubscriptionFactory subscriptionFactory = new SubscriptionFactory(baseObject.UserConnStr);
+            masterDataFactory = new MasterDataFactory(baseObject.UserConnStr);
             CalculateLevel();
             ShowEnableSelfRegForm();
             EditButton.Visible = EditButtonView;
@@ -225,8 +226,7 @@ namespace B24.Sales3.UserControl
         private void CalculateLevel()
         {
 
-            baseObject = this.Page as BasePage;
-            PermissionFactory permFactory = new PermissionFactory(global.UserConnStr);
+            PermissionFactory permFactory = new PermissionFactory(baseObject.UserConnStr);
             Permission permissions = permFactory.LoadPermissionsById(UserId, baseObject.User.Identity.Name, String.Empty);
             Collection<MasterData> salesGroupUsers = masterDataFactory.GetSalesGroupsForUser(UserId);
             showEmailDomain = SearchForString(salesGroupUsers, "MSVL2");
@@ -293,7 +293,7 @@ namespace B24.Sales3.UserControl
 
                 if (CheckCorpSubscription)
                 {
-                    ApplicationFactory applicationFactory = new ApplicationFactory(global.UserConnStr);
+                    ApplicationFactory applicationFactory = new ApplicationFactory(baseObject.UserConnStr);
                     Application application = applicationFactory.GetApplication(Subscription.ApplicationName);
                     LinkString = application.BaseUrl + ((Subscription.ApplicationName == "AdminBriefing") ? "/register.aspx" : "gatekeeper.asp") + "?site=" + Subscription.PasswordRoot;
 
@@ -316,7 +316,7 @@ namespace B24.Sales3.UserControl
 
                 if (showEmailDomain)
                 {
-                    RegistrationRuleFactory registrationRuleFactory = new RegistrationRuleFactory(global.UserConnStr);
+                    RegistrationRuleFactory registrationRuleFactory = new RegistrationRuleFactory(baseObject.UserConnStr);
                     List<RegistrationRule> ruleList = registrationRuleFactory.GetRules(Subscription.SubscriptionID);
                     List<RegistrationRule> newRuleList = new List<RegistrationRule>();
                     if (ruleList.Count > 0)
