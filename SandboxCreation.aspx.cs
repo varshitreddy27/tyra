@@ -18,6 +18,7 @@ namespace B24.Sales3.UI
     {
         private Guid subscriptionId;
         private GlobalVariables global = GlobalVariables.GetInstance();
+        private BasePage basePage;
 
         protected override void OnInit(EventArgs e)
         {
@@ -26,6 +27,7 @@ namespace B24.Sales3.UI
         }
         protected void Page_Load(object sender, EventArgs e)
         {
+            basePage = this.Page as BasePage;
             // Grap the subscription id from the querystring or form or state
             GetSubscriptionID();
             InitPopulate();
@@ -46,7 +48,7 @@ namespace B24.Sales3.UI
          /// <returns></returns>
          private Subscription GetSubscription(Guid subscriptionId)
          {
-             SubscriptionFactory subscriptionFactory = new SubscriptionFactory(global.UserConnStr);
+             SubscriptionFactory subscriptionFactory = new SubscriptionFactory(basePage.UserConnStr);
              return subscriptionFactory.GetSubscriptionByID(subscriptionId);
          }
          #endregion 
