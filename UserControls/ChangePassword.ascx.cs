@@ -15,6 +15,7 @@ namespace B24.Sales3.UserControl
 
         GlobalVariables global = GlobalVariables.GetInstance();
         Logger logger;
+        BasePage baseObject;
 
         #region Property
 
@@ -40,6 +41,7 @@ namespace B24.Sales3.UserControl
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            baseObject = this.Page as BasePage;
             //Initialize the control values
             InitControls();
             if (!Page.IsPostBack)
@@ -68,7 +70,7 @@ namespace B24.Sales3.UserControl
                         type = PasswordType.Temp;
                     }
 
-                    UserFactory userFactory = new UserFactory(global.UserConnStr);
+                    UserFactory userFactory = new UserFactory(baseObject.UserConnStr);
                     userFactory.ChangePassword(UserId, type, txtNewPassword.Text.Trim(), RequestorId);
 
                     ChangePasswordError.Text = Resources.Resource.PasswordUpdate;
