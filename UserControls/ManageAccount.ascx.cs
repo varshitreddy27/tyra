@@ -52,6 +52,7 @@ namespace B24.Sales3.UserControl
             }
             if (!Page.IsPostBack)
             {
+                baseObject = this.Page as B24.Common.Web.BasePage;
                 try
                 {
                     LoadApplication();
@@ -197,22 +198,22 @@ namespace B24.Sales3.UserControl
                     Subscription.Type = Subscription.SubscriptionTypeFromInt(Convert.ToInt32(TypeDropDown.SelectedValue, CultureInfo.InvariantCulture));
 
                     //Updated company details
-                    CompanyFactory companyFactory = new CompanyFactory(global.UserConnStr);
+                    CompanyFactory companyFactory = new CompanyFactory(baseObject.UserConnStr);
                     Company company = new Company();
                     company = companyFactory.GetCompany(Subscription.CompanyID, Login);
                     company.CompanyName = Subscription.CompanyName;
                     companyFactory.PutCompany(company, Login);
 
                     //update subscription details                   
-                    SubscriptionFactory subscriptionFactory = new SubscriptionFactory(global.UserConnStr);
+                    SubscriptionFactory subscriptionFactory = new SubscriptionFactory(baseObject.UserConnStr);
                     subscriptionFactory.PutSubscription(Subscription, UserId, Login);
                     subscriptionFactory.PutDownloadRoyalityInfo(downloadLimit, Subscription.SubscriptionID);
 
 
                     //update sales
 
-                    baseObject = this.Page as B24.Common.Web.BasePage;
-                    PermissionFactory permFactory = new PermissionFactory(global.UserConnStr);
+
+                    PermissionFactory permFactory = new PermissionFactory(baseObject.UserConnStr);
                     Permission permissions = permFactory.LoadPermissionsById(UserId, baseObject.User.Identity.Name, String.Empty);
 
                     // permission for changing sales person and sales group and Ecomm
@@ -244,7 +245,7 @@ namespace B24.Sales3.UserControl
                 OnUpdategroupCode();
 
                 // Reload the values
-                SubscriptionFactory subFactory = new SubscriptionFactory(global.UserConnStr);
+                SubscriptionFactory subFactory = new SubscriptionFactory(baseObject.UserConnStr);
                 Subscription = subFactory.GetSubscriptionByID(Subscription.SubscriptionID);
 
                 LoadApplication();
@@ -290,7 +291,7 @@ namespace B24.Sales3.UserControl
         #region PublicMethods
         public void UpdatedGroupCode()
         {
-            SubscriptionFactory subscriptionFactory = new SubscriptionFactory(global.UserConnStr);
+            SubscriptionFactory subscriptionFactory = new SubscriptionFactory(baseObject.UserConnStr);
             Subscription manageSubscription = subscriptionFactory.GetSubscriptionByID(Subscription.SubscriptionID);
             GroupCodeTextBox.Text = manageSubscription.GroupCode;
         }
@@ -316,7 +317,7 @@ namespace B24.Sales3.UserControl
         /// </summary>
         private void LoadApplication()
         {
-            ApplicationFactory applicationFactory = new ApplicationFactory(global.UserConnStr);
+            ApplicationFactory applicationFactory = new ApplicationFactory(baseObject.UserConnStr);
             ApplicationDropDown.DataSource = applicationFactory.GetAllApplicationForUser(UserId);
             ApplicationDropDown.DataTextField = "Name";
             ApplicationDropDown.DataValueField = "Name";
@@ -335,7 +336,7 @@ namespace B24.Sales3.UserControl
         /// </summary>
         private void LoadSubscriptionTypes()
         {
-            SubscriptionFactory subscriptionFactory = new SubscriptionFactory(global.UserConnStr);
+            SubscriptionFactory subscriptionFactory = new SubscriptionFactory(baseObject.UserConnStr);
             TypeDropDown.DataSource = subscriptionFactory.GetSubscriptionTypes();
             TypeDropDown.DataValueField = "SubTypeId";
             TypeDropDown.DataTextField = "SubType";
@@ -347,7 +348,7 @@ namespace B24.Sales3.UserControl
         /// </summary>
         private void LoadSalesGroup()
         {
-            MasterDataFactory masterDataFactory = new MasterDataFactory(global.UserConnStr);
+            MasterDataFactory masterDataFactory = new MasterDataFactory(baseObject.UserConnStr);
             Collection<B24.Common.MasterData> salesGroupList = masterDataFactory.GetSalesGroupsForUser(UserId);
             Collection<B24.Common.MasterData> groupList = new Collection<B24.Common.MasterData>();
             MasterData masterdata = new MasterData();
@@ -374,7 +375,7 @@ namespace B24.Sales3.UserControl
         private void LoadSubscriptionDetailInfo()
         {
             DataSet subDetailDS = new DataSet();
-            SubscriptionFactory subscriptionFactory = new SubscriptionFactory(global.UserConnStr);
+            SubscriptionFactory subscriptionFactory = new SubscriptionFactory(baseObject.UserConnStr);
             subscriptionFactory.SubscriptionID = Subscription.SubscriptionID;
             subDetailDS = subscriptionFactory.GetSubscriptionDetailInfo(UserId);
             DataTable dt = new DataTable();
@@ -457,7 +458,7 @@ namespace B24.Sales3.UserControl
         /// </summary>
         private void LoadSalesPerson()
         {
-            MasterDataFactory masterDataFactory = new MasterDataFactory(global.UserConnStr);
+            MasterDataFactory masterDataFactory = new MasterDataFactory(baseObject.UserConnStr);
             Collection<B24.Common.MasterData> salesPersonList = masterDataFactory.GetSalesColleagues(UserId);
             Collection<B24.Common.MasterData> personList = new Collection<B24.Common.MasterData>();
             MasterData masterdata = new MasterData();
@@ -496,7 +497,7 @@ namespace B24.Sales3.UserControl
         {
             bool isInternalUser = false;  // true if user's email address is like @books24x7 or @skillsoft    
 
-            UserFactory userFactory = new UserFactory(global.UserConnStr);
+            UserFactory userFactory = new UserFactory(baseObject.UserConnStr);
             User user = userFactory.GetUserByID(UserId);
             if (null != user && null != user.Email && 
                 (user.Email.IndexOf("books24x7") > 0 ||
@@ -509,7 +510,7 @@ namespace B24.Sales3.UserControl
             
             //--- check for ugrade privs ----
             bool hasupgrade = false;
-            MasterDataFactory masterDataFactory = new MasterDataFactory(global.UserConnStr);
+            MasterDataFactory masterDataFactory = new MasterDataFactory(baseObject.UserConnStr);
             Collection<B24.Common.MasterData> salesgroups = masterDataFactory.GetSalesGroupsForUser(UserId);
              
             foreach (MasterData salesGroup in salesgroups)
@@ -615,7 +616,7 @@ namespace B24.Sales3.UserControl
                 logger.Log(Logger.LogLevel.Error, "No resellercode is found ", nullException);
             }
 
-            UserFactory userFactory = new UserFactory(global.UserConnStr);
+            UserFactory userFactory = new UserFactory(baseObject.UserConnStr);
             User getUser = userFactory.GetUserByID(UserId);
             User getuserRoyalityInfo = new User();
             getuserRoyalityInfo = userFactory.GetDownloadRoyaltyInfo(getUser);
