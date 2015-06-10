@@ -110,6 +110,7 @@ namespace B24.Sales3.UserControl
             }
             if (!IsPostBack)
             {
+                baseObject = this.Page as BasePage;
                 InitializeControls();
             }
             Multiview.ActiveViewIndex = 1;
@@ -177,8 +178,8 @@ namespace B24.Sales3.UserControl
         /// </summary>
         private void InitializeControls()
         {
-            SubscriptionFactory subscriptionFactory = new SubscriptionFactory(global.UserConnStr);
-            masterDataFactory = new MasterDataFactory(global.UserConnStr);
+            SubscriptionFactory subscriptionFactory = new SubscriptionFactory(baseObject.UserConnStr);
+            masterDataFactory = new MasterDataFactory(baseObject.UserConnStr);
 
             try
             {
@@ -261,8 +262,8 @@ namespace B24.Sales3.UserControl
         /// </summary>
         private void CheckHasAccess()
         {
-            baseObject = this.Page as BasePage;
-            PermissionFactory permFactory = new PermissionFactory(global.UserConnStr);
+
+            PermissionFactory permFactory = new PermissionFactory(baseObject.UserConnStr);
             Permission permissions = permFactory.LoadPermissionsById(UserId, baseObject.User.Identity.Name, String.Empty);
             if (permissions.SuperUser == 1 || permissions.SalesManager == 1 || permissions.GeneralAdmin == 1)
             {
@@ -302,9 +303,9 @@ namespace B24.Sales3.UserControl
         /// This method will bind the collections in the check box list
         /// </summary>
         private void BindCollections()
-        {        
-            
-            CollectionFactory collectionFactory = new CollectionFactory(global.UserConnStr);
+        {
+
+            CollectionFactory collectionFactory = new CollectionFactory(baseObject.UserConnStr);
             List<Collection> collectionList = collectionFactory.GetCollections(Subscription.SubscriptionID, null);// collectionFactory.GetCollectionsForUser(Subscription.SubscriptionID, UserId, String.Empty, null, Collection.CollectionType.All);
             CollectionsCheckBoxList.DataSource = collectionList;
             CollectionsCheckBoxList.DataTextField = "Description";
@@ -411,7 +412,7 @@ namespace B24.Sales3.UserControl
         /// </summary>
         private void PendingRegistrations()
         {
-            PendingRegistrationFactory pendingRegistrationFactory = new PendingRegistrationFactory(global.UserConnStr);
+            PendingRegistrationFactory pendingRegistrationFactory = new PendingRegistrationFactory(baseObject.UserConnStr);
             Collection<PendingRegistration> pendingRegistrationCollection = pendingRegistrationFactory.GetPendingRegistrations(Subscription.SubscriptionID, UserId, Guid.Empty);
             if (pendingRegistrationCollection.Count > 0)
             {
@@ -493,7 +494,7 @@ namespace B24.Sales3.UserControl
         private void RegisterUsers()
         {
             // Get selected collection string
-            CollectionFactory collectionFactory = new CollectionFactory(global.UserConnStr);
+            CollectionFactory collectionFactory = new CollectionFactory(baseObject.UserConnStr);
             List<Collection> collectionList = collectionFactory.GetCollections(Subscription.SubscriptionID, null);
             int collectionCount = CollectionsCheckBoxList.Items.Count;
             string collectionsSelected = string.Empty;
@@ -515,7 +516,7 @@ namespace B24.Sales3.UserControl
                     
                 }
             }
-            PendingRegistrationFactory pendingRegistrationFactory = new PendingRegistrationFactory(global.UserConnStr);
+            PendingRegistrationFactory pendingRegistrationFactory = new PendingRegistrationFactory(baseObject.UserConnStr);
             PendingRegistration pendingreg;
             if (CheckFields(1))
             {
