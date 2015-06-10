@@ -17,6 +17,7 @@ namespace B24.Sales3.UserControl
         #region Private Members
         private GlobalVariables global = GlobalVariables.GetInstance();
         private Logger logger = new Logger(Logger.LoggerType.AccountInfo);
+        private BasePage baseObject;
         #endregion
 
         #region Public Properties
@@ -51,6 +52,7 @@ namespace B24.Sales3.UserControl
             {
                 return;
             }
+            baseObject = this.Page as BasePage;
             InitializeControls();
 
             if (!Page.IsPostBack)
@@ -93,7 +95,7 @@ namespace B24.Sales3.UserControl
                 costCenter.Sequence = Convert.ToInt32(NewCCSequence.Text.Trim(), CultureInfo.InvariantCulture);
 
 
-                CostCenterFactory costCenterFac = new CostCenterFactory(global.UserConnStr);
+                CostCenterFactory costCenterFac = new CostCenterFactory(baseObject.UserConnStr);
                 costCenterFac.PutCostCenter(costCenter);
 
                 GetCostCenter();
@@ -119,7 +121,7 @@ namespace B24.Sales3.UserControl
         /// </summary>
         protected void GetCostCenter()
         {
-            CostCenterFactory costCenterFac = new CostCenterFactory(global.UserConnStr);
+            CostCenterFactory costCenterFac = new CostCenterFactory(baseObject.UserConnStr);
             List<B24.Common.CostCenter> costCenterList = costCenterFac.GetCostCenterList(SubscriptionID);
             if (costCenterList.Count == 0)
             {
@@ -207,7 +209,7 @@ namespace B24.Sales3.UserControl
                 costCenter.Description = descriptionTB.Text;
                 costCenter.Sequence = Convert.ToInt32(sequenceTB.Text,CultureInfo.InvariantCulture );
 
-                CostCenterFactory costCenterFac = new CostCenterFactory(global.UserConnStr);
+                CostCenterFactory costCenterFac = new CostCenterFactory(baseObject.UserConnStr);
                 costCenterFac.PutCostCenter(costCenter);
 
                 ObjectCostCenterGridView.EditIndex = -1;
