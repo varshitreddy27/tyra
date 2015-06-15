@@ -1,6 +1,6 @@
-BODY {font-family:Verdana, Arial, Helvetica, sans-serif;font-size:12px;background:#FFFFFF;
+BODY {font-family:Verdana, Arial, Helvetica, sans-serif;font-size:12px;background:#FFFFFF;color:#000000
       scrollbar-face-color:#CCFFCC;scrollbar-highlight-color:#CCFFCC;scrollbar-shadow-color:#336633;scrollbar-arrow-color:#336633;scrollbar-base-color:#000000;scrollbar-dark-shadow-color:#009900;
-      margin-top:0px;margin-left:4px;margin-right:0px;margin-bottom:0px;}
+      margin-top:0px;margin-left:0px;margin-right:0px;margin-bottom:0px; height:100%; overflow:hidden}
 TABLE {font-family:Verdana, Arial, Helvetica, sans-serif;font-size:12px;}
 SELECT {font-family:Verdana, Arial, Helvetica, sans-serif;font-size:12px;background:#FFFFFF;}
 A IMG {text-decoration:none; border:none}
@@ -9,13 +9,14 @@ A IMG {text-decoration:none; border:none}
 
 .INPUT {font-family:Verdana, Arial, Helvetica, sans-serif;font-size:12px;background:#000066;color:#FFFFFF;}
 .Button {font-size:9px;font-weight:bold;color:#004000;text-align:center;}
-.GoButton {border: 0px;font: bold 100% 'Verdana',helvetica,sans-serif; text-decoration:underline; background-color:Transparent; color:#006600; text-align:left; cursor:pointer;}
+.GoButton {border: 0px;font: bold 100% ;text-decoration:underline; background-color:Transparent; text-align:left; cursor:pointer;line-height:16px}
 
 .b24-snapshot-table {font-family:Verdana, Arial, Helvetica, sans-serif;font-size:12px; border:0; padding:1px; }
 
-.b24-doc-title {font-size:22px;font-weight:bold;color:#008000;}
-.b24-doc-title2 {font-size:18px;font-weight:bold;color:#008000;}
-.b24-doc-subtitle {font-size:18px;font-weight:normal;color:#008000;}
+.b24-doc-title {font-size:18px;font-weight:bold;}
+.b24-doc-title2 {font-size:18px;font-weight:bold;}
+.b24-doc-subtitle {font-size:18px;font-weight:normal;}
+.b24-doc-subtitle-alerts {font-size:18px;font-weight:normal;color:#000000;text-align:center;}
 .b24-doc-para {width:400px;}
 .b24-helptext {font-size:10px; color:#306030;}
 .b24-helpbulletin {font-size:10px;color:#306030}
@@ -64,7 +65,7 @@ A IMG {text-decoration:none; border:none}
 .b24-report-link {font-family:arial;font-size:10px;font-weight:bold;color:#FF0000;}
 .b24-report-link-label {font-family:arial;font-size:10px;font-weight:bold;color:#006600;}
 .b24-report-action {font-family:arial;font-size:14px;font-weight:bold;background:#FFFF80;color:#004000;}
-.b24-report-banner {color:#003300;font-size:14px;font-weight:bold;margin-top:10px;margin-bottom:5px;}
+.b24-report-banner {color:#777777;font-size:14px;font-weight:bold;margin-top:10px;margin-bottom:5px;}
 .b24-report-parambox {font-family:arial, helvetica;font-weight:bold;font-size:11px;color:red; background:#99CC99;border-top:medium outset #EEEEEE;border-left:medium outset #EEEEEE;border-bottom:medium outset #AAAAAA;border-right:medium outset #AAAAAA; width:200px;}
 .b24-report-parambox TABLE {background:#99CC99;}
 .b24-report-parambox TABLE TR TD INPUT {background:#FFFFFF;color:#003300;}
@@ -139,19 +140,31 @@ A IMG {text-decoration:none; border:none}
 
 .spare1 {background:#D5A25E;}
 .spare2 {background:#885E5E;}
+
+.salesusertext {text-align:right; vertical-align:top;color:#000000; 
+}
+.salesusertext div {margin:5px; 
+}
+.salesbg {background-color:#e5e8dd
+}
+.salesgutterbg{border-left:solid 20px #e5e8dd;height:100%; position:absolute; overflow:auto; left:0; right:0; top:0; bottom:0
+} 
+.salesbgnav {background-color:#e5e8dd
+}
+.salescontentbg {background-color:#ffffff !important; margin-left:20px;
+}
+
 .accordionHeader
 {
-	background-color: #DFE1DF;
-	border: 1px solid #808080;
-	color: #000000;
+	background-color: #efefef;
+	color: #2c3070 !important;
 	cursor: pointer;
-	font-family: Arial,Sans-Serif;
 	font-size: 12px;
-	font-weight: bold;
 	margin-top: 5px;
 	padding: 5px;
+    width:61%;
 }
-.accordionLink {text-decoration:none;color:#000000;}
+.accordionLink {text-decoration:none;color:#2c3070;}
 .accordionLink div {width:100%;text-align:left;cursor:pointer;}
 .accordionContent
 {
@@ -160,92 +173,91 @@ A IMG {text-decoration:none; border:none}
 	border-style: none dashed dashed;
 	border-width: medium 1px 1px;
 	padding: 10px 5px 5px;
+    width:61%;
 }
 .accordionHeaderSelected
 {
-	background-color: #CCCC00;
-	border: 1px solid #916C00;
-	color: #000000;
+	background-color: #d1e4a2;
+	border: 1px solid #2c3070;
+	color: #ffffff;
 	cursor: pointer;
-	font-family: Arial,Sans-Serif;
 	font-size: 12px;
 	font-weight: bold;
 	margin-top: 5px;
 	padding: 5px;
+    width:61%;
 }                   
 .progress{position:absolute;left:200px;top:300px;}
 
 .moduleMenuBacground
 {
-    background-color: rgb(189, 221, 221);
     width: 100%;
-    height: 31px;
-    margin-top: 1px;
+    height: 33px;
+    margin-top: 0px;
     
 }
 .primaryStaticMenu
 {
     background-color: Transparent;
     float: left;
-    /*margin: 3px 3px 3px 3px;*/
+    margin: 1px 0 0 10px;
+    width:75%;
+    text-align:center
 }
 .primaryStaticMenuItem
 {
-    width: 15em;
-    background-color: #f7f2ea;
-    border-width: 1px;
-    border-color: #efefef #aaab9c #ccc #efefef;
-    border-style: solid;
-    color: #777777;
-    padding: 0.5em 0 0.5em 1em;
+    width: 11em;
+    color: #000000;
+    padding: 0.5em 0 0.7em 0em;
 }
 .primaryStaticHover
 {
-    color: #800000;
-    background: #f0e7d7;
+    color: #CC0000;
 }
 .primaryStaticSelected
 {
-    color: #800000;
+    color: #CC0000;
     font-weight: bold;
-    background: rgb(189, 221, 221);
-    border-color: #efefef #aaab9c rgb(189, 221, 221) #efefef;
+    background: #ffffff;
+     border-top:solid 1px #ffffff;
+     border-right:solid 1px #ffffff;
+     border-left:solid 1px #ffffff;
+     border-bottom:solid 1px #ffffff;
+     border-radius:10px 10px 0 0px;
 }
 
 /*Sub menu*/
 .subModuleMenuBacground
 {
-    background-color: rgb(189, 221, 221);
+    background-color: #ffffff;
     width: 100%;
     height: 29px;
+    border-bottom:solid 0px #cc0000;
+    padding:10px 0 15px 0; 
 }
 .subStaticMenu
 {
-    background-color: Transparent;
+    background-color:#ffffff;
     float: left;
     height:12px;
 }
 .subStaticMenuItem
 {
-    width: 15em;
-    background-color: #9a9a9a;
-    border-width: 1px;
-    border-color: #efefef #aaab9c #ccc #efefef;
-    border-style: solid;
-    color: #ffffff;
-    padding: 0.5em 0 0.5em 1em;
+    width: 5em;
+    background-color: #ffffff;
+    color: #777777;
+    padding: 0.5em .5em 0.5em .5em;
+    text-align:center;
 }
 .subStaticHover
 {
-    color: #800000;
-    background: #f0e7d7;
+    color: #cc0000;
 }
 .subStaticSelected
 {
-    color: #800000;
+    color: #cc0000;
     font-weight: bold;
-    background: #fafeff;
-    border-color: #efefef #aaab9c #ffffff #efefef;
+    background: #ffffff;
 }
 /*Result grid style*/
 resultGrid {   
@@ -256,44 +268,39 @@ resultGrid {
     border-collapse:collapse;   
 }  
 .resultGrid td {   
-    padding: 2px;   
+    padding: 5px;   
     border: solid 1px #c1c1c1;   
-    vertical-align:middle; 
-    padding: 4px 2px;   
+    vertical-align:middle;  
     font-size: 11px;     
 }  
 .resultGrid th {   
-    padding: 4px 2px;      
-    background-color:#bdbdbd;
+    padding: 5px;      
+    background-color:/*#798bcd*/#8fb6e1;
     border: solid 1px #777777;   
     font-size: 11px;  
     color: #fafeff; 
 }
 
 /*float library */
-.s-left {float:left;}
-.s-right {float:right;}
+.s-left {float:left; margin-right:10px}
+.s-right {float:right; }
 .s-clear {clear:both;}
 .alertCell { text-align: left;}
+.alertLeftColumn { width: 160px; }
 
 .b24-alerts {color:#004000;background:#FFFFFF;border:1px #6E6E6E solid;padding:10px;margin:2px;text-align:left}
-.b24-alerts-rounded {
-    color:#004000;
-    background:#FFFFFF;
-    border-radius: 10px;
-    border: 1px solid #6E6E6E;
-    padding: 10px; 
-    margin:2px;
-    text-align:left    
-}
 .b24-alertsinput {width:350px; padding:2px;}
 .b24-alerts-lblcell {
     height: 25px;
     vertical-align: bottom;
 }
 
+#AlertView {border: 1px solid #bdbcbd;
+
+}
+
 .s-form
-{background:#FFFFFF;vertical-align:middle; padding:5px; margin-right:12px; color:#606659 
+{background:#FFFFFF;border: 1px solid #bdbcbd; vertical-align:middle; padding:5px; margin-right:12px; color:#606659 
 }
 .PanelHidden  { display: none;}
 .PanelVisible { width:100%; }
