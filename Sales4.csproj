@@ -96,6 +96,7 @@
     <Content Include="images\loading.gif" />
     <Content Include="images\menu_sep.gif" />
     <Content Include="images\polecatface_sm.gif" />
+    <Content Include="images\salesapplogo-blue.png" />
     <Content Include="images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="images\ui-bg_flat_75_ffffff_40x100.png" />
     <Content Include="images\ui-bg_glass_55_fbf9ee_1x400.png" />
