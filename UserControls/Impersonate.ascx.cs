@@ -14,8 +14,7 @@ namespace B24.Sales3.UserControl
     public partial class Impersonate : System.Web.UI.UserControl
     {
         #region Private Members
-        private GlobalVariables global = GlobalVariables.GetInstance();
-        private BasePage basePage;
+        private B24.Common.Web.BasePage basePage;
         private Logger logger;
         private Guid subscriberId;
         private string displayLogin;
@@ -75,7 +74,7 @@ namespace B24.Sales3.UserControl
         {
             UserId = new Guid(UserIdHidden.Value);
 
-            UserFactory userFactory = new UserFactory(global.UserConnStr);
+            UserFactory userFactory = new UserFactory(basePage.UserConnStr);
             User user = userFactory.GetUserByID(UserId);
             displayLogin = user.BaseLogin.Trim();
             applicationName = user.ApplicationName.Trim();
@@ -86,7 +85,7 @@ namespace B24.Sales3.UserControl
         // Couldn't impersonate if the user is a super user or sales manager or general admin
         private bool VerifyPermission()
         {
-            PermissionFactory permFactory = new PermissionFactory(global.UserConnStr);
+            PermissionFactory permFactory = new PermissionFactory(basePage.UserConnStr);
             Permission permissions = permFactory.LoadPermissionsById(subscriberId, basePage.User.Identity.Name, String.Empty);
             if (permissions.SuperUser == 1 || permissions.SalesManager == 1 || permissions.GeneralAdmin == 1)
             {
@@ -106,7 +105,7 @@ namespace B24.Sales3.UserControl
         {
             if (applicationName.Length > 0)
             {
-                ApplicationFactory appFactory = new ApplicationFactory(global.UserConnStr);
+                ApplicationFactory appFactory = new ApplicationFactory(basePage.UserConnStr);
                 Application application = appFactory.GetApplication(applicationName);
                 // Find the application support tickets
                 switch (applicationName.ToLower())
