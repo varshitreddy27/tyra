@@ -15,9 +15,8 @@ namespace B24.Sales3.UserControl
     public partial class ExtendTrail : System.Web.UI.UserControl
     {
         #region Private Members
-        GlobalVariables global = GlobalVariables.GetInstance();
+        private Sales3.UI.BasePage basePage;
         Logger logger;
-        private BasePage baseObject;
 
         #endregion
 
@@ -107,7 +106,7 @@ namespace B24.Sales3.UserControl
             }
             if (!Page.IsPostBack)
             {
-                baseObject = this.Page as BasePage;
+                basePage = this.Page as Sales3.UI.BasePage;
                 try
                 {
                     //Initialize the control values
@@ -161,7 +160,7 @@ namespace B24.Sales3.UserControl
 
                         Subscription.Status = SubscriptionStatus.Active;          // activate, in case it isn't
 
-                        SubscriptionFactory subsctiptionFactory = new SubscriptionFactory(baseObject.UserConnStr);
+                        SubscriptionFactory subsctiptionFactory = new SubscriptionFactory(basePage.UserConnStr);
                         subsctiptionFactory.PutSubscription(Subscription, UserId, string.Empty);
                     }
                     else
@@ -292,10 +291,10 @@ namespace B24.Sales3.UserControl
         /// </summary>
         private void InitControls()
         {
-            PermissionFactory permissionFactory = new PermissionFactory(global.UserConnStr);
-            Permission permission = permissionFactory.LoadPermissionsById(UserId, baseObject.User.Identity.Name, String.Empty);
+            PermissionFactory permissionFactory = new PermissionFactory(basePage.UserConnStr);
+            Permission permission = permissionFactory.LoadPermissionsById(UserId, basePage.User.Identity.Name, String.Empty);
 
-            UserFactory userFactory = new UserFactory(global.UserConnStr);
+            UserFactory userFactory = new UserFactory(basePage.UserConnStr);
             User user = userFactory.GetUserByID(UserId);
 
             if (user != null && (user.Email.ToLower().IndexOf("@books24x7.com", StringComparison.OrdinalIgnoreCase) > 0
@@ -319,7 +318,7 @@ namespace B24.Sales3.UserControl
 
             //Initialization
 
-            MasterDataFactory masterDataFactory = new MasterDataFactory(global.UserConnStr);
+            MasterDataFactory masterDataFactory = new MasterDataFactory(basePage.UserConnStr);
             MasterData masterData = masterDataFactory.GetSalesGroup(Guid.Empty, Login, "", Subscription.ResellerCode);
 
             maxtrialDuration = (masterData != null && masterData.MaxTrialDays > 0) ? +masterData.MaxTrialDays : 60;       // maximum number of days for any trial
