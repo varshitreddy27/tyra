@@ -16,6 +16,7 @@ namespace B24.Sales3.UserControl
     {
         #region Private Members
         private Dictionary<int, B24.Common.SubscriptionFlag> flagDictionary;
+        private Sales3.UI.BasePage basePage;
         #endregion
 
         #region Public Property
@@ -47,6 +48,7 @@ namespace B24.Sales3.UserControl
             {
                 return;
             }
+            basePage = this.Page as Sales3.UI.BasePage;
             if (!Page.IsPostBack)
             {
                 LoadAllSubscriptionFlag(SubscriptionId);
@@ -78,7 +80,7 @@ namespace B24.Sales3.UserControl
             try
             {
                 GlobalVariables global = GlobalVariables.GetInstance();
-                SubscriptionFlagFactory subFlagFactory = new SubscriptionFlagFactory(global.UserConnStr);
+                SubscriptionFlagFactory subFlagFactory = new SubscriptionFlagFactory(basePage.UserConnStr);
                 subFlagFactory.SaveAllSubscriptionFlags(SubscriptionId, PrepareSubscriptionIds());
 
                 SubscriptionFlagErrorLabel.Text = Resources.Resource.SubFlagSuccess;
@@ -143,8 +145,7 @@ namespace B24.Sales3.UserControl
         {
             if (subscriptionId != Guid.Empty)
             {
-                GlobalVariables global = GlobalVariables.GetInstance();
-                SubscriptionFlagFactory subscriptionFlagFactory = new SubscriptionFlagFactory(global.UserConnStr);
+                SubscriptionFlagFactory subscriptionFlagFactory = new SubscriptionFlagFactory(basePage.UserConnStr);
                 List<B24.Common.SubscriptionFlag> subscriptionFlagList = subscriptionFlagFactory.GetAllSubscriptionFlags(subscriptionId);
 
                 SubscriprionFlagCheckBoxList.DataTextField = "Description";
@@ -188,8 +189,7 @@ namespace B24.Sales3.UserControl
         /// </summary>
         private void LoadSpecialSubscriptionSettingFlag()
         {
-            GlobalVariables global = GlobalVariables.GetInstance();
-            SubscriptionFlagFactory subscriptionFlagFactory = new SubscriptionFlagFactory(global.UserConnStr);
+            SubscriptionFlagFactory subscriptionFlagFactory = new SubscriptionFlagFactory(basePage.UserConnStr);
             List<B24.Common.SubscriptionFlag> subscriptionFlagList = subscriptionFlagFactory.GetActiveSubscriptionFlags(SubscriptionId);
             List<B24.Common.SubscriptionFlag> newsubscriptionFlagList = new List<B24.Common.SubscriptionFlag>();
             SubscriptionFlag subscriptionFlag = new SubscriptionFlag();
