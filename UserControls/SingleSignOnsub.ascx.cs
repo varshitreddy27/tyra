@@ -15,7 +15,7 @@ namespace B24.Sales3.UserControl
     public partial class SingleSignOnsub : System.Web.UI.UserControl
     {
         public event EventHandler<EventArgs> GroupCodeChanged;
-        GlobalVariables global = GlobalVariables.GetInstance();
+        
         #region Public Property
 
         /// <summary>
@@ -52,6 +52,8 @@ namespace B24.Sales3.UserControl
         public EventHandler UpdateInfo { get; set; }
         #endregion
 
+        private Sales3.UI.BasePage basePage;
+
         #region Events
 
         protected void Page_Load(object sender, EventArgs e)
@@ -60,6 +62,7 @@ namespace B24.Sales3.UserControl
             {
                 return;
             }
+            basePage = this.Page as Sales3.UI.BasePage;
             if (!Page.IsPostBack)
             {
                 LoadSubscriptionData();
@@ -114,8 +117,7 @@ namespace B24.Sales3.UserControl
                     SharedSecret = String.Empty;
                 }
 
-                GlobalVariables global = GlobalVariables.GetInstance();
-                SubscriptionFactory subFactory = new SubscriptionFactory(global.UserConnStr);
+                SubscriptionFactory subFactory = new SubscriptionFactory(basePage.UserConnStr);
                 subFactory.PutSubscription(Subscription, UserId, Login);
                 subFactory.PutSingleSignOnsub(PasswordRoot, SharedSecret, preAuthenticatedType);
 
@@ -137,7 +139,7 @@ namespace B24.Sales3.UserControl
         #region PublicMethods
         public void UpdatedGroupCode()
         {
-            SubscriptionFactory subscriptionFactory = new SubscriptionFactory(global.UserConnStr);
+            SubscriptionFactory subscriptionFactory = new SubscriptionFactory(basePage.UserConnStr);
             Subscription manageSubscription = subscriptionFactory.GetSubscriptionByID(Subscription.SubscriptionID);
             SingleSignOnGroupCode.Text = manageSubscription.GroupCode;
 
