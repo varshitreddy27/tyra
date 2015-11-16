@@ -16,7 +16,7 @@ namespace B24.Sales3.UserControl
     {
         #region Private Members
         
-        GlobalVariables global = GlobalVariables.GetInstance();
+        private Sales3.UI.BasePage basePage;
         Logger logger = new Logger(Logger.LoggerType.Sales3);        
         Dictionary<int, ReportAccess> reportDictionary;
         Boolean editButtonView = false;
@@ -69,6 +69,7 @@ namespace B24.Sales3.UserControl
             {
                 return;
             }
+            basePage = this.Page as Sales3.UI.BasePage;
             if (!Page.IsPostBack)
             {
                 InitializeControl();
@@ -86,7 +87,7 @@ namespace B24.Sales3.UserControl
             try
             {
                 String reportCategoriesId = SelectedReportCategoriesId();
-                ReportAccessFactory reportAccessFactory = new ReportAccessFactory(global.UserConnStr);
+                ReportAccessFactory reportAccessFactory = new ReportAccessFactory(basePage.UserConnStr);
                 reportAccessFactory.PutReportCategories(RequestorId, User.UserID, reportCategoriesId);              
                 UserReportAccessErrorLabel.Text = Resources.Resource.UserDetailSuccess;
                 UserReportAccessErrorLabel.Visible = true;
@@ -151,7 +152,7 @@ namespace B24.Sales3.UserControl
         /// </summary>
         private void InitializeControl()
         {
-            ReportAccessFactory reportAccessFactory = new ReportAccessFactory(global.UserConnStr);
+            ReportAccessFactory reportAccessFactory = new ReportAccessFactory(basePage.UserConnStr);
             Collection<ReportAccess> reportAccessList = reportAccessFactory.GetReportCategories(RequestorId, User.UserID);
             ReportsCheckBoxList.DataTextField = "ReportCategory";
             ReportsCheckBoxList.DataValueField = "ReportCategoryID";
