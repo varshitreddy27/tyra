@@ -15,7 +15,7 @@ namespace B24.Sales3.UserControl
     {
         #region Private Members
 
-        GlobalVariables global = GlobalVariables.GetInstance();
+        private Sales3.UI.BasePage basePage;
         Logger logger = new Logger(Logger.LoggerType.UserInfo);
         Boolean editView=false;
 
@@ -65,6 +65,7 @@ namespace B24.Sales3.UserControl
             {
                 return;
             }
+            basePage = this.Page as Sales3.UI.BasePage;
             if (!Page.IsPostBack)
             {
                 try
@@ -100,7 +101,7 @@ namespace B24.Sales3.UserControl
         {
             try
             {
-                UserFactory userFactory = new UserFactory(global.UserConnStr);
+                UserFactory userFactory = new UserFactory(basePage.UserConnStr);
                 User user = userFactory.GetUserByID(UserId);
 
                 user.FirstName = FirstNameTextBox.Text;
@@ -162,10 +163,10 @@ namespace B24.Sales3.UserControl
         {
             try
             {                
-                UserFactory userFactory = new UserFactory(global.UserConnStr);
+                UserFactory userFactory = new UserFactory(basePage.UserConnStr);
                 User getUser = userFactory.GetUserByID(UserId);
 
-                SubscriptionFactory subscriptionFactory = new SubscriptionFactory(global.UserConnStr);
+                SubscriptionFactory subscriptionFactory = new SubscriptionFactory(basePage.UserConnStr);
                 Subscription subscription = subscriptionFactory.GetSubscriptionByID(getUser.SubscriptionID);
 
                 SubIdLabel.Text = subscription.PasswordRoot;
@@ -183,7 +184,7 @@ namespace B24.Sales3.UserControl
                 collectionString = collectionString.Replace(",", ", ");
                 CollectionLabel.Text = collectionString;
 
-                CostCenterFactory costCenterFactory = new CostCenterFactory(global.UserConnStr);
+                CostCenterFactory costCenterFactory = new CostCenterFactory(basePage.UserConnStr);
                 List<B24.Common.CostCenter> costCenter = costCenterFactory.GetCostCenterList(subscription.SubscriptionID);
                 CostCenterDropDownList.DataSource = costCenter;
                 CostCenterDropDownList.DataTextField = "Description";
@@ -233,7 +234,7 @@ namespace B24.Sales3.UserControl
         {
             int warningLevel = 0;
             int ackLevel = 0;
-            UserPreferencesFactory userPreferenceFactory = new UserPreferencesFactory(global.UserConnStr);
+            UserPreferencesFactory userPreferenceFactory = new UserPreferencesFactory(basePage.UserConnStr);
 
             // Getpreferencestring will return user preference string and subscription preference string
             string[] preferenceStrings = userPreferenceFactory.GetPreferenceString(UserId, Guid.Empty);
@@ -327,7 +328,7 @@ namespace B24.Sales3.UserControl
         /// </summary>
         public void UpdateData()
         {
-            UserFactory userFactory = new UserFactory(global.UserConnStr);
+            UserFactory userFactory = new UserFactory(basePage.UserConnStr);
             User getUser = userFactory.GetUserByID(UserId);
             LoadUserData();
         }
