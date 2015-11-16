@@ -30,12 +30,19 @@ namespace B24.Sales3.UserControl
         public EventHandler UpdateInfo { get; set; }
         #endregion
 
+        #region Private Properties
+
+        private Sales3.UI.BasePage basePage;
+        
+        #endregion
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (SubscriptionId == null || SubscriptionId == Guid.Empty)
             {
                 return;
             }
+            basePage = this.Page as Sales3.UI.BasePage;
             if (!IsPostBack)
             {
                 LoadSelfRegistrationInstructions();
@@ -46,11 +53,10 @@ namespace B24.Sales3.UserControl
         {
             try
             {
-                GlobalVariables global = GlobalVariables.GetInstance();
-                SubscriptionFactory subscriptionFactory = new SubscriptionFactory(global.UserConnStr);
+                SubscriptionFactory subscriptionFactory = new SubscriptionFactory(basePage.UserConnStr);
                 Subscription getSubscription = subscriptionFactory.GetSubscriptionByID(SubscriptionId);
 
-                RegistrationInstructionFactory selfRegistrationInstructions = new RegistrationInstructionFactory(global.UserConnStr);
+                RegistrationInstructionFactory selfRegistrationInstructions = new RegistrationInstructionFactory(basePage.UserConnStr);
                 selfRegistrationInstructions.PasswordRoot = getSubscription.PasswordRoot;
                 selfRegistrationInstructions.PutSelfRegistrationInstructions(InstructionsTextArea.Text.Trim());
 
@@ -74,8 +80,7 @@ namespace B24.Sales3.UserControl
         {
             try
             {
-                GlobalVariables global = GlobalVariables.GetInstance();
-                RegistrationInstructionFactory selfRegistrationInstructions = new RegistrationInstructionFactory(global.UserConnStr);
+                RegistrationInstructionFactory selfRegistrationInstructions = new RegistrationInstructionFactory(basePage.UserConnStr);
                 selfRegistrationInstructions.SubscriptionId = SubscriptionId;
 
                 InstructionsTextArea.Text = selfRegistrationInstructions.GetRegistrationInstrcution();
