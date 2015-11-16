@@ -22,6 +22,7 @@ namespace B24.Sales3.UserControl
     {
         #region Class Members
         private GlobalVariables global = GlobalVariables.GetInstance();
+        private Sales3.UI.BasePage basePage;
         private SubscriptionFactory subFac;
         private Logger logger = new Logger(Logger.LoggerType.AccountInfo);
         private Dictionary<int, string> accessListDict;
@@ -80,12 +81,16 @@ namespace B24.Sales3.UserControl
             {
                 return;
             }
+            basePage = this.Page as Sales3.UI.BasePage;
+
             InintializeControls();
             // initialize the common data
             InitializeCommonData();
 
+
             if (!Page.IsPostBack)
             {
+                
                 try
                 {
                     // Bind Application DropDownList
@@ -126,7 +131,7 @@ namespace B24.Sales3.UserControl
         /// </summary>
         private void InitializeCommonData()
         {
-            SubscriptionFactory subscriptionFactory = new SubscriptionFactory(global.UserConnStr);
+            SubscriptionFactory subscriptionFactory = new SubscriptionFactory(basePage.UserConnStr);
             chapterPDFDownloadLimit = subscriptionFactory.GetDownloadRoyaltyInfo(Subscription.SubscriptionID);
 
             accessListDict = new Dictionary<int, string>();
@@ -152,7 +157,7 @@ namespace B24.Sales3.UserControl
         /// </summary>
         void LoadAddCollection()
         {
-            PermissionFactory permFactory = new PermissionFactory(global.UserConnStr);
+            PermissionFactory permFactory = new PermissionFactory(basePage.UserConnStr);
             Permission permissions = permFactory.LoadPermissionsById(UserId, Login, String.Empty);
             
             Guid subscriptionID = Subscription.SubscriptionID;
@@ -162,7 +167,7 @@ namespace B24.Sales3.UserControl
                 subscriptionID = new Guid("FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF");
             }
 
-            CollectionFactory collectionFactory = new CollectionFactory(global.UserConnStr);
+            CollectionFactory collectionFactory = new CollectionFactory(basePage.UserConnStr);
             List<Collection> collectionNameList = collectionFactory.GetCollectionsForUser(subscriptionID, UserId, String.Empty, null, Collection.CollectionType.All);
 
             AddCollectionDropDownList.DataSource = collectionNameList;
@@ -179,7 +184,7 @@ namespace B24.Sales3.UserControl
         /// </summary>
         void LoadApplication()
         {
-            ApplicationFactory applicationFactory = new ApplicationFactory(global.UserConnStr);
+            ApplicationFactory applicationFactory = new ApplicationFactory(basePage.UserConnStr);
             Collection<Application> SubApplicationList = applicationFactory.GetAllApplicationForUser(UserId);
             int index = 0;
             foreach (Application application in SubApplicationList)
@@ -203,10 +208,10 @@ namespace B24.Sales3.UserControl
         /// </summary>
         private void LoadCollectionGrid()
         {
-            CollectionFactory collectionFac = new CollectionFactory(global.UserConnStr);
+            CollectionFactory collectionFac = new CollectionFactory(basePage.UserConnStr);
             List<Collection> collectionList = collectionFac.GetCollectionsForUser(Subscription.SubscriptionID, UserId, String.Empty, null, Collection.CollectionType.All);
 
-            SubscriptionFactory subscriptionFactory = new SubscriptionFactory(global.UserConnStr);
+            SubscriptionFactory subscriptionFactory = new SubscriptionFactory(basePage.UserConnStr);
 
             if (!(subscriptionFactory.GetDownloadRoyaltyInfo(Subscription.SubscriptionID) > 0 && Subscription.UpliftAllowed))
             {
@@ -215,7 +220,7 @@ namespace B24.Sales3.UserControl
             }
             else
             {
-                ChapterDownloadFactory chapterFactory = new ChapterDownloadFactory(global.UserConnStr);
+                ChapterDownloadFactory chapterFactory = new ChapterDownloadFactory(basePage.UserConnStr);
                 chapterDownloadDictionary = chapterFactory.GetChapterCollectionBySubscriptionId(Subscription.SubscriptionID);
             }
             CollectionGridView.DataSource = collectionList;
@@ -235,7 +240,7 @@ namespace B24.Sales3.UserControl
             // Update the rule
             try
             {
-                CollectionFactory collectionFac = new CollectionFactory(global.UserConnStr);
+                CollectionFactory collectionFac = new CollectionFactory(basePage.UserConnStr);
                 collectionFac.DeleteCollection(collectionId, Subscription.SubscriptionID);
 
                 UpdateErrorPanel(Resources.Resource.CollectionDeleted, true);
@@ -309,7 +314,7 @@ namespace B24.Sales3.UserControl
 
             try
             {               
-                CollectionFactory collectionFactory = new CollectionFactory(global.UserConnStr);
+                CollectionFactory collectionFactory = new CollectionFactory(basePage.UserConnStr);
                 collectionFactory.PutCollection(newCollection, Subscription.SubscriptionID);
                 collectionFactory.UpdateCollectionChapterDownload(Subscription.SubscriptionID, newCollection.CollectionID, newCollection.ChapterDownloadLimit);
                 
@@ -405,7 +410,7 @@ namespace B24.Sales3.UserControl
         {
             try
             {
-                subFac = new SubscriptionFactory(global.UserConnStr);
+                subFac = new SubscriptionFactory(basePage.UserConnStr);
                 Subscription.ApplicationName = ApplicationDropDownList.SelectedItem.Text.Trim();
                 subFac.PutSubscription(Subscription, UserId, Login);
 
@@ -460,7 +465,7 @@ namespace B24.Sales3.UserControl
                 if (NewChapterDownloadDropDownList.SelectedIndex == 0)
                 {
                     // Allow
-                    SubscriptionFactory subscriptionFactory = new SubscriptionFactory(global.UserConnStr);
+                    SubscriptionFactory subscriptionFactory = new SubscriptionFactory(basePage.UserConnStr);
                     chapterPDFDownloadLimit = subscriptionFactory.GetDownloadRoyaltyInfo(Subscription.SubscriptionID);
                     newCollection.ChapterDownloadLimit = chapterPDFDownloadLimit;
                 }
@@ -470,7 +475,7 @@ namespace B24.Sales3.UserControl
                     newCollection.ChapterDownloadLimit = 0;
                 }
 
-                CollectionFactory collectionFactory = new CollectionFactory(global.UserConnStr);
+                CollectionFactory collectionFactory = new CollectionFactory(basePage.UserConnStr);
                 collectionFactory.PutCollection(newCollection, Subscription.SubscriptionID);
                 collectionFactory.UpdateCollectionChapterDownload(Subscription.SubscriptionID, newCollection.CollectionID, newCollection.ChapterDownloadLimit);
 
