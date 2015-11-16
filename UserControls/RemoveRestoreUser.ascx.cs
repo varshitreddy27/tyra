@@ -42,7 +42,7 @@ namespace B24.Sales3.UserControl
 
         #region Private Variable
 
-        private GlobalVariables global = GlobalVariables.GetInstance();
+        private Sales3.UI.BasePage basePage;
         private Logger logger = new Logger(Logger.LoggerType.Sales3);
         private UserFactory userFactory;
         private User user;
@@ -101,6 +101,7 @@ namespace B24.Sales3.UserControl
                 {
                     return;
                 }
+                basePage = this.Page as Sales3.UI.BasePage;
                 IntitializeControls();
             }
             catch (Exception ex)
@@ -120,7 +121,7 @@ namespace B24.Sales3.UserControl
             {
                 if (ConfirmCheckBox.Checked)
                 {
-                    userFactory = new UserFactory(global.UserConnStr);
+                    userFactory = new UserFactory(basePage.UserConnStr);
                     user = userFactory.GetUserByID(UserId);
                     if (UpdateButton.Text == "Restore")
                     {
@@ -128,7 +129,7 @@ namespace B24.Sales3.UserControl
                     }
                     if (UpdateButton.Text == "Remove")
                     {
-                        SubscriptionFactory subscriptionFactory = new SubscriptionFactory(global.UserConnStr);
+                        SubscriptionFactory subscriptionFactory = new SubscriptionFactory(basePage.UserConnStr);
                         subscriptionFactory.UnAssignUser(Subscription.SubscriptionID, UserId, RequestorId);
                     }
                     RemoveRestoreUserErrorLabel.Text = Resources.Resource.UserUpdated;
@@ -159,7 +160,7 @@ namespace B24.Sales3.UserControl
         /// </summary>
         private void IntitializeControls()
         {
-            userFactory = new UserFactory(global.UserConnStr);
+            userFactory = new UserFactory(basePage.UserConnStr);
             user = userFactory.GetUserByID(UserId);
             CheckHasAccess();
             if (hasAccess && showRemoveUser)
@@ -173,8 +174,8 @@ namespace B24.Sales3.UserControl
         /// </summary>
         private void CheckHasAccess()
         {
-            MasterDataFactory masterDataFactory = new MasterDataFactory(global.UserConnStr);
-            userFactory = new UserFactory(global.UserConnStr);
+            MasterDataFactory masterDataFactory = new MasterDataFactory(basePage.UserConnStr);
+            userFactory = new UserFactory(basePage.UserConnStr);
 
             Collection<MasterData> salesGroupUsers = masterDataFactory.GetSalesGroupsForUser(user.UserID);
             user = userFactory.GetUserByID(UserId);
@@ -237,7 +238,7 @@ namespace B24.Sales3.UserControl
         /// </summary>
         private void ShowForm()
         {
-            userFactory = new UserFactory(global.UserConnStr);
+            userFactory = new UserFactory(basePage.UserConnStr);
             user = userFactory.GetUserByID(user.UserID);
             if (user.SubscriptionStatusID == 8)
             {
