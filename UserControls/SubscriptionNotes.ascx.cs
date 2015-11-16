@@ -14,7 +14,7 @@ namespace B24.Sales3.UserControl
     {
         #region Private Members
         GlobalVariables global = GlobalVariables.GetInstance();
-        BasePage baseObject;
+        Sales3.UI.BasePage basePage;
         #endregion
 
         #region Public Property
@@ -48,6 +48,7 @@ namespace B24.Sales3.UserControl
             {
                 return;
             }
+            basePage = this.Page as Sales3.UI.BasePage;
             if (!Page.IsPostBack)
             {
                 try
@@ -74,7 +75,7 @@ namespace B24.Sales3.UserControl
         {
             try
             {
-                UserFactory userFactory = new UserFactory(global.UserConnStr);
+                UserFactory userFactory = new UserFactory(basePage.UserConnStr);
                 User getUser = userFactory.GetUserByID(UserId);
 
                 if (SubscriptionNotesTextBox.Text != String.Empty)
@@ -83,7 +84,7 @@ namespace B24.Sales3.UserControl
                 }
 
                 //update subscription details                   
-                SubscriptionFactory subscriptionFactory = new SubscriptionFactory(global.UserConnStr);
+                SubscriptionFactory subscriptionFactory = new SubscriptionFactory(basePage.UserConnStr);
                 subscriptionFactory.PutSubscription(Subscription, UserId, Login);
 
                 // Reload the values
@@ -152,9 +153,9 @@ namespace B24.Sales3.UserControl
         /// </summary>
         public void EnableAddButton()
         {
-            baseObject = this.Page as BasePage;
-            PermissionFactory permFactory = new PermissionFactory(baseObject.UserConnStr);
-            Permission permissions = permFactory.LoadPermissionsById(UserId, baseObject.User.Identity.Name, String.Empty);
+            
+            PermissionFactory permFactory = new PermissionFactory(basePage.UserConnStr);
+            Permission permissions = permFactory.LoadPermissionsById(UserId, basePage.User.Identity.Name, String.Empty);
 
             if (permissions.SalesMarketing == 1 || permissions.SalesManager == 1 || permissions.GeneralAdmin == 1 || permissions.SuperUser == 1)
             {
