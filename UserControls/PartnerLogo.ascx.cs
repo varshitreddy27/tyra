@@ -15,6 +15,10 @@ namespace B24.Sales3.UserControl
     /// </summary>
     public partial class PartnerLogo : System.Web.UI.UserControl
     {
+        #region Private members
+        private Sales3.UI.BasePage basePage;
+
+        #endregion
 
         #region Public Properties
         /// <summary>
@@ -39,6 +43,8 @@ namespace B24.Sales3.UserControl
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            basePage = this.Page as Sales3.UI.BasePage;
+
             if (string.IsNullOrEmpty(PassRoot))
             {
                 return;
@@ -66,9 +72,8 @@ namespace B24.Sales3.UserControl
         /// </summary>
         private bool GetPartnerLogo()
         {
-            GlobalVariables global = GlobalVariables.GetInstance();
 
-            PartnerLogoFactory partnerLogoFactory = new PartnerLogoFactory(global.UserConnStr);
+            PartnerLogoFactory partnerLogoFactory = new PartnerLogoFactory(basePage.UserConnStr);
             try
             {
                 string PartnerLogoImageName = string.Empty;
@@ -159,8 +164,7 @@ namespace B24.Sales3.UserControl
                         return;
                     }
 
-                    GlobalVariables global = GlobalVariables.GetInstance();
-                    PartnerLogoFactory partnerLogoFactory = new PartnerLogoFactory(global.UserConnStr);
+                    PartnerLogoFactory partnerLogoFactory = new PartnerLogoFactory(basePage.UserConnStr);
                     PartLogoFileUpload.SaveAs(filePath);
 
                     string PartnerLogoImageName = string.Empty;
