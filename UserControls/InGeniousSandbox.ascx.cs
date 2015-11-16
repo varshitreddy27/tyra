@@ -15,9 +15,8 @@ namespace B24.Sales3.UserControl
 
         #region private members
         private Logger logger = new Logger(Logger.LoggerType.Sales3);
-        private GlobalVariables global = GlobalVariables.GetInstance();
-        private bool isB24= true; // to identify if sub is B24 sub or not
-        Sales3.UI.BasePage basePage;
+        private bool isB24 = true; // to identify if sub is B24 sub or not
+        private Sales3.UI.BasePage basePage;
         #endregion
 
         #region public Property
@@ -325,7 +324,7 @@ namespace B24.Sales3.UserControl
             UpdateSanboxIdInSubcscription(sandboxId);
 
             // update the users ingenious id in current subscription
-            B24.Common.UserFactory userFactory = new B24.Common.UserFactory(global.UserConnStr);
+            B24.Common.UserFactory userFactory = new B24.Common.UserFactory(basePage.UserConnStr);
             B24.Common.User[] libraryUsers = userFactory.GetListBySubID(SubscriptionId);
             
             foreach (B24.Common.User libraryUser in libraryUsers)
@@ -366,7 +365,7 @@ namespace B24.Sales3.UserControl
         /// <param name="subId"></param>
         private void UpdateSanboxIdInSubcscription(Guid sandboxId)
         {
-            B24.Common.SubscriptionFactory subscriptionFactory = new SubscriptionFactory(global.UserConnStr);
+            B24.Common.SubscriptionFactory subscriptionFactory = new SubscriptionFactory(basePage.UserConnStr);
             Subscription subscription = GetSubscription(SubscriptionId);
 
             subscriptionFactory.PutSubscriptionSandboxID(subscription, sandboxId);
@@ -382,7 +381,7 @@ namespace B24.Sales3.UserControl
             try
             {
                 //Identify the admin users in the sandbox and ensure they exist in the Books subscription and have their ige userid stored in their libuser record.
-                B24.Common.UserFactory userFactory = new B24.Common.UserFactory(global.UserConnStr);
+                B24.Common.UserFactory userFactory = new B24.Common.UserFactory(basePage.UserConnStr);
                 B24.Common.User[] booksUsers = userFactory.GetListBySubID(subscriptionId);
                 int booksUserCount = booksUsers.Length;
 
@@ -426,7 +425,7 @@ namespace B24.Sales3.UserControl
         /// <returns></returns>
         private Subscription GetSubscription(Guid subscriptionId)
         {
-            SubscriptionFactory subscriptionFactory = new SubscriptionFactory(global.UserConnStr);
+            SubscriptionFactory subscriptionFactory = new SubscriptionFactory(basePage.UserConnStr);
             return subscriptionFactory.GetSubscriptionByID(subscriptionId);
         }
 
