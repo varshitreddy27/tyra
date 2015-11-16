@@ -11,7 +11,7 @@ namespace B24.Sales3.UserControl
     /// </summary>
     public partial class UserDetail : System.Web.UI.UserControl
     {
-        GlobalVariables global = GlobalVariables.GetInstance();
+        private Sales3.UI.BasePage basePage;
         Logger logger;
 
         #region Property
@@ -44,7 +44,7 @@ namespace B24.Sales3.UserControl
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            basePage = this.Page as Sales3.UI.BasePage;
             if (!Page.IsPostBack)
             {
                 try
@@ -80,7 +80,7 @@ namespace B24.Sales3.UserControl
                     user.Email = txtEmail.Text.Trim();
                     user.FixedUserName = txtSkillPortId.Text.Trim();
 
-                    UserFactory userFactory = new UserFactory(global.UserConnStr);
+                    UserFactory userFactory = new UserFactory(basePage.UserConnStr);
                     userFactory.UpdateUserInfo(user, user.UserID);
 
                     UserDetailError.Text = Resources.Resource.UserDetailSuccess;
@@ -109,7 +109,7 @@ namespace B24.Sales3.UserControl
                 //If user object is not assigned from the page
                 if (user == null)
                 {
-                    UserFactory userFactory = new UserFactory(global.UserConnStr);
+                    UserFactory userFactory = new UserFactory(basePage.UserConnStr);
                     user = userFactory.GetUserByID(UserId);
                 }
                 txtFirstName.Text = user.FirstName;
