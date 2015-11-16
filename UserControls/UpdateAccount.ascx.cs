@@ -14,7 +14,6 @@ namespace B24.Sales3.UserControl
 {
     public partial class UpdateAccount : System.Web.UI.UserControl
     {
-        GlobalVariables global = GlobalVariables.GetInstance();
         Logger logger = new Logger(Logger.LoggerType.UserInfo);
         
         #region Public Property
@@ -82,6 +81,9 @@ namespace B24.Sales3.UserControl
         ///  To keep user List details.
         /// </summary>
         List<User> userList;
+
+        private Sales3.UI.BasePage basePage;
+
         #endregion
 
         # region private methods
@@ -91,7 +93,7 @@ namespace B24.Sales3.UserControl
         /// </summary>
         private void LoadUpdateAccountDetails()
         {
-            CollectionFactory collectionFactory = new CollectionFactory(global.UserConnStr);
+            CollectionFactory collectionFactory = new CollectionFactory(basePage.UserConnStr);
             int formType = 3;
 
             if (isTrial)
@@ -369,7 +371,7 @@ namespace B24.Sales3.UserControl
         private string GetSalesGroupString()
         {
             string colectionString = "";
-            MasterDataFactory masterFactory = new MasterDataFactory(global.UserConnStr);
+            MasterDataFactory masterFactory = new MasterDataFactory(basePage.UserConnStr);
             System.Collections.ObjectModel.Collection<MasterData> salesGroupList = masterFactory.GetSalesGroupsForUser(UserId);
             for (int loopCounter = 0; loopCounter < salesGroupList.Count; loopCounter++)
             {
@@ -650,15 +652,14 @@ namespace B24.Sales3.UserControl
                 isTrial = (Subscription != null && Subscription.Type == 0) ? true : false;
 
                 DateTime subexpiredate = Subscription.Expires;
-                PermissionFactory permissionFactory = new PermissionFactory(global.UserConnStr);
-                BasePage basePage = Page as BasePage;
+                PermissionFactory permissionFactory = new PermissionFactory(basePage.UserConnStr);
                 Permission permission = permissionFactory.LoadPermissionsById(UserId, basePage.User.Identity.Name, String.Empty);
 
-                UserFactory userFactory = new UserFactory(global.UserConnStr);
+                UserFactory userFactory = new UserFactory(basePage.UserConnStr);
                 User user = userFactory.GetUserByID(UserId);
 
-                MasterDataFactory masterDataFactory = new MasterDataFactory(global.UserConnStr);
-                CollectionFactory collectionFactory = new CollectionFactory(global.UserConnStr);
+                MasterDataFactory masterDataFactory = new MasterDataFactory(basePage.UserConnStr);
+                CollectionFactory collectionFactory = new CollectionFactory(basePage.UserConnStr);
 
                 System.Collections.ObjectModel.Collection<MasterData> salesGroupsList = masterDataFactory.GetSalesGroupsList(UserId);
                 userList = userFactory.GetColleagues(Guid.Empty, Subscription.SubscriptionID, 0, 0, "", 1);
@@ -789,6 +790,7 @@ namespace B24.Sales3.UserControl
             {
                 return;
             }
+            basePage = this.Page as Sales3.UI.BasePage;
             if (!Page.IsPostBack)
             {
                 try
@@ -878,7 +880,7 @@ namespace B24.Sales3.UserControl
                 
                 try
                 {
-                    SubscriptionFactory subscriptionFactory = new SubscriptionFactory(global.UserConnStr);
+                    SubscriptionFactory subscriptionFactory = new SubscriptionFactory(basePage.UserConnStr);
                     subscriptionFactory.PutSubscription(Subscription, UserId, Login);
                     if (Subscription.ApplicationName.ToLower(CultureInfo.InvariantCulture) == "skillport")
                     {
@@ -973,7 +975,7 @@ namespace B24.Sales3.UserControl
                 }
 
                 // Remove all the user from subscription if it is unselect
-                UserFactory userFactory = new UserFactory(global.UserConnStr);
+                UserFactory userFactory = new UserFactory(basePage.UserConnStr);
                 List<User> subscriptionUserList = userFactory.GetColleagues(Guid.Empty, Subscription.SubscriptionID, 0, 0, "", 1);
 
                 if (subscriptionUserList != null)
@@ -987,7 +989,7 @@ namespace B24.Sales3.UserControl
                             {
                                 try
                                 {
-                                    SubscriptionFactory subscriptionFactory = new SubscriptionFactory(global.UserConnStr);
+                                    SubscriptionFactory subscriptionFactory = new SubscriptionFactory(basePage.UserConnStr);
                                     subscriptionFactory.UnAssignUser(Subscription.SubscriptionID,user.UserID, UserId);
                                 }
                                 catch (SqlException sqlException)
@@ -1062,7 +1064,7 @@ namespace B24.Sales3.UserControl
                             Guid collectionId = GetCollectionID(salesCollectionList, collectionName);
                             if (collectionId != Guid.Empty || collectionName.ToLower(CultureInfo.InvariantCulture) == "default")
                             {
-                                CollectionFactory collectionFactory = new CollectionFactory(global.UserConnStr);
+                                CollectionFactory collectionFactory = new CollectionFactory(basePage.UserConnStr);
                                 Collection subCollection = new Collection();
                                 subCollection.Name = collectionName;
                                 subCollection.CollectionID = collectionId;
@@ -1116,7 +1118,7 @@ namespace B24.Sales3.UserControl
                             {
                                 try
                                 {
-                                    CollectionFactory collFac = new CollectionFactory(global.UserConnStr);
+                                    CollectionFactory collFac = new CollectionFactory(basePage.UserConnStr);
                                     collFac.DeleteCollection(subCollection.CollectionID, Subscription.SubscriptionID);
                                 }
                                 catch (SqlException sqlException)
