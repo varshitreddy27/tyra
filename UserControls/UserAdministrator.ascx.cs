@@ -11,7 +11,7 @@ namespace B24.Sales3.UserControl
     public partial class UserAdministrator : System.Web.UI.UserControl
     {
         #region Private Members
-        GlobalVariables global = GlobalVariables.GetInstance();
+        private Sales3.UI.BasePage basePage;
         Logger logger = new Logger(Logger.LoggerType.Sales3);
         Boolean editButtonView = false;
         #endregion
@@ -81,6 +81,7 @@ namespace B24.Sales3.UserControl
                 {
                     return;
                 }
+                basePage = this.Page as Sales3.UI.BasePage;
                 if (!Page.IsPostBack)
                 {
                     IntitializeControls();
@@ -104,7 +105,7 @@ namespace B24.Sales3.UserControl
             {
                 try
                 {
-                    SubscriptionFactory subscriptionFactory = new SubscriptionFactory(global.UserConnStr);
+                    SubscriptionFactory subscriptionFactory = new SubscriptionFactory(basePage.UserConnStr);
                     if (AddorRemoveConfirmHiddenField.Value == "add") //if confirm check box is selected to add
                     {
                         subscriptionFactory.AdminReassign(subscription, RequestorId, User.UserID);
@@ -178,7 +179,7 @@ namespace B24.Sales3.UserControl
         private void IntitializeControls()
         {
             CheckHasAccess();
-            MasterDataFactory masterDataFactory = new MasterDataFactory(global.UserConnStr);
+            MasterDataFactory masterDataFactory = new MasterDataFactory(basePage.UserConnStr);
             Collection<MasterData> salesGroupUsers = masterDataFactory.GetSalesGroupsForUser(User.UserID);
             // User Admin form is hidden for microsofteref3 users
             showAdmin = SearchForString(salesGroupUsers, "MSVL2");
@@ -210,11 +211,11 @@ namespace B24.Sales3.UserControl
         /// </summary>
         private void ShowForm()
         {
-            SubscriptionFactory subscriptionFactory = new SubscriptionFactory(global.UserConnStr);
+            SubscriptionFactory subscriptionFactory = new SubscriptionFactory(basePage.UserConnStr);
             Subscription subscriptionOfUser = subscriptionFactory.GetSubscriptionByUserID(User.UserID);
             string adminsistrator = subscriptionOfUser.Administrators;
             string TempUserIdString = User.UserID.ToString();
-            UserFactory userfactory = new UserFactory(global.UserConnStr);
+            UserFactory userfactory = new UserFactory(basePage.UserConnStr);
             User CutomerAdminIDUser = userfactory.GetUserByID(subscriptionOfUser.CustomerAdminID);
             User admin = (adminsistrator.IndexOf(TempUserIdString, StringComparison.OrdinalIgnoreCase) > -1) ? User : CutomerAdminIDUser;
 
