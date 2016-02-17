@@ -15,115 +15,73 @@ using B24.Common.Web;
 
 namespace B24.Sales3.UI
 {
-  public partial class MasterPage : System.Web.UI.MasterPage
-  {
-    protected string welcomeString;
-    private BasePage page;               // Get a reference to the page as a BasePage object
+    public partial class MasterPage : System.Web.UI.MasterPage
+    {
+        protected string welcomeString;
+        private BasePage page;               // Get a reference to the page as a BasePage object
 
-    protected void Page_Load(object sender, EventArgs e)
-    {
-      B24Principal user = Context.User as B24Principal;
-      welcomeString = (user != null && user.Identity.IsAuthenticated) ? String.Format("{0} {1}", user.FirstName, user.LastName) : "";
-      page = this.Page as BasePage;
-    }
-
-    /// <summary>
-    /// Update controls on this page before rendering
-    /// </summary>
-    protected override void OnPreRender(EventArgs e)
-    {
-      UpdateMenu();
-      base.OnPreRender(e);
-    }
-
-    /// <summary>
-    /// Make changes to the main menu before rendering...
-    /// </summary>
-    private void UpdateMenu()
-  {
-    B24Principal user = this.Page.User as B24Principal;
-    if (Request.Path.ToLower().Contains("manageemail") || Request.Path.ToLower().Contains("librarypersistenturl") || Request.Path.ToLower().Contains("libraryreportaccess") || Request.Path.ToLower().Contains("libraryrules"))
-    {
-        MainMenu.Visible = false;
-    }
-    // Turn off the entire menu on the login and manageemail, librarypersistenturl page
-    if ((Regex.IsMatch(Request.Path, @"login\.aspx", RegexOptions.IgnoreCase) || Request.Path.ToLower().Contains("manageemail") || Request.Path.ToLower().Contains("librarypersistenturl") || Request.Path.ToLower().Contains("libraryreportaccess") || Request.Path.ToLower().Contains("libraryrules"))
-          && (user == null || !user.Identity.IsAuthenticated))
-    {
-      MainMenu.Visible = false;
-    }
-    else
-    {
-      // Customize individual menu items...
-      foreach (MenuItem item in MainMenu.Items)
-      {
-        switch (item.Value)
+        protected void Page_Load(object sender, EventArgs e)
         {
-          case "Login":
-            UpdateLoginItem(item);
-            break;
-          case "Cart":
-            if (page.IsSupport || page.IsSkillsoft)
+            B24Principal user = Context.User as B24Principal;
+            welcomeString = (user != null && user.Identity.IsAuthenticated) ? String.Format("{0} {1}", user.FirstName, user.LastName) : "";
+            page = this.Page as BasePage;
+        }
+
+        /// <summary>
+        /// Update controls on this page before rendering
+        /// </summary>
+        protected override void OnPreRender(EventArgs e)
+        {
+            base.OnPreRender(e);
+        }
+
+
+
+        /// <summary>
+        /// Update the login link with either login or logout depending upon user status
+        /// </summary>
+        /// <param name="item"></param>
+        private void UpdateLoginItem(MenuItem item)
+        {
+            string text = "Login";                                        // The text of the menu item
+            string url = FormsAuthentication.LoginUrl;                    // Url of the menu item
+
+            B24Principal user = this.Page.User as B24Principal;
+            if (user != null && user.Identity.IsAuthenticated)
             {
-              UpdateCartItem(item);       // Updates the cart text with # users, subs
+                text = "Logout";
+                url = "AbandonSession.aspx";
             }
-            else
+
+            item.Text = text;
+            item.NavigateUrl = url;
+        }
+
+        /// <summary>
+        /// Update the Cart Menu item label with the number of users and subs in the state
+        /// </summary>
+        /// <param name="item">The cart menu item to update</param>
+        private void UpdateCartItem(MenuItem item)
+        {
+            BasePage page = this.Page as BasePage;
+
+            if (page != null && page.State != null && page.User != null && page.User.Identity.IsAuthenticated)
             {
-              item.Text = "";             // Hide it!
+                string userCart = page.State["userCart"];
+                string subCart = page.State["subCart"];
+                int userCount = (userCart != null) ? userCart.Split(',').Length : 0;
+                int subCount = (subCart != null) ? subCart.Split(',').Length : 0;
+                if (userCount > 0 || subCount > 0)
+                {
+                    item.Text = String.Format("Cart ({0}, {1})", userCount, subCount);
+                    item.ToolTip = String.Format("{0} user(s), {1} sub(s)", userCount, subCount);
+                }
+                else
+                {
+                    item.Text = "Cart (empty)";
+                }
             }
-            break;
-          default:
-            break;
         }
-      }
+
     }
-  }
-
-    /// <summary>
-    /// Update the login link with either login or logout depending upon user status
-    /// </summary>
-    /// <param name="item"></param>
-    private void UpdateLoginItem(MenuItem item)
-    {
-      string text = "Login";                                        // The text of the menu item
-      string url = FormsAuthentication.LoginUrl;                    // Url of the menu item
-
-      B24Principal user = this.Page.User as B24Principal;
-      if (user != null && user.Identity.IsAuthenticated)
-      {
-        text = "Logout";
-        url = "AbandonSession.aspx";
-      }
-
-      item.Text = text;
-      item.NavigateUrl = url;
-    }
-
-    /// <summary>
-    /// Update the Cart Menu item label with the number of users and subs in the state
-    /// </summary>
-    /// <param name="item">The cart menu item to update</param>
-    private void UpdateCartItem(MenuItem item)
-    {
-      BasePage page = this.Page as BasePage;
-
-      if (page != null && page.State != null && page.User != null && page.User.Identity.IsAuthenticated)
-      {
-        string userCart = page.State["userCart"];
-        string subCart = page.State["subCart"];
-        int userCount = (userCart != null) ? userCart.Split(',').Length : 0;
-        int subCount = (subCart != null) ? subCart.Split(',').Length : 0;
-        if (userCount > 0 || subCount > 0)
-        {
-          item.Text = String.Format("Cart ({0}, {1})", userCount, subCount);
-          item.ToolTip = String.Format("{0} user(s), {1} sub(s)", userCount, subCount);
-        }
-        else
-        {
-          item.Text = "Cart (empty)";
-        }
-      }
-    }
-
-  }
 }
