@@ -171,19 +171,19 @@ namespace B24.Sales3.UserControl
             AvailableReportGridview.DataSource = reportList;
             AvailableReportGridview.DataBind();
 
-            //List<B24.Common.Report> resultList = reportfactory.GetReportResults(availableResultGuidParam, paramPrefix);
-            //if (resultList.Count > 0)
-            //{
-            //    NoResultLabel.Visible = false;
-            //    AvailableResultGridView.DataSource = resultList;
-            //    AvailableResultGridView.DataBind();
-            //}
-            //else
-            //{
+            List<B24.Common.Report> resultList = reportfactory.GetReportResults(availableResultGuidParam, paramPrefix);
+            if (resultList.Count > 0)
+            {
+                NoResultLabel.Visible = false;
+                AvailableResultGridView.DataSource = resultList;
+                AvailableResultGridView.DataBind();
+            }
+            else
+            {
                 NoResultLabel.Visible = true;
                 ResultHelpTextLabel.Visible = false;
                 AvailableResultGridView.Visible = false;
-            //}
+            }
         }
 
         /// <summary>
