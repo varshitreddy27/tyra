@@ -20,14 +20,5 @@ namespace B24.Sales3.UI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::B24.Common.Web.Controls.B24Login B24Login;
-        
-        /// <summary>
-        /// LoggedInPanel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel LoggedInPanel;
     }
 }

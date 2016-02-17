@@ -32,13 +32,11 @@ namespace B24.Sales3.UI
         {
             this.basePage.B24Errors.Add(new B24Error(Resources.Resource.ErrorSales3));
         }
-      // Set the correct panel to be visble (login form or "you are already logged in" message)
+      // Redirect the user to the home page if logged in already
       B24Principal user = Context.User as B24Principal;
       if (user != null && user.Identity.IsAuthenticated)
       {
-        B24Login.Visible = false;
-        LoggedInPanel.Visible = true;
-   
+          Response.Redirect("home.aspx");   
       }
     }
     protected void B24Login_LoggedIn(object sender, EventArgs e)
