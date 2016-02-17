@@ -108,9 +108,9 @@ namespace B24.Sales3.UserControl
             {
                 return;
             }
+            baseObject = this.Page as Sales3.UI.BasePage;
             if (!IsPostBack)
             {
-                baseObject = this.Page as BasePage;
                 InitializeControls();
             }
             Multiview.ActiveViewIndex = 1;
