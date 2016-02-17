@@ -104,9 +104,9 @@ namespace B24.Sales3.UserControl
             {
                 return;
             }
+            basePage = this.Page as Sales3.UI.BasePage;
             if (!Page.IsPostBack)
             {
-                basePage = this.Page as Sales3.UI.BasePage;
                 try
                 {
                     //Initialize the control values

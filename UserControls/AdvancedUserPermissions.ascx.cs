@@ -75,9 +75,9 @@ namespace B24.Sales3.UserControl
             {
                 return;
             }
+            baseObject = this.Page as BasePage;
             if (!Page.IsPostBack)
-            {
-                baseObject = this.Page as BasePage;
+            {     
                 InitializeControl();
             }
 

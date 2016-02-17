@@ -41,9 +41,9 @@ namespace B24.Sales3.UserControl
         /// <param name="e"></param>
         protected void Page_Load(object sender, EventArgs e)
         {
+            baseObject = this.Page as BasePage;
             if (!Page.IsPostBack)
             {
-                baseObject = this.Page as BasePage;
                 try
                 {
                     LoadSubscriptionData();

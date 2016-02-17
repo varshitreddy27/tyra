@@ -50,9 +50,9 @@ namespace B24.Sales3.UserControl
             {
                 return;
             }
+            baseObject = this.Page as B24.Common.Web.BasePage;
             if (!Page.IsPostBack)
-            {
-                baseObject = this.Page as B24.Common.Web.BasePage;
+            { 
                 try
                 {
                     LoadApplication();
