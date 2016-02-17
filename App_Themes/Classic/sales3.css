@@ -153,6 +153,18 @@ A IMG {text-decoration:none; border:none}
 }
 .salescontentbg {background-color:#ffffff !important; margin-left:20px;
 }
+.salesloginlogo {height:40px; padding: 10px 5px 10px;
+}
+.saleslogingutterbg{border-left:solid 20px #e5e8dd;height:100%; position:absolute; overflow:auto; left:0; top:0; bottom:0;
+} 
+.loginlbl {margin-top: 10px; margin-bottom: 5px; vertical-align:middle; text-align: left;
+}
+.logintbx {margin-top: 10px; margin-left: 15px; margin-bottom: 5px; vertical-align:middle; height: 18px;
+}
+.loginbtn {margin-top: 15px; margin-bottom: 10px; margin-right: 5px; vertical-align:middle; 
+}
+.loginerr {text-align: left; color:Red;
+}
 
 .accordionHeader
 {
