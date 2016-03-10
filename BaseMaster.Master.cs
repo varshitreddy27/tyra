@@ -16,7 +16,7 @@ using B24.Common.Web.Controls;
 using B24.Common.Security;
 using System.Collections.Generic;
 
-namespace B24.Sales3.UI
+namespace B24.Sales4.UI
 {
     public partial class BaseMaster : System.Web.UI.MasterPage
     {
@@ -83,42 +83,51 @@ namespace B24.Sales3.UI
         /// </summary>
         protected void ModuleMenu_MenuItemClick(object sender, MenuEventArgs e)
         {
+            string redirectPage = getMenuURL(int.Parse(ModuleMenu.SelectedItem.Value));
+            Response.Redirect(redirectPage);
+        }
+
+        /// <summary>
+        /// Translate menu module ID to url string
+        /// </summary>
+        private string getMenuURL(int moduleID)
+        {
             string redirectPage = "home.aspx";
             switch (int.Parse(ModuleMenu.SelectedItem.Value))
             {
-                case Sales3Module.ModuleInfo:
+                case Sales4Module.ModuleInfo:
                     {
                         redirectPage = "Home.aspx";
                         break;
                     }
-                case Sales3Module.ModuleManageAccounts:
+                case Sales4Module.ModuleManageAccounts:
                     {
                         redirectPage = "ManageAccount.aspx";
                         break;
                     }
-                case Sales3Module.ModuleManageUsers:
+                case Sales4Module.ModuleManageUsers:
                     {
                         redirectPage = "ManageUser.aspx";
                         break;
                     }
-                case Sales3Module.ModuleCreateNewTrial:
+                case Sales4Module.ModuleCreateNewTrial:
                     {
                         redirectPage = "LibraryTrial.aspx";
                         break;
                     }
-                case Sales3Module.ModuleGeneralReporting:
+                case Sales4Module.ModuleGeneralReporting:
                     {
                         redirectPage = "GeneralReport.aspx";
                         break;
                     }
-                case Sales3Module.ModuleCart:
+                case Sales4Module.ModuleCart:
                     {
                         redirectPage = "Cart.aspx";
                         break;
                     }
             }
             redirectPage += "?module=" + ModuleMenu.SelectedItem.Value;
-            Response.Redirect(redirectPage);
+            return redirectPage;
         }
 
         /// <summary>
@@ -138,7 +147,8 @@ namespace B24.Sales3.UI
         /// </summary>
         private void IntializeControl()
         {
-            int module = Sales3Module.ModuleInfo;
+            bool hasHomePageAccess = false;
+            int module = Sales4Module.ModuleInfo;
             if (!string.IsNullOrEmpty(Request.QueryString["module"]))
             {
                 module = int.Parse(Request.QueryString["module"]);
@@ -152,32 +162,33 @@ namespace B24.Sales3.UI
             {
                 switch (mod.ModuleId)
                 {
-                    case Sales3Module.ModuleInfo:
+                    case Sales4Module.ModuleInfo:
                         {
+                            hasHomePageAccess = true;
                             item = new MenuItem("Start", mod.ModuleId.ToString());
                             break;
                         }
-                    case Sales3Module.ModuleManageAccounts:
+                    case Sales4Module.ModuleManageAccounts:
                         {
                             item = new MenuItem("Manage Account", mod.ModuleId.ToString());
                             break;
                         }
-                    case Sales3Module.ModuleManageUsers:
+                    case Sales4Module.ModuleManageUsers:
                         {
                             item = new MenuItem("Manage Users", mod.ModuleId.ToString());
                             break;
                         }
-                    case Sales3Module.ModuleCreateNewTrial:
+                    case Sales4Module.ModuleCreateNewTrial:
                         {
                             item = new MenuItem("Create New Trial", mod.ModuleId.ToString());
                             break;
                         }
-                    case Sales3Module.ModuleGeneralReporting:
+                    case Sales4Module.ModuleGeneralReporting:
                         {
                             item = new MenuItem("General Reporting", mod.ModuleId.ToString());
                             break;
                         }
-                    case Sales3Module.ModuleCart:
+                    case Sales4Module.ModuleCart:
                         {
                             item = new MenuItem(cartText, mod.ModuleId.ToString());
                             item.ToolTip = cartToolTip;
@@ -185,13 +196,21 @@ namespace B24.Sales3.UI
                         }
                 }
                 if (item != null)
-                {
+                {  
                     if (mod.ModuleId == module)
                     {
                         item.Selected = true;
                     }
                     ModuleMenu.Items.Add(item);
                 }
+               
+            }
+            if (!hasHomePageAccess && ModuleMenu.Items.Count > 0 && page.ThisPage == "home.aspx")
+            {
+                ModuleMenu.Items[0].Selected = true; // select the first menu item available
+                string url = getMenuURL(int.Parse(ModuleMenu.Items[0].Value));
+              //  if (page.ThisPage == "home.aspx")
+                Response.Redirect(url);
             }
         }
 
@@ -234,7 +253,7 @@ namespace B24.Sales3.UI
         public void UpdateCartText()
         {
             SetCartLabel();
-            MenuItem CartMenu = ModuleMenu.FindItem(Sales3Module.ModuleCart.ToString());
+            MenuItem CartMenu = ModuleMenu.FindItem(Sales4Module.ModuleCart.ToString());
             if (CartMenu != null)
             {
                 CartMenu.Text = cartText;
