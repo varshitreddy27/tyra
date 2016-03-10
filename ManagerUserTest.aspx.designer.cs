@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace B24.Sales3.UI {
+namespace B24.Sales4.UI {
     
     
     public partial class ManagerUserTest {
@@ -20,7 +20,7 @@ namespace B24.Sales3.UI {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::B24.Sales3.UserControl.UserDetail UserDetail1;
+        protected global::B24.Sales4.UserControl.UserDetail UserDetail1;
         
         /// <summary>
         /// ChangePassword1 control.
@@ -29,7 +29,7 @@ namespace B24.Sales3.UI {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::B24.Sales3.UserControl.ChangePassword ChangePassword1;
+        protected global::B24.Sales4.UserControl.ChangePassword ChangePassword1;
         
         /// <summary>
         /// Impersonate1 control.
@@ -38,6 +38,6 @@ namespace B24.Sales3.UI {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::B24.Sales3.UserControl.Impersonate Impersonate1;
+        protected global::B24.Sales4.UserControl.Impersonate Impersonate1;
     }
 }

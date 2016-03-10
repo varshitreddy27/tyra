@@ -12,7 +12,7 @@ using System.Web.UI.WebControls.WebParts;
 using System.Xml.Linq;
 
 
-namespace B24.Sales3.UI
+namespace B24.Sales4.UI
 {
     public partial class ManagerUserTest : BasePage
     {

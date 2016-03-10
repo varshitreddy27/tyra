@@ -9,7 +9,7 @@ using B24.Common;
 using B24.Common.Logs;
 
 
-namespace B24.Sales3.UI
+namespace B24.Sales4.UI
 {
     public partial class ManageAccount : BasePage
     {
@@ -156,7 +156,7 @@ namespace B24.Sales3.UI
                     SubscriptionInfoDetails.Login = User.Identity.Name;
 
 
-                    if (subModule == Sales3Module.SubModuleManageAccountInfo)
+                    if (subModule == Sales4Module.SubModuleManageAccountInfo)
                     {
                         // Manage account read only view
                         ManageAccountControl.Subscription = manageSubscription;
@@ -165,7 +165,7 @@ namespace B24.Sales3.UI
                         ManageAccountControl.EditBtnview = false;
                     }
 
-                    if (subModule == Sales3Module.SubModuleCollections)
+                    if (subModule == Sales4Module.SubModuleCollections)
                     {
                         // COLLECTIONS
                         CollectionUserControl.UserId = User.UserID;
@@ -176,7 +176,7 @@ namespace B24.Sales3.UI
                         CollectionUserControl.UpdateInfo = new EventHandler(UpdateInfo);
 
                     }
-                    if (subModule == Sales3Module.SubModuleImplementation)
+                    if (subModule == Sales4Module.SubModuleImplementation)
                     {
                         // Manage account edit view
                         ManageAccountEditControl.Subscription = manageSubscription;
@@ -224,7 +224,7 @@ namespace B24.Sales3.UI
                         IngeniousSandboxUserControl.UpdateInfo = new EventHandler(UpdateInfo);
                     }
 
-                    if (subModule == Sales3Module.SubModuleAddUsers)
+                    if (subModule == Sales4Module.SubModuleAddUsers)
                     {
                         // Add Users
                         AddUsersControl.Subscription = manageSubscription;
@@ -234,7 +234,7 @@ namespace B24.Sales3.UI
                         AddUsersControl.UpdateInfo = new EventHandler(UpdateInfo);
                     }
 
-                    if (subModule == Sales3Module.SubModuleSettings)
+                    if (subModule == Sales4Module.SubModuleSettings)
                     {
                         // Welcome Message Sender
                         WelcomeMsgSenderControl.SubId = subscriptionId;
@@ -268,13 +268,13 @@ namespace B24.Sales3.UI
                         AlertsControl.Subscription = manageSubscription;
                     }
 
-                    if (subModule == Sales3Module.SubModuleReports)
+                    if (subModule == Sales4Module.SubModuleReports)
                     {
                         // Report control
                         AdvanceReportUserControl.RequestorSubscription = manageSubscription;
                     }
 
-                    if (subModule == Sales3Module.SubModulePurchaseOrRenew)
+                    if (subModule == Sales4Module.SubModulePurchaseOrRenew)
                     {
                         // Update This Account
                         UpdateAccountControl.UserId = User.UserID;
@@ -342,7 +342,7 @@ namespace B24.Sales3.UI
         {
             RoleBasedAccessFactory access = new RoleBasedAccessFactory(this.UserConnStr);
             access.UserId = User.UserID;
-            List<RoleBasedAccess> subModules = access.GetSubModule(this.ApplicationId, Sales3Module.ModuleManageAccounts);
+            List<RoleBasedAccess> subModules = access.GetSubModule(this.ApplicationId, Sales4Module.ModuleManageAccounts);
             MenuItem item = null;
             string args = string.Empty;
             if (!String.IsNullOrEmpty(Request.QueryString["arg"]))
@@ -356,7 +356,7 @@ namespace B24.Sales3.UI
                 args = "&arg=" + HttpUtility.UrlEncode(sub.ToString("B").ToUpperInvariant());
             }
 
-            string url = "~/ManageAccount.aspx?module=" + Sales3Module.ModuleManageAccounts + args + "&subModule=";
+            string url = "~/ManageAccount.aspx?module=" + Sales4Module.ModuleManageAccounts + args + "&subModule=";
 
             if (subModules.Count > 0)
             {
@@ -367,39 +367,39 @@ namespace B24.Sales3.UI
                     item = null;
                     switch (subMod.SubModuleId)
                     {
-                        case Sales3Module.SubModuleManageAccountInfo:
+                        case Sales4Module.SubModuleManageAccountInfo:
                             {
-                                item = new MenuItem("Info", Sales3Module.SubModuleManageAccountInfo.ToString(CultureInfo.InvariantCulture), "~/images/_.gif", url + Sales3Module.SubModuleManageAccountInfo.ToString(CultureInfo.InvariantCulture));
+                                item = new MenuItem("Info", Sales4Module.SubModuleManageAccountInfo.ToString(CultureInfo.InvariantCulture), "~/images/_.gif", url + Sales4Module.SubModuleManageAccountInfo.ToString(CultureInfo.InvariantCulture));
                                 break;
                             }
-                        case Sales3Module.SubModuleCollections:
+                        case Sales4Module.SubModuleCollections:
                             {
-                                item = new MenuItem("Collections", Sales3Module.SubModuleCollections.ToString(CultureInfo.InvariantCulture), "~/images/_.gif", url + Sales3Module.SubModuleCollections.ToString(CultureInfo.InvariantCulture));
+                                item = new MenuItem("Collections", Sales4Module.SubModuleCollections.ToString(CultureInfo.InvariantCulture), "~/images/_.gif", url + Sales4Module.SubModuleCollections.ToString(CultureInfo.InvariantCulture));
                                 break;
                             }
-                        case Sales3Module.SubModuleImplementation:
+                        case Sales4Module.SubModuleImplementation:
                             {
-                                item = new MenuItem("Implementation", Sales3Module.SubModuleImplementation.ToString(CultureInfo.InvariantCulture), "~/images/_.gif", url + Sales3Module.SubModuleImplementation.ToString(CultureInfo.InvariantCulture));
+                                item = new MenuItem("Implementation", Sales4Module.SubModuleImplementation.ToString(CultureInfo.InvariantCulture), "~/images/_.gif", url + Sales4Module.SubModuleImplementation.ToString(CultureInfo.InvariantCulture));
                                 break;
                             }
-                        case Sales3Module.SubModuleAddUsers:
+                        case Sales4Module.SubModuleAddUsers:
                             {
-                                item = new MenuItem("Add Users", Sales3Module.SubModuleAddUsers.ToString(CultureInfo.InvariantCulture), "~/images/_.gif", url + Sales3Module.SubModuleAddUsers.ToString(CultureInfo.InvariantCulture));
+                                item = new MenuItem("Add Users", Sales4Module.SubModuleAddUsers.ToString(CultureInfo.InvariantCulture), "~/images/_.gif", url + Sales4Module.SubModuleAddUsers.ToString(CultureInfo.InvariantCulture));
                                 break;
                             }
-                        case Sales3Module.SubModuleSettings:
+                        case Sales4Module.SubModuleSettings:
                             {
-                                item = new MenuItem("Settings", Sales3Module.SubModuleSettings.ToString(CultureInfo.InvariantCulture), "~/images/_.gif", url + Sales3Module.SubModuleSettings.ToString(CultureInfo.InvariantCulture));
+                                item = new MenuItem("Settings", Sales4Module.SubModuleSettings.ToString(CultureInfo.InvariantCulture), "~/images/_.gif", url + Sales4Module.SubModuleSettings.ToString(CultureInfo.InvariantCulture));
                                 break;
                             }
-                        case Sales3Module.SubModuleReports:
+                        case Sales4Module.SubModuleReports:
                             {
-                                item = new MenuItem("Reports", Sales3Module.SubModuleReports.ToString(CultureInfo.InvariantCulture), "~/images/_.gif", url + Sales3Module.SubModuleReports.ToString(CultureInfo.InvariantCulture));
+                                item = new MenuItem("Reports", Sales4Module.SubModuleReports.ToString(CultureInfo.InvariantCulture), "~/images/_.gif", url + Sales4Module.SubModuleReports.ToString(CultureInfo.InvariantCulture));
                                 break;
                             }
-                        case Sales3Module.SubModulePurchaseOrRenew:
+                        case Sales4Module.SubModulePurchaseOrRenew:
                             {
-                                item = new MenuItem("Purchase/Renew", Sales3Module.SubModulePurchaseOrRenew.ToString(CultureInfo.InvariantCulture), "~/images/_.gif", url + Sales3Module.SubModulePurchaseOrRenew.ToString(CultureInfo.InvariantCulture));
+                                item = new MenuItem("Purchase/Renew", Sales4Module.SubModulePurchaseOrRenew.ToString(CultureInfo.InvariantCulture), "~/images/_.gif", url + Sales4Module.SubModulePurchaseOrRenew.ToString(CultureInfo.InvariantCulture));
                                 break;
                             }
                     }
@@ -425,20 +425,20 @@ namespace B24.Sales3.UI
                 {
                     RoleBasedAccessFactory access = new RoleBasedAccessFactory(this.UserConnStr);
                     access.UserId = User.UserID;
-                    List<RoleBasedAccess> subModulesFeature = access.GetSubModuleFeature(ApplicationId, Sales3Module.ModuleManageAccounts, subModule);
+                    List<RoleBasedAccess> subModulesFeature = access.GetSubModuleFeature(ApplicationId, Sales4Module.ModuleManageAccounts, subModule);
                     if (subModulesFeature.Count > 0)
                     {
                         foreach (RoleBasedAccess feature in subModulesFeature)
                         {
                             switch (feature.FeatureId)
                             {
-                                case Sales3Module.FeatureManageAccountInfo:
+                                case Sales4Module.FeatureManageAccountInfo:
                                     {
                                         SubscriptionInfoDetails.Visible = false;
                                         ManageAccountControl.Visible = true;
                                         break;
                                     }
-                                case Sales3Module.FeatureCollections:
+                                case Sales4Module.FeatureCollections:
                                     {
                                         if (feature.Action.Contains(EditPermission))
                                         {
@@ -448,7 +448,7 @@ namespace B24.Sales3.UI
                                         CollectionUserControl.Visible = true;
                                         break;
                                     }
-                                case Sales3Module.FeatureManageAccount:
+                                case Sales4Module.FeatureManageAccount:
                                     {
                                         if (feature.Action.Contains(EditPermission))
                                         {
@@ -457,7 +457,7 @@ namespace B24.Sales3.UI
                                         AccountDetailsAP.Visible = true;
                                         break;
                                     }
-                                case Sales3Module.FeatureSingleSignOn:
+                                case Sales4Module.FeatureSingleSignOn:
                                     {
                                         if (feature.Action.Contains(EditPermission))
                                         {
@@ -466,7 +466,7 @@ namespace B24.Sales3.UI
                                         SingleSignOnAP.Visible = true;
                                         break;
                                     }
-                                case Sales3Module.FeatureLogo:
+                                case Sales4Module.FeatureLogo:
                                     {
                                         if (feature.Action.Contains(EditPermission))
                                         {
@@ -475,7 +475,7 @@ namespace B24.Sales3.UI
                                         PartnerLogoAP.Visible = true;
                                         break;
                                     }
-                                case Sales3Module.FeatureSubscriptionflags:
+                                case Sales4Module.FeatureSubscriptionflags:
                                     {
                                         if (feature.Action.Contains(EditPermission))
                                         {
@@ -484,7 +484,7 @@ namespace B24.Sales3.UI
                                         SubscriptionFlagAP.Visible = true;
                                         break;
                                     }
-                                case Sales3Module.FeatureSelfRegistrationInstruction:
+                                case Sales4Module.FeatureSelfRegistrationInstruction:
                                     {
                                         if (feature.Action.Contains(EditPermission))
                                         {
@@ -493,7 +493,7 @@ namespace B24.Sales3.UI
                                         SelfRegistrationsInstructionsAP.Visible = true;
                                         break;
                                     }
-                                case Sales3Module.FeatureCostcenter:
+                                case Sales4Module.FeatureCostcenter:
                                     {
 
                                         if (feature.Action.Contains(EditPermission))
@@ -503,7 +503,7 @@ namespace B24.Sales3.UI
                                         CostCentersAP.Visible = true;
                                         break;
                                     }
-                                case Sales3Module.FeatureExtendedAttributes:
+                                case Sales4Module.FeatureExtendedAttributes:
                                     {
                                         if (feature.Action.Contains(EditPermission))
                                         {
@@ -512,7 +512,7 @@ namespace B24.Sales3.UI
                                         ExtendAttributesAP.Visible = true;
                                         break;
                                     }
-                                case Sales3Module.FeatureIngeniusSandbox:
+                                case Sales4Module.FeatureIngeniusSandbox:
                                     {
                                         if (feature.Action.Contains(EditPermission))
                                         {
@@ -521,7 +521,7 @@ namespace B24.Sales3.UI
                                         IngeniousSandboxAP.Visible = true;
                                         break;
                                     }
-                                case Sales3Module.FeatureAddUsers:
+                                case Sales4Module.FeatureAddUsers:
                                     {
 
                                         if (feature.Action.Contains(EditPermission))
@@ -531,7 +531,7 @@ namespace B24.Sales3.UI
                                         AddUsersControl.Visible = true;
                                         break;
                                     }
-                                case Sales3Module.FeatureWelcomeMessageSender:
+                                case Sales4Module.FeatureWelcomeMessageSender:
                                     {
                                         if (feature.Action.Contains(EditPermission))
                                         {
@@ -541,7 +541,7 @@ namespace B24.Sales3.UI
                                         WelcomeMessageSenderAccordionPane.Visible = true;
                                         break;
                                     }
-                                case Sales3Module.FeatureAddSubscriptionNotes:
+                                case Sales4Module.FeatureAddSubscriptionNotes:
                                     {
                                         if (feature.Action.Contains(EditPermission))
                                         {
@@ -550,7 +550,7 @@ namespace B24.Sales3.UI
                                         SubscriptionNotesAccordionPane.Visible = true;
                                         break;
                                     }
-                                case Sales3Module.FeatureSelfRegistration:
+                                case Sales4Module.FeatureSelfRegistration:
                                     {
                                         if (feature.Action.Contains(EditPermission))
                                         {
@@ -559,7 +559,7 @@ namespace B24.Sales3.UI
                                         SelfRegistrationAccordionPane.Visible = true;
                                         break;
                                     }
-                                case Sales3Module.FeatureReactivateOrExtendThisTrial:
+                                case Sales4Module.FeatureReactivateOrExtendThisTrial:
                                     {
                                         if (feature.Action.Contains(EditPermission))
                                         {
@@ -568,12 +568,12 @@ namespace B24.Sales3.UI
                                         ExtendTrialAccordionPane.Visible = true;
                                         break;
                                     }
-                                case Sales3Module.FeatureReports:
+                                case Sales4Module.FeatureReports:
                                     {
                                         AdvanceReportUserControl.Visible = true;
                                         break;
                                     }
-                                case Sales3Module.FeatureUpdateThisAccount:
+                                case Sales4Module.FeatureUpdateThisAccount:
                                     {
                                         if (feature.Action.Contains(EditPermission))
                                         {
@@ -582,7 +582,7 @@ namespace B24.Sales3.UI
                                         UpdateAccountControl.Visible = true;
                                         break;
                                     }
-                                case Sales3Module.FeatureModuleAlerts:
+                                case Sales4Module.FeatureModuleAlerts:
                                     {
                                         if (feature.Action.Contains(EditPermission))
                                         {
@@ -615,37 +615,37 @@ namespace B24.Sales3.UI
         {
             switch (this.subModule)
             {
-                case Sales3Module.SubModuleManageAccountInfo:
+                case Sales4Module.SubModuleManageAccountInfo:
                     {
                         ManageAccountMainView.ActiveViewIndex = 1;
                         break;
                     }
-                case Sales3Module.SubModuleCollections:
+                case Sales4Module.SubModuleCollections:
                     {
                         ManageAccountMainView.ActiveViewIndex = 2;
                         break;
                     }
-                case Sales3Module.SubModuleImplementation:
+                case Sales4Module.SubModuleImplementation:
                     {
                         ManageAccountMainView.ActiveViewIndex = 3;
                         break;
                     }
-                case Sales3Module.SubModuleAddUsers:
+                case Sales4Module.SubModuleAddUsers:
                     {
                         ManageAccountMainView.ActiveViewIndex = 4;
                         break;
                     }
-                case Sales3Module.SubModuleSettings:
+                case Sales4Module.SubModuleSettings:
                     {
                         ManageAccountMainView.ActiveViewIndex = 5;
                         break;
                     }
-                case Sales3Module.SubModuleReports:
+                case Sales4Module.SubModuleReports:
                     {
                         ManageAccountMainView.ActiveViewIndex = 6;
                         break;
                     }
-                case Sales3Module.SubModulePurchaseOrRenew:
+                case Sales4Module.SubModulePurchaseOrRenew:
                     {
                         ManageAccountMainView.ActiveViewIndex = 7;
                         break;
@@ -711,7 +711,7 @@ namespace B24.Sales3.UI
         private bool CheckAccess()
         {
             bool hasAccess = true;
-            if (!CheckUserAccess(Sales3Module.ModuleManageAccounts, subModule))
+            if (!CheckUserAccess(Sales4Module.ModuleManageAccounts, subModule))
             {
                 hasAccess = false;
                 AccessDeniedErrorLabel.Visible = true;

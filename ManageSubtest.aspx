@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" Inherits="B24.Sales3.UI.ManageSubTest"
+﻿<%@ Page Language="C#" AutoEventWireup="true" Inherits="B24.Sales4.UI.ManageSubTest"
     MasterPageFile="~/MasterPage.master" Title="Subscription Info" ValidateRequest="false"
     EnableEventValidation="false" Codebehind="ManageSubtest.aspx.cs" %>
 

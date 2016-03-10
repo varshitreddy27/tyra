@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" Inherits="B24.Sales3.UI.ManageAccount"
+﻿<%@ Page Language="C#" AutoEventWireup="true" Inherits="B24.Sales4.UI.ManageAccount"
     MasterPageFile="~/BaseMaster.Master" Title="Manage Account" ValidateRequest="false"
     CodeBehind="ManageAccount.aspx.cs" %>
 

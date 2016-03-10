@@ -5,7 +5,7 @@ using B24.Common;
 using B24.Common.Logs;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-namespace B24.Sales3.UI
+namespace B24.Sales4.UI
 {
     /// <summary>
     ///This class is used to process the information of the particular user being searched by the logged in User
@@ -136,7 +136,7 @@ namespace B24.Sales3.UI
                     UserInfoDetails.UserId = userId;
                  //   UserInfoDetails.Login = User.Identity.Name;
 
-                    if (subModule == Sales3Module.SubModuleManageUserInfo)
+                    if (subModule == Sales4Module.SubModuleManageUserInfo)
                     {
                         UserDetail.EmailPasswordUpdatePanel = EmailPasswordUpdatePanel;
                         UserDetail.UpdateEmailPassword = new EventHandler(UpdateEmailPassword);
@@ -145,7 +145,7 @@ namespace B24.Sales3.UI
                         UserDetail.UpdateInfo = new EventHandler(UpdateInfo);
                     }
 
-                    if (subModule == Sales3Module.SubModulePassword)
+                    if (subModule == Sales4Module.SubModulePassword)
                     {
                         //Change password
                         ChangePassword.UserId = userId;
@@ -157,7 +157,7 @@ namespace B24.Sales3.UI
                         EmailPasswordControl.subscription = subscription;
                     }
 
-                    if (subModule == Sales3Module.SubModuleAdminRoles)
+                    if (subModule == Sales4Module.SubModuleAdminRoles)
                     {
                         //User role
                         UserRoleControl.UserId = userId;
@@ -182,7 +182,7 @@ namespace B24.Sales3.UI
                         UserReportAccessControl.UpdateInfo = new EventHandler(UpdateInfo);
                     }
 
-                    if (subModule == Sales3Module.SubModuleEmailSettings)
+                    if (subModule == Sales4Module.SubModuleEmailSettings)
                     {
                         // Email Settings
                         EmailSettingsControl.UserId = userId;
@@ -250,7 +250,7 @@ namespace B24.Sales3.UI
         {
             RoleBasedAccessFactory access = new RoleBasedAccessFactory(this.UserConnStr);
             access.UserId = User.UserID;
-            List<RoleBasedAccess> subModules = access.GetSubModule(this.ApplicationId, Sales3Module.ModuleManageUsers);
+            List<RoleBasedAccess> subModules = access.GetSubModule(this.ApplicationId, Sales4Module.ModuleManageUsers);
             MenuItem item;
             string args = string.Empty;
             if (!String.IsNullOrEmpty(Request.QueryString["arg"]))
@@ -258,7 +258,7 @@ namespace B24.Sales3.UI
                 args = "&arg=" + Request.QueryString["arg"];
             }
 
-            string url = "~/manageuser.aspx?module=" + Sales3Module.ModuleManageUsers + args + "&subModule=";
+            string url = "~/manageuser.aspx?module=" + Sales4Module.ModuleManageUsers + args + "&subModule=";
 
             if (subModules.Count > 0)
             {
@@ -269,24 +269,24 @@ namespace B24.Sales3.UI
                     item = null;
                     switch (subMod.SubModuleId)
                     {
-                        case Sales3Module.SubModuleManageUserInfo:
+                        case Sales4Module.SubModuleManageUserInfo:
                             {
-                                item = new MenuItem("Info", Sales3Module.SubModuleManageUserInfo.ToString(), "~/images/_.gif", url + Sales3Module.SubModuleManageUserInfo.ToString());
+                                item = new MenuItem("Info", Sales4Module.SubModuleManageUserInfo.ToString(), "~/images/_.gif", url + Sales4Module.SubModuleManageUserInfo.ToString());
                                 break;
                             }
-                        case Sales3Module.SubModulePassword:
+                        case Sales4Module.SubModulePassword:
                             {
-                                item = new MenuItem("Password", Sales3Module.SubModulePassword.ToString(), "~/images/_.gif", url + Sales3Module.SubModulePassword.ToString());
+                                item = new MenuItem("Password", Sales4Module.SubModulePassword.ToString(), "~/images/_.gif", url + Sales4Module.SubModulePassword.ToString());
                                 break;
                             }
-                        case Sales3Module.SubModuleAdminRoles:
+                        case Sales4Module.SubModuleAdminRoles:
                             {
-                                item = new MenuItem("Admin Roles", Sales3Module.SubModuleAdminRoles.ToString(), "~/images/_.gif", url + Sales3Module.SubModuleAdminRoles.ToString());
+                                item = new MenuItem("Admin Roles", Sales4Module.SubModuleAdminRoles.ToString(), "~/images/_.gif", url + Sales4Module.SubModuleAdminRoles.ToString());
                                 break;
                             }
-                        case Sales3Module.SubModuleEmailSettings:
+                        case Sales4Module.SubModuleEmailSettings:
                             {
-                                item = new MenuItem("Settings", Sales3Module.SubModuleEmailSettings.ToString(), "~/images/_.gif", url + Sales3Module.SubModuleEmailSettings.ToString());
+                                item = new MenuItem("Settings", Sales4Module.SubModuleEmailSettings.ToString(), "~/images/_.gif", url + Sales4Module.SubModuleEmailSettings.ToString());
                                 break;
                             }
                     }
@@ -312,14 +312,14 @@ namespace B24.Sales3.UI
                 {
                     RoleBasedAccessFactory access = new RoleBasedAccessFactory(this.UserConnStr);
                     access.UserId = User.UserID;
-                    List<RoleBasedAccess> subModuleFeature = access.GetSubModuleFeature(this.ApplicationId, Sales3Module.ModuleManageUsers, subModule);
+                    List<RoleBasedAccess> subModuleFeature = access.GetSubModuleFeature(this.ApplicationId, Sales4Module.ModuleManageUsers, subModule);
                     if (subModuleFeature.Count > 0)
                     {
                         foreach (RoleBasedAccess feature in subModuleFeature)
                         {
                             switch (feature.FeatureId)
                             {
-                                case Sales3Module.FeatureUserDetails:
+                                case Sales4Module.FeatureUserDetails:
                                     {
                                         UserInfoDetailsTable.Visible = false;
                                         if (feature.Action.Contains(EditPermission))
@@ -329,7 +329,7 @@ namespace B24.Sales3.UI
                                         UserDetail.Visible = true;
                                         break;
                                     }
-                                case Sales3Module.FeatureChangeUserPassword:
+                                case Sales4Module.FeatureChangeUserPassword:
                                     {
                                         if (feature.Action.Contains(EditPermission))
                                         {
@@ -338,7 +338,7 @@ namespace B24.Sales3.UI
                                         ChangePasswordAccordionPane.Visible = true;
                                         break;
                                     }
-                                case Sales3Module.FeatureEmailUserPassword:
+                                case Sales4Module.FeatureEmailUserPassword:
                                     {
                                         if (feature.Action.Contains(EditPermission))
                                         {
@@ -347,7 +347,7 @@ namespace B24.Sales3.UI
                                         EmailPasswordAccordionPane.Visible = true;
                                         break;
                                     }
-                                case Sales3Module.FeatureAdminPermissons:
+                                case Sales4Module.FeatureAdminPermissons:
                                     {
                                         if (feature.Action.Contains(EditPermission))
                                         {
@@ -359,7 +359,7 @@ namespace B24.Sales3.UI
                                         AdminPermissionsUpdatePanel.Visible = true;
                                         break;
                                     }
-                                case Sales3Module.FeatureEmailSettings:
+                                case Sales4Module.FeatureEmailSettings:
                                     {
                                         if (feature.Action.Contains(EditPermission))
                                         {
@@ -368,7 +368,7 @@ namespace B24.Sales3.UI
                                         EmailSettingsAccordionPane.Visible = true;
                                         break;
                                     }
-                                case Sales3Module.FeatureDisableOrRestore:
+                                case Sales4Module.FeatureDisableOrRestore:
                                     {
                                         if (feature.Action.Contains(EditPermission))
                                         {
@@ -377,7 +377,7 @@ namespace B24.Sales3.UI
                                         RemoveRestoreUserAccordionPane.Visible = true;
                                         break;
                                     }
-                                case Sales3Module.FeatureImpersonate:
+                                case Sales4Module.FeatureImpersonate:
                                     {
                                         if (feature.Action.Contains(EditPermission))
                                         {
@@ -410,22 +410,22 @@ namespace B24.Sales3.UI
         {
             switch (this.subModule)
             {
-                case Sales3Module.SubModuleManageUserInfo:
+                case Sales4Module.SubModuleManageUserInfo:
                     {
                         ManageUserMultiView.ActiveViewIndex = 1;
                         break;
                     }
-                case Sales3Module.SubModulePassword:
+                case Sales4Module.SubModulePassword:
                     {
                         ManageUserMultiView.ActiveViewIndex = 2;
                         break;
                     }
-                case Sales3Module.SubModuleAdminRoles:
+                case Sales4Module.SubModuleAdminRoles:
                     {
                         ManageUserMultiView.ActiveViewIndex = 3;
                         break;
                     }
-                case Sales3Module.SubModuleEmailSettings:
+                case Sales4Module.SubModuleEmailSettings:
                     {
                         ManageUserMultiView.ActiveViewIndex = 4;
                         break;
@@ -447,7 +447,7 @@ namespace B24.Sales3.UI
         private bool CheckAccess()
         {
             bool hasAccess = true;
-            if (!CheckUserAccess(Sales3Module.ModuleManageUsers, subModule))
+            if (!CheckUserAccess(Sales4Module.ModuleManageUsers, subModule))
             {
                 hasAccess = false;
                 AccessDeniedErrorLabel.Visible = true;

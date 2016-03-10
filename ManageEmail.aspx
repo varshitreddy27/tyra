@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" Inherits="B24.Sales3.UI.ManageEmail" Title="ManageEmail" Codebehind="ManageEmail.aspx.cs" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" Inherits="B24.Sales4.UI.ManageEmail" Title="ManageEmail" Codebehind="ManageEmail.aspx.cs" %>
 
 <%@ Register src="UserControls/WelcomeMsgSender.ascx" tagname="WelcomeMsgSender" tagprefix="uc1" %>
 

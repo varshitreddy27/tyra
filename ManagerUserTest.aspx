@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" Inherits="B24.Sales3.UI.ManagerUserTest" Codebehind="ManagerUserTest.aspx.cs" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" Inherits="B24.Sales4.UI.ManagerUserTest" Codebehind="ManagerUserTest.aspx.cs" %>
 
 <%@ Register src="UserControls/UserDetail.ascx" tagname="UserDetail" tagprefix="uc1" %>
 <%@ Register src="UserControls/ChangePassword.ascx" tagname="ChangePassword" tagprefix="uc2" %>

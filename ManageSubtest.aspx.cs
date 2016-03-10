@@ -4,7 +4,7 @@ using System.Collections.ObjectModel;
 using B24.Common.Logs;
 using System.Collections.Generic;
 
-namespace B24.Sales3.UI
+namespace B24.Sales4.UI
 {
     public partial class ManageSubTest : BasePage
     {

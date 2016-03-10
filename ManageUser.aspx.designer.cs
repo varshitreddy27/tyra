@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace B24.Sales3.UI {
+namespace B24.Sales4.UI {
     
     
     public partial class ManageUser {
@@ -37,7 +37,7 @@ namespace B24.Sales3.UI {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::B24.Sales3.UserControl.UserDetails UserInfoDetails;
+        protected global::B24.Sales4.UserControl.UserDetails UserInfoDetails;
         
         /// <summary>
         /// UpdateProgress1 control.
@@ -100,7 +100,7 @@ namespace B24.Sales3.UI {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::B24.Sales3.UserControl.UserLookup UserSearchControl;
+        protected global::B24.Sales4.UserControl.UserLookup UserSearchControl;
         
         /// <summary>
         /// InfoView control.
@@ -127,7 +127,7 @@ namespace B24.Sales3.UI {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::B24.Sales3.UserControl.UserDetails UserDetail;
+        protected global::B24.Sales4.UserControl.UserDetails UserDetail;
         
         /// <summary>
         /// PasswordView control.
@@ -172,7 +172,7 @@ namespace B24.Sales3.UI {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::B24.Sales3.UserControl.ChangePassword ChangePassword;
+        protected global::B24.Sales4.UserControl.ChangePassword ChangePassword;
         
         /// <summary>
         /// EmailPasswordAccordionPane control.
@@ -199,7 +199,7 @@ namespace B24.Sales3.UI {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::B24.Sales3.UserControl.EmailPassword EmailPasswordControl;
+        protected global::B24.Sales4.UserControl.EmailPassword EmailPasswordControl;
         
         /// <summary>
         /// AdminRoleView control.
@@ -235,7 +235,7 @@ namespace B24.Sales3.UI {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::B24.Sales3.UserControls.UserRole UserRoleControl;
+        protected global::B24.Sales4.UserControls.UserRole UserRoleControl;
         
         /// <summary>
         /// UserAdministratorLabel control.
@@ -253,7 +253,7 @@ namespace B24.Sales3.UI {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::B24.Sales3.UserControl.UserAdministrator UserAdministratorControl;
+        protected global::B24.Sales4.UserControl.UserAdministrator UserAdministratorControl;
         
         /// <summary>
         /// AdvanceUserPermissionLabel control.
@@ -271,7 +271,7 @@ namespace B24.Sales3.UI {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::B24.Sales3.UserControl.AdvancedUserPermissions AdvancedUserPermissionControl;
+        protected global::B24.Sales4.UserControl.AdvancedUserPermissions AdvancedUserPermissionControl;
         
         /// <summary>
         /// UserReportAccessFormLabel control.
@@ -289,7 +289,7 @@ namespace B24.Sales3.UI {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::B24.Sales3.UserControl.UserReportAccess UserReportAccessControl;
+        protected global::B24.Sales4.UserControl.UserReportAccess UserReportAccessControl;
         
         /// <summary>
         /// SettingsView control.
@@ -334,7 +334,7 @@ namespace B24.Sales3.UI {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::B24.Sales3.UserControl.EmailSettings EmailSettingsControl;
+        protected global::B24.Sales4.UserControl.EmailSettings EmailSettingsControl;
         
         /// <summary>
         /// RemoveRestoreUserAccordionPane control.
@@ -361,7 +361,7 @@ namespace B24.Sales3.UI {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::B24.Sales3.UserControl.RemoveRestoreUser RemoveRestoreUserControl;
+        protected global::B24.Sales4.UserControl.RemoveRestoreUser RemoveRestoreUserControl;
         
         /// <summary>
         /// ImpersonateAccordionPane control.
@@ -388,6 +388,6 @@ namespace B24.Sales3.UI {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::B24.Sales3.UserControl.Impersonate ImpersonateControl;
+        protected global::B24.Sales4.UserControl.Impersonate ImpersonateControl;
     }
 }

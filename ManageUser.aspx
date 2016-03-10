@@ -1,5 +1,5 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/BaseMaster.master" AutoEventWireup="true"
-    Inherits="B24.Sales3.UI.ManageUser" Title="Manage User" CodeBehind="ManageUser.aspx.cs" %>
+    Inherits="B24.Sales4.UI.ManageUser" Title="Manage User" CodeBehind="ManageUser.aspx.cs" %>
 
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
 <%@ Register Src="~/UserControls/UserDetails.ascx" TagName="UserDetail" TagPrefix="uc1" %>

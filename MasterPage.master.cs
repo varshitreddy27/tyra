@@ -13,7 +13,7 @@ using System.Text.RegularExpressions;
 using B24.Common;
 using B24.Common.Web;
 
-namespace B24.Sales3.UI
+namespace B24.Sales4.UI
 {
     public partial class MasterPage : System.Web.UI.MasterPage
     {
