@@ -10,7 +10,7 @@ using System.Web.UI.WebControls.WebParts;
 using System.Web.UI.HtmlControls;
 using B24.Common.Web;
 
-namespace B24.Sales3.UI
+namespace B24.Sales4.UI
 {
   public partial class AbandonSession : BasePage
   {
