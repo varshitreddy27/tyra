@@ -1,4 +1,4 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" Inherits="B24.Sales3.UserControl.InfoDetails" Codebehind="InfoDetails.ascx.cs" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true" Inherits="B24.Sales4.UserControl.InfoDetails" Codebehind="InfoDetails.ascx.cs" %>
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
 <link href="../App_Themes/Classic/sales3.css" rel="stylesheet" type="text/css" />
 <style type="text/css">

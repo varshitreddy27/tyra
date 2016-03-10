@@ -5,7 +5,7 @@ using B24.Common.Web;
 using B24.Common.Logs;
 using System.Text;
 
-namespace B24.Sales3.UserControl
+namespace B24.Sales4.UserControl
 {
     /// <summary>
     /// User control to impersonate.

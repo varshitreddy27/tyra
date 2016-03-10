@@ -8,7 +8,7 @@ using B24.Common.Logs;
 using System.Configuration;
 using System.Web.UI;
 
-namespace B24.Sales3.UserControl
+namespace B24.Sales4.UserControl
 {
     public partial class IngeniousSandbox : System.Web.UI.UserControl
     {
@@ -16,7 +16,7 @@ namespace B24.Sales3.UserControl
         #region private members
         private Logger logger = new Logger(Logger.LoggerType.Sales3);
         private bool isB24 = true; // to identify if sub is B24 sub or not
-        private Sales3.UI.BasePage basePage;
+        private Sales4.UI.BasePage basePage;
         #endregion
 
         #region public Property
@@ -48,7 +48,7 @@ namespace B24.Sales3.UserControl
         /// <param name="e"></param>
         protected void Page_Load(object sender, EventArgs e)
         {
-            basePage = this.Page as Sales3.UI.BasePage;
+            basePage = this.Page as Sales4.UI.BasePage;
             if (basePage == null)
             {
                 return;

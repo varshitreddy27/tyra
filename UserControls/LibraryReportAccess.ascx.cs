@@ -9,7 +9,7 @@ using B24.Common;
 using B24.Common.Web;
 using B24.Common.Logs;
 
-namespace B24.Sales3.UserControl
+namespace B24.Sales4.UserControl
 {
     public partial class LibraryReportAccess : System.Web.UI.UserControl
     {

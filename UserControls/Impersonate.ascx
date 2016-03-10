@@ -1,4 +1,4 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" Inherits="B24.Sales3.UserControl.Impersonate" Codebehind="Impersonate.ascx.cs" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true" Inherits="B24.Sales4.UserControl.Impersonate" Codebehind="Impersonate.ascx.cs" %>
 <link href="../App_Themes/Classic/sales3.css" rel="stylesheet" type="text/css" />
 <p id="HeaderText" runat="server" class="b24-doc-title">
     Impersonation</p>

@@ -4,9 +4,9 @@ using B24.Common;
 using B24.Common.Web;
 using B24.Common.Logs;
 using System.Globalization;
-using B24.Sales3.UserControl;
+using B24.Sales4.UserControl;
 
-namespace B24.Sales3.UserControl
+namespace B24.Sales4.UserControl
 {
     /// <summary>
     /// To display the Subscription information 

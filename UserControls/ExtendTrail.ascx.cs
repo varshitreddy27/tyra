@@ -7,7 +7,7 @@ using System.Data.SqlClient;
 using System.Globalization;
 using System.Web.UI.WebControls;
 
-namespace B24.Sales3.UserControl
+namespace B24.Sales4.UserControl
 {
     /// <summary>
     /// Reactivate or Extent this Trail.
@@ -15,7 +15,7 @@ namespace B24.Sales3.UserControl
     public partial class ExtendTrail : System.Web.UI.UserControl
     {
         #region Private Members
-        private Sales3.UI.BasePage basePage;
+        private Sales4.UI.BasePage basePage;
         Logger logger;
 
         #endregion
@@ -104,7 +104,7 @@ namespace B24.Sales3.UserControl
             {
                 return;
             }
-            basePage = this.Page as Sales3.UI.BasePage;
+            basePage = this.Page as Sales4.UI.BasePage;
             if (!Page.IsPostBack)
             {
                 try

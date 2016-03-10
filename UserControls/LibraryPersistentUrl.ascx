@@ -1,5 +1,5 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true"
-    Inherits="B24.Sales3.UserControl.LibraryPersistentUrl" Codebehind="LibraryPersistentUrl.ascx.cs" %>
+    Inherits="B24.Sales4.UserControl.LibraryPersistentUrl" Codebehind="LibraryPersistentUrl.ascx.cs" %>
 <asp:UpdatePanel ID="ViewUpdatePanel" runat="server">
     <ContentTemplate>
         <table>

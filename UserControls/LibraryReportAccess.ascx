@@ -1,5 +1,5 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true"
-    Inherits="B24.Sales3.UserControl.LibraryReportAccess" Codebehind="LibraryReportAccess.ascx.cs" %>
+    Inherits="B24.Sales4.UserControl.LibraryReportAccess" Codebehind="LibraryReportAccess.ascx.cs" %>
 <asp:UpdatePanel ID="ViewUpdatePanel" runat="server">
     <ContentTemplate>
         <div>

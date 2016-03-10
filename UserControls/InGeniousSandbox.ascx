@@ -1,5 +1,5 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true"
-    Inherits="B24.Sales3.UserControl.IngeniousSandbox" Codebehind="IngeniousSandbox.ascx.cs" %>
+    Inherits="B24.Sales4.UserControl.IngeniousSandbox" Codebehind="IngeniousSandbox.ascx.cs" %>
     <%@ Register Tagname="SandboxProperty" tagprefix="Sales3" src="~/UserControls/ChangeSandboxProperties.ascx"%>
 <link href="App_Themes/Classic/sales3.css" rel="stylesheet" type="text/css" />
 <table>

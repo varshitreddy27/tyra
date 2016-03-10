@@ -1,4 +1,4 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" Inherits="B24.Sales3.UserControl.ExtendTrail" Codebehind="ExtendTrail.ascx.cs" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true" Inherits="B24.Sales4.UserControl.ExtendTrail" Codebehind="ExtendTrail.ascx.cs" %>
 <link href="../App_Themes/Classic/sales3.css" rel="stylesheet" type="text/css" />
 <table id ="NotAccessableTable" runat="server" visible="False" >
 <tr class="b24-formelement">

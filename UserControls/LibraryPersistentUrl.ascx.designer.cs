@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace B24.Sales3.UserControl {
+namespace B24.Sales4.UserControl {
     
     
     public partial class LibraryPersistentUrl {
