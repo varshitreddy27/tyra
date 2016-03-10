@@ -10,7 +10,7 @@ using B24.Common.Web.BLL;
 using B24.Common.Logs;
 using SkillSoft.IGE.IGEClient;
 
-namespace B24.Sales3.BLL
+namespace B24.Sales4.BLL
 {
     public class SandboxPropertySupplier
     {
@@ -24,7 +24,7 @@ namespace B24.Sales3.BLL
         private SandboxProperties dbSandBoxProperties = null;
         private Logger logger = new Logger(Logger.LoggerType.Sales3);
         private GlobalVariables global = GlobalVariables.GetInstance();
-        private Sales3.UI.BasePage basePage;
+        private Sales4.UI.BasePage basePage;
         private Guid subscriptionId;
         private Guid requesterId;
         private Guid sandboxId;
@@ -67,7 +67,7 @@ namespace B24.Sales3.BLL
         #endregion 
 
         #region Constructors
-        public SandboxPropertySupplier(Guid subId, Guid requesterId, Sales3.UI.BasePage basePage) {
+        public SandboxPropertySupplier(Guid subId, Guid requesterId, Sales4.UI.BasePage basePage) {
             this.subscriptionId = subId;
             this.requesterId = requesterId;
             this.basePage = basePage;
@@ -87,7 +87,7 @@ namespace B24.Sales3.BLL
  
         }
 
-        public SandboxPropertySupplier(Guid subId, Guid requesterId, Guid sandboxId, Sales3.UI.BasePage basePage)
+        public SandboxPropertySupplier(Guid subId, Guid requesterId, Guid sandboxId, Sales4.UI.BasePage basePage)
         {
             this.subscriptionId = subId;
             this.requesterId = requesterId;

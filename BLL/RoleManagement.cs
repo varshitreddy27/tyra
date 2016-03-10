@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace B24.Sales3.UI
+namespace B24.Sales4.UI
 {
-    public static class Sales3Module
+    public static class Sales4Module
     {
         // Module
         public const int ModuleInfo = 1;            // Default page

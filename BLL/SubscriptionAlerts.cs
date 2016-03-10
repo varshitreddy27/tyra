@@ -10,7 +10,7 @@ using System.ComponentModel;
 using System.Management;
 using B24.Common;
 
-namespace B24.Sales3.BLL
+namespace B24.Sales4.BLL
 {
     [DataObject(true)]
     public class SubscriptionAlerts
