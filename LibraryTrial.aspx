@@ -1,5 +1,5 @@
 <%@ Page Language="C#" MasterPageFile="~/BaseMaster.master" AutoEventWireup="true"
-    Inherits="B24.Sales3.UI.LibraryTrail" Title="Library Trial" CodeBehind="LibraryTrial.aspx.cs" %>
+    Inherits="B24.Sales4.UI.LibraryTrail" Title="Library Trial" CodeBehind="LibraryTrial.aspx.cs" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="Content" runat="Server">
     <asp:Label ID="AccessDeniedErrorLabel" runat="server" Text="Access denied. Contact your administrator."

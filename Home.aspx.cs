@@ -15,7 +15,7 @@ using B24.Common.Web;
 using B24.Common.Web.Controls;
 using B24.Common.Security;
 
-namespace B24.Sales3.UI
+namespace B24.Sales4.UI
 {
     public partial class Home : BasePage
     {
@@ -43,7 +43,7 @@ namespace B24.Sales3.UI
         private bool CheckAccess()
         {
             bool hasAccess = true;
-            if (!CheckUserAccess(Sales3Module.ModuleInfo, 0))
+            if (!CheckUserAccess(Sales4Module.ModuleInfo, 0))
             {
                 hasAccess = false;
                 AccessDeniedErrorLabel.Visible = true;

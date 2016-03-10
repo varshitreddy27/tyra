@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" Inherits="B24.Sales3.UI.LibraryPersistentUrl" Title="LibraryPersistentUrl" Codebehind="LibraryPersistentUrl.aspx.cs" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" Inherits="B24.Sales4.UI.LibraryPersistentUrl" Title="LibraryPersistentUrl" Codebehind="LibraryPersistentUrl.aspx.cs" %>
 
 <%@ Register src="UserControls/LibraryPersistentUrl.ascx" tagname="LibUrl" tagprefix="uc1" %>
 

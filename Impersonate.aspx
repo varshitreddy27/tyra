@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" Inherits="B24.Sales3.UI.Impersonate" Title="Impersonate" Codebehind="Impersonate.aspx.cs" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" Inherits="B24.Sales4.UI.Impersonate" Title="Impersonate" Codebehind="Impersonate.aspx.cs" %>
 
 <%@ Register src="UserControls/Impersonate.ascx" tagname="Impersonate" tagprefix="uc3" %>
 

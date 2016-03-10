@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace B24.Sales3.UI {
+namespace B24.Sales4.UI {
     
     
     public partial class LibraryPersistentUrl {
@@ -19,6 +19,6 @@ namespace B24.Sales3.UI {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::B24.Sales3.UserControl.LibraryPersistentUrl LibUrl1;
+        protected global::B24.Sales4.UserControl.LibraryPersistentUrl LibUrl1;
     }
 }

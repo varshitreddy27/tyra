@@ -10,9 +10,9 @@ using System.Web.UI.WebControls.WebParts;
 using System.Web.UI.HtmlControls;
 using System.Collections.Generic;
 using B24.Common;
-using B24.Sales3.DAL;
+using B24.Sales4.DAL;
 
-namespace B24.Sales3.UI
+namespace B24.Sales4.UI
 {
     public partial class Impersonate : BasePage
     {

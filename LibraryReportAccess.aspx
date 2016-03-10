@@ -1,4 +1,4 @@
-<%@ Page Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" Inherits="B24.Sales3.UI.LibraryReportAccess" Title="Report Access" Codebehind="LibraryReportAccess.aspx.cs" %>
+<%@ Page Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" Inherits="B24.Sales4.UI.LibraryReportAccess" Title="Report Access" Codebehind="LibraryReportAccess.aspx.cs" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
  <div class="b24-report-frame"><asp:Literal ID="ltMessage" runat="server" Visible = "false"></asp:Literal></DIV>

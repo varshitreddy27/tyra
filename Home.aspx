@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" Codebehind="Home.aspx.cs" Inherits="B24.Sales3.UI.Home"
+﻿<%@ Page Language="C#" AutoEventWireup="true" Codebehind="Home.aspx.cs" Inherits="B24.Sales4.UI.Home"
     MasterPageFile="~/BaseMaster.Master" %>
 
 <%@ Register TagName="RecentAccount" TagPrefix="Sales3" Src="~/UserControls/RecentlyUpdatedAccount.ascx" %>

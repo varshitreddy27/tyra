@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using B24.Common;
 using B24.Common.Logs;
 
-namespace B24.Sales3.UI
+namespace B24.Sales4.UI
 {
     public partial class LibraryRules : BasePage
     {
