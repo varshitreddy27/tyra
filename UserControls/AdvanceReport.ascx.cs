@@ -11,9 +11,10 @@ using B24.Common.Logs;
 using System.Data;
 using System.Data.SqlClient;
 using System.Globalization;
-using B24.Sales3.UI;
+using B24.Sales4.UI;
+using AjaxControlToolkit;
 
-namespace B24.Sales3.UserControl
+namespace B24.Sales4.UserControl
 {
     public partial class AdvanceReport : System.Web.UI.UserControl
     {
@@ -324,7 +325,7 @@ namespace B24.Sales3.UserControl
                 ReportParameterPlaceHolder.Controls.Add(reportRunButton);
                 ReportParameterPlaceHolder.Controls.Add(new LiteralControl("</td>"));
                 ReportParameterPlaceHolder.Controls.Add(new LiteralControl("</tr>"));
-                ReportParameterPlaceHolder.Controls.Add(new LiteralControl("</table>"));
+                ReportParameterPlaceHolder.Controls.Add(new LiteralControl("</table>"));  
             }
             catch (ArgumentNullException argumentNullException)
             {
@@ -450,10 +451,11 @@ namespace B24.Sales3.UserControl
                                     Image imageCalendar = new Image();
                                     imageCalendar.ID = "Image" + controlId;
                                     imageCalendar.ImageUrl = "~/images/Calendar.gif";
-                                    AjaxControlToolkit.CalendarExtender paramCalendar = new AjaxControlToolkit.CalendarExtender();
+                                    CalendarExtender paramCalendar = new CalendarExtender();
                                     paramCalendar.ID = "Calendar" + controlId;
                                     paramCalendar.TargetControlID = calendarTextBox.ID;
                                     paramCalendar.PopupButtonID = imageCalendar.ID;
+                                 //   paramCalendar.Title
                                     paramCalendar.Format = "MMM dd, yyyy";
                                     if (paramName == "@startdateinput")
                                     {
@@ -466,9 +468,11 @@ namespace B24.Sales3.UserControl
                                     ReportParameterPlaceHolder.Controls.Add(new LiteralControl("<td>"));
                                     ReportParameterPlaceHolder.Controls.Add(paramLabel);
                                     ReportParameterPlaceHolder.Controls.Add(new LiteralControl("</td><td>"));
+                                    ReportParameterPlaceHolder.Controls.Add(new LiteralControl("<div style='position:relative;'>")); //
                                     ReportParameterPlaceHolder.Controls.Add(calendarTextBox);
                                     ReportParameterPlaceHolder.Controls.Add(imageCalendar);
                                     ReportParameterPlaceHolder.Controls.Add(paramCalendar);
+                                    ReportParameterPlaceHolder.Controls.Add(new LiteralControl("</div>")); //
                                     ReportParameterPlaceHolder.Controls.Add(new LiteralControl("</td>"));
                                     if (string.IsNullOrEmpty(DynamicFieldNames.Value))
                                         DynamicFieldNames.Value = calendarTextBox.ClientID + "#" + calendarTextBox.ID;

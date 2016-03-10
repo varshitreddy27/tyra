@@ -1,6 +1,6 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="AdvanceReport.ascx.cs"
-    Inherits="B24.Sales3.UserControl.AdvanceReport" %>
-
+    Inherits="B24.Sales4.UserControl.AdvanceReport" %>
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
 <script type="text/javascript">
 
     function SetReportName(reportname, task, reportDescription) {
@@ -25,11 +25,11 @@
         var textBox = document.getElementById(textBoxId);
         textBox.value = ddList.options[ddList.selectedIndex].value;
     }
-
 </script>
 
 <asp:MultiView ID="ReportView" runat="server">
     <asp:View runat="server" ID="ReportUserControlView">
+      
         <table>
             <tr>
                 <td align="left">
@@ -184,6 +184,12 @@
         </asp:PlaceHolder>
     </asp:View>
 </asp:MultiView>
+<asp:TextBox Visible="false" ID="EndDateTextBox" runat="server"
+    Width="200"></asp:TextBox><asp:Image Visible="false" ID="CalenderImage" runat="server"
+        Height="19px" ImageUrl="~/images/Calendar.gif" />
+<cc1:CalendarExtender Format="MMM dd, yyyy" ID="AccessExpiresAccordinCalender" runat="server"
+    TargetControlID="EndDateTextBox" PopupButtonID="CalenderImage">
+</cc1:CalendarExtender>
 <asp:HiddenField ID="ReportSPNameHiddenField" runat="server" />
 <asp:HiddenField ID="ReportNameHiddenField" runat="server" />
 <asp:HiddenField ID="ReportQueueIDHiddenField" runat="server" />
