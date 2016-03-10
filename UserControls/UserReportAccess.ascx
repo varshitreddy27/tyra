@@ -1,5 +1,5 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true"
-    Inherits="B24.Sales3.UserControl.UserReportAccess" Codebehind="UserReportAccess.ascx.cs" %>
+    Inherits="B24.Sales4.UserControl.UserReportAccess" Codebehind="UserReportAccess.ascx.cs" %>
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
 <table border="0" cellpadding="1" cellspacing="1">
     <tr>

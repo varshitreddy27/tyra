@@ -10,7 +10,7 @@ using System.Data.SqlClient;
 using System.Data;
 using System.Globalization; 
 
-namespace B24.Sales3.UserControl
+namespace B24.Sales4.UserControl
 {
     public partial class UpdateAccount : System.Web.UI.UserControl
     {
@@ -82,7 +82,7 @@ namespace B24.Sales3.UserControl
         /// </summary>
         List<User> userList;
 
-        private Sales3.UI.BasePage basePage;
+        private Sales4.UI.BasePage basePage;
 
         #endregion
 
@@ -790,7 +790,7 @@ namespace B24.Sales3.UserControl
             {
                 return;
             }
-            basePage = this.Page as Sales3.UI.BasePage;
+            basePage = this.Page as Sales4.UI.BasePage;
             if (!Page.IsPostBack)
             {
                 try

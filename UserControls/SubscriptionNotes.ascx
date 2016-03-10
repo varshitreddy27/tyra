@@ -1,5 +1,5 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true"
-    Inherits="B24.Sales3.UserControl.SubscriptionNotes" Codebehind="SubscriptionNotes.ascx.cs" %>
+    Inherits="B24.Sales4.UserControl.SubscriptionNotes" Codebehind="SubscriptionNotes.ascx.cs" %>
 <link href="../App_Themes/Classic/sales3.css" rel="stylesheet" type="text/css" />
 <p id="HeaderText" runat="server" class="b24-doc-title" visible="false">
     Subscription Notes</p>

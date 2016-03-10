@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace B24.Sales3.UserControls {
+namespace B24.Sales4.UserControls {
     
     
     public partial class UserRole {

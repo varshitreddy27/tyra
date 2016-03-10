@@ -6,7 +6,7 @@ using System.Globalization;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 
-namespace B24.Sales3.UserControl
+namespace B24.Sales4.UserControl
 {
     /// <summary>
     /// To display the User information 
@@ -15,7 +15,7 @@ namespace B24.Sales3.UserControl
     {
         #region Private Members
 
-        private Sales3.UI.BasePage basePage;
+        private Sales4.UI.BasePage basePage;
         Logger logger = new Logger(Logger.LoggerType.UserInfo);
         Boolean editView=false;
 
@@ -65,7 +65,7 @@ namespace B24.Sales3.UserControl
             {
                 return;
             }
-            basePage = this.Page as Sales3.UI.BasePage;
+            basePage = this.Page as Sales4.UI.BasePage;
             if (!Page.IsPostBack)
             {
                 try

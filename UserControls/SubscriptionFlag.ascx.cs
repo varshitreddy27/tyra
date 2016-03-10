@@ -7,7 +7,7 @@ using B24.Common.Logs;
 using System.Linq;
 using System.Globalization;
 
-namespace B24.Sales3.UserControl
+namespace B24.Sales4.UserControl
 {
     /// <summary>
     /// To update the Subscription flag 
@@ -16,7 +16,7 @@ namespace B24.Sales3.UserControl
     {
         #region Private Members
         private Dictionary<int, B24.Common.SubscriptionFlag> flagDictionary;
-        private Sales3.UI.BasePage basePage;
+        private Sales4.UI.BasePage basePage;
         #endregion
 
         #region Public Property
@@ -48,7 +48,7 @@ namespace B24.Sales3.UserControl
             {
                 return;
             }
-            basePage = this.Page as Sales3.UI.BasePage;
+            basePage = this.Page as Sales4.UI.BasePage;
             if (!Page.IsPostBack)
             {
                 LoadAllSubscriptionFlag(SubscriptionId);

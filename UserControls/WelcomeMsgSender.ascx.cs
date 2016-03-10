@@ -10,11 +10,11 @@ using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 
 using B24.Common;
-using B24.Sales3.DAL;
+using B24.Sales4.DAL;
 using B24.Common.Web;
 using B24.Common.Web.Controls;
 
-namespace B24.Sales3.UserControl
+namespace B24.Sales4.UserControl
 {
     public partial class WelcomeMsgSender : System.Web.UI.UserControl
     {

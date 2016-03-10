@@ -4,14 +4,14 @@ using B24.Common;
 using B24.Common.Web;
 using B24.Common.Logs;
 
-namespace B24.Sales3.UserControl
+namespace B24.Sales4.UserControl
 {
     /// <summary>
     /// User control to manage user data.
     /// </summary>
     public partial class UserDetail : System.Web.UI.UserControl
     {
-        private Sales3.UI.BasePage basePage;
+        private Sales4.UI.BasePage basePage;
         Logger logger;
 
         #region Property
@@ -44,7 +44,7 @@ namespace B24.Sales3.UserControl
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            basePage = this.Page as Sales3.UI.BasePage;
+            basePage = this.Page as Sales4.UI.BasePage;
             if (!Page.IsPostBack)
             {
                 try

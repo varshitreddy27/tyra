@@ -1,4 +1,4 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" Inherits="B24.Sales3.UserControl.UserDetails" Codebehind="UserDetails.ascx.cs" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true" Inherits="B24.Sales4.UserControl.UserDetails" Codebehind="UserDetails.ascx.cs" %>
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
 <p id="HeaderText" runat="server" class="b24-doc-title" visible="false">
     Account Information</p>

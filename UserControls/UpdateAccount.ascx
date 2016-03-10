@@ -1,5 +1,5 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true"
-    Inherits=" B24.Sales3.UserControl.UpdateAccount" Codebehind="UpdateAccount.ascx.cs" %>
+    Inherits=" B24.Sales4.UserControl.UpdateAccount" Codebehind="UpdateAccount.ascx.cs" %>
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
 
 <style type="text/css">

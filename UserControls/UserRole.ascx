@@ -1,4 +1,4 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="UserRole.ascx.cs" Inherits="B24.Sales3.UserControls.UserRole" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="UserRole.ascx.cs" Inherits="B24.Sales4.UserControls.UserRole" %>
 <table>
     <tr>
         <td>

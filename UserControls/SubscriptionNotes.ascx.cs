@@ -5,7 +5,7 @@ using B24.Common.Web;
 using B24.Common.Logs;
 using System.Data.SqlClient;
 
-namespace B24.Sales3.UserControl
+namespace B24.Sales4.UserControl
 {
     /// <summary>
     /// To Add Subscription Notes
@@ -14,7 +14,7 @@ namespace B24.Sales3.UserControl
     {
         #region Private Members
         GlobalVariables global = GlobalVariables.GetInstance();
-        Sales3.UI.BasePage basePage;
+        Sales4.UI.BasePage basePage;
         #endregion
 
         #region Public Property
@@ -48,7 +48,7 @@ namespace B24.Sales3.UserControl
             {
                 return;
             }
-            basePage = this.Page as Sales3.UI.BasePage;
+            basePage = this.Page as Sales4.UI.BasePage;
             if (!Page.IsPostBack)
             {
                 try

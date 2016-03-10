@@ -8,9 +8,9 @@ using System.Web.UI.WebControls;
 using B24.Common;
 using B24.Common.Logs;
 using B24.Common.Web;
-using B24.Sales3.UI;
+using B24.Sales4.UI;
 
-namespace B24.Sales3.UserControls
+namespace B24.Sales4.UserControls
 {
     public partial class UserRole : System.Web.UI.UserControl
     {
@@ -29,7 +29,7 @@ namespace B24.Sales3.UserControls
         #region Private Members
 
         //Create Basepage object
-        private B24.Sales3.UI.BasePage basePage;
+        private B24.Sales4.UI.BasePage basePage;
 
         //Create Logger object
         private Logger logger = new Logger(Logger.LoggerType.Sales3);
@@ -54,7 +54,7 @@ namespace B24.Sales3.UserControls
         /// <param name="e"></param>
         protected void Page_Load(object sender, EventArgs e)
         {
-            basePage = this.Page as B24.Sales3.UI.BasePage;
+            basePage = this.Page as B24.Sales4.UI.BasePage;
             if (UserId == Guid.Empty)
             {
                 return;

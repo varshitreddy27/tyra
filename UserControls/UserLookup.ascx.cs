@@ -8,9 +8,9 @@ using System.Web.UI.WebControls;
 using B24.Common;
 using B24.Common.Logs;
 using B24.Common.Web;
-using B24.Sales3.UI;
+using B24.Sales4.UI;
 
-namespace B24.Sales3.UserControl
+namespace B24.Sales4.UserControl
 {
     /// <summary>
     /// User control to manage user data.
@@ -112,8 +112,8 @@ namespace B24.Sales3.UserControl
 
                     string userID = HttpUtility.UrlEncode(new Guid(userIDHidden.Value).ToString("B").ToUpper(CultureInfo.InvariantCulture));
 
-                    UserInfoHyperLink.NavigateUrl = "~/ManageUser.aspx?module=" + Sales3Module.ModuleManageUsers + "&submodule=" + Sales3Module.SubModuleManageUserInfo + "&arg=" + userID;
-                    ManageUserHyperLink.NavigateUrl = "~/ManageUser.aspx?module=" + Sales3Module.ModuleManageUsers + "&submodule=" + Sales3Module.SubModuleEmailSettings + "&arg=" + userID;
+                    UserInfoHyperLink.NavigateUrl = "~/ManageUser.aspx?module=" + Sales4Module.ModuleManageUsers + "&submodule=" + Sales4Module.SubModuleManageUserInfo + "&arg=" + userID;
+                    ManageUserHyperLink.NavigateUrl = "~/ManageUser.aspx?module=" + Sales4Module.ModuleManageUsers + "&submodule=" + Sales4Module.SubModuleEmailSettings + "&arg=" + userID;
 
                     if (subscriptionStatusIDHidden.Value == "8")
                     {
