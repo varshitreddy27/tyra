@@ -4,7 +4,7 @@ using System.Text;
 using System.Data.SqlClient;
 using B24.Common;
 
-namespace B24.Sales3.DAL
+namespace B24.Sales4.DAL
 {
   /// <summary>
   /// Summary description for CartUser

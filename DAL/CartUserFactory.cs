@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Text;
 using B24.Common;
 
-namespace B24.Sales3.DAL
+namespace B24.Sales4.DAL
 {
   /// <summary>
   /// Summary description for CartUserFactory
@@ -22,7 +22,7 @@ namespace B24.Sales3.DAL
     /// Get an individual user by userid
     /// </summary>
     /// <param name="userid">The user's userid to load</param>
-    /// <returns>a B24.Sales3.CartUser object</returns>
+    /// <returns>a B24.Sales4.CartUser object</returns>
     public new CartUser GetUserByID(Guid userid)
     {
       Verify(ConnectionString, "ConnectionString");
