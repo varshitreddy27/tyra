@@ -1,5 +1,5 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true"
-    Inherits="B24.Sales3.UserControl.ChangePassword" Codebehind="ChangePassword.ascx.cs" %>
+    Inherits="B24.Sales4.UserControl.ChangePassword" Codebehind="ChangePassword.ascx.cs" %>
 
 <p id="HeaderText" runat="server" class="b24-doc-title">
     Assign New Password</p>

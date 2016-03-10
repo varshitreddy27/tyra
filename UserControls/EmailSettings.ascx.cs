@@ -10,7 +10,7 @@ using System.Data.SqlClient;
 using System.Data;
 using System.Globalization;
 
-namespace B24.Sales3.UserControl
+namespace B24.Sales4.UserControl
 {
 
     public partial class EmailSettings : System.Web.UI.UserControl

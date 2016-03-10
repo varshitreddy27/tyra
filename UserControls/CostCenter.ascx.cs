@@ -10,7 +10,7 @@ using B24.Common.Logs;
 using System.Data.SqlClient;
 using System.Globalization;
 
-namespace B24.Sales3.UserControl
+namespace B24.Sales4.UserControl
 {
     public partial class CostCenter : System.Web.UI.UserControl
     {

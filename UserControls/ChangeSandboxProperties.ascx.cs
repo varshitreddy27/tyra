@@ -8,9 +8,9 @@ using B24.Common.IGE;
 using SkillSoft.IGE.IGEClient;
 using B24.Common.Logs;
 using System.Configuration;
-using B24.Sales3.BLL;
+using B24.Sales4.BLL;
 
-namespace B24.Sales3.UserControl
+namespace B24.Sales4.UserControl
 {
     public partial class ChangeSandboxProperties : System.Web.UI.UserControl
     {
@@ -19,7 +19,7 @@ namespace B24.Sales3.UserControl
         private Guid subID;
         private Guid userID;
         private Guid requestorID;
-        private Sales3.UI.BasePage basePage;
+        private Sales4.UI.BasePage basePage;
         private SandboxPropertySupplier sandboxPropertySupplier;
         private CheckBox cbx;
         #endregion
@@ -64,7 +64,7 @@ namespace B24.Sales3.UserControl
         #region Protected Methods
         protected void Page_Load(object sender, EventArgs e)
         {
-            this.basePage = this.Page as Sales3.UI.BasePage;
+            this.basePage = this.Page as Sales4.UI.BasePage;
             if (!IsPostBack)
             {
                 BindData();
@@ -158,7 +158,7 @@ namespace B24.Sales3.UserControl
         /// </summary>
         public void BindData()
         {
-            this.basePage = this.Page as Sales3.UI.BasePage;
+            this.basePage = this.Page as Sales4.UI.BasePage;
             if (subID == Guid.Empty)
             {
                 return;

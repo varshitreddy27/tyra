@@ -7,7 +7,7 @@ using System.Globalization;
 using System.Collections.ObjectModel;
 using System.Collections.Generic;
 
-namespace B24.Sales3.UserControl
+namespace B24.Sales4.UserControl
 {
     public partial class EmailPassword : System.Web.UI.UserControl
     {

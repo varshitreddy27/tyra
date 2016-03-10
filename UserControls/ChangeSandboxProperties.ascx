@@ -1,5 +1,5 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="ChangeSandboxProperties.ascx.cs"
-    Inherits="B24.Sales3.UserControl.ChangeSandboxProperties" %>
+    Inherits="B24.Sales4.UserControl.ChangeSandboxProperties" %>
 <asp:Label ID="NewSandboxHeaderLabel" runat="server" Text="Modify Sandbox Properties"
     CssClass="b24-doc-subtitle"></asp:Label><br />
 <asp:Label ID="ErrorMsg" runat="server" Text="" CssClass="b24-alerttext" Visible="false"></asp:Label>
