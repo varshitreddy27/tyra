@@ -7,10 +7,28 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace B24.Sales3.UI {
+namespace B24.Sales4.UI {
     
     
     public partial class Login {
+        
+        /// <summary>
+        /// LoginPnl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel LoginPnl;
+        
+        /// <summary>
+        /// LogInLbl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LogInLbl;
         
         /// <summary>
         /// B24Login control.
@@ -20,5 +38,14 @@ namespace B24.Sales3.UI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::B24.Common.Web.Controls.B24Login B24Login;
+        
+        /// <summary>
+        /// ChangePasswordPnl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel ChangePasswordPnl;
     }
 }

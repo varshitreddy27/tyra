@@ -13,7 +13,7 @@ using B24.Common.Web;
 using B24.Common.Web.Controls;
 using B24.Common.Security;
 
-namespace B24.Sales3.UI
+namespace B24.Sales4.UI
 {
   public partial class Login : BasePage
   {
