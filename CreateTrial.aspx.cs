@@ -10,7 +10,7 @@ using B24.Common.Web;
 using B24.Common.Logs;
 using System.Globalization;
 
-namespace B24.Sales3.UI
+namespace B24.Sales4.UI
 {
     public partial class CreateTrial : BasePage
     {
@@ -541,11 +541,11 @@ namespace B24.Sales3.UI
            
             masterPage.SubMenuPanel.Visible = true;
 
-            string url = "~/CreateTrial.aspx?module=" + Sales3Module.SubModuleCreateNewTrialUser + args + "&subModule=";
-            MenuItem itemRegTrial = new MenuItem("Create a Trial User", Sales3Module.SubModuleCreateNewTrialUser.ToString(CultureInfo.InvariantCulture), "~/images/_.gif", url + Sales3Module.SubModuleManageAccountInfo.ToString(CultureInfo.InvariantCulture));
+            string url = "~/CreateTrial.aspx?module=" + Sales4Module.SubModuleCreateNewTrialUser + args + "&subModule=";
+            MenuItem itemRegTrial = new MenuItem("Create a Trial User", Sales4Module.SubModuleCreateNewTrialUser.ToString(CultureInfo.InvariantCulture), "~/images/_.gif", url + Sales4Module.SubModuleManageAccountInfo.ToString(CultureInfo.InvariantCulture));
 
-            url = "~/LibraryTrial.aspx?module=" + Sales3Module.SubModuleCreateNewTrial + args + "&subModule=";
-            MenuItem itemLibraryTrial = new MenuItem("Create a Library Trial", Sales3Module.SubModuleCreateNewTrial.ToString(CultureInfo.InvariantCulture), "~/images/_.gif", url + Sales3Module.SubModuleManageAccountInfo.ToString(CultureInfo.InvariantCulture));
+            url = "~/LibraryTrial.aspx?module=" + Sales4Module.SubModuleCreateNewTrial + args + "&subModule=";
+            MenuItem itemLibraryTrial = new MenuItem("Create a Library Trial", Sales4Module.SubModuleCreateNewTrial.ToString(CultureInfo.InvariantCulture), "~/images/_.gif", url + Sales4Module.SubModuleManageAccountInfo.ToString(CultureInfo.InvariantCulture));
 
             masterPage.SubMenu.Items.Add(itemRegTrial);
             masterPage.SubMenu.Items.Add(itemLibraryTrial);
@@ -609,7 +609,7 @@ namespace B24.Sales3.UI
         private bool CheckAccess()
         {
             bool hasAccess = true;
-            if (!CheckUserAccess(Sales3Module.ModuleCreateNewTrial, subModule))
+            if (!CheckUserAccess(Sales4Module.ModuleCreateNewTrial, subModule))
             {
                 hasAccess = false;
                 AccessDeniedErrorLabel.Visible = true;

@@ -12,9 +12,9 @@ using System.Web.UI.WebControls.WebParts;
 using System.Web.UI.HtmlControls;
 using System.Collections.Generic;
 using B24.Common;
-using B24.Sales3.DAL;
+using B24.Sales4.DAL;
 
-namespace B24.Sales3.UI
+namespace B24.Sales4.UI
 {
     public partial class Cart : BasePage
     {
@@ -355,7 +355,7 @@ namespace B24.Sales3.UI
         private bool CheckAccess()
         {
             bool hasAccess = true;
-            if (!CheckUserAccess(Sales3Module.ModuleCart, 0))
+            if (!CheckUserAccess(Sales4Module.ModuleCart, 0))
             {
                 hasAccess = false;
                 AccessDeniedErrorLabel.Visible = true;

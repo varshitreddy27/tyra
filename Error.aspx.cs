@@ -9,7 +9,7 @@ using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Web.UI.HtmlControls;
 
-namespace B24.Sales3.UI
+namespace B24.Sales4.UI
 {
   public partial class Error : BasePage
   {

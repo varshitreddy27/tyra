@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace B24.Sales3.UI
+namespace B24.Sales4.UI
 {
     public partial class _Default : System.Web.UI.Page
     {

@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/BaseMaster.Master" AutoEventWireup="true" CodeBehind="CreateTrial.aspx.cs" Inherits="B24.Sales3.UI.CreateTrial" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/BaseMaster.Master" AutoEventWireup="true" CodeBehind="CreateTrial.aspx.cs" Inherits="B24.Sales4.UI.CreateTrial" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="Content" runat="server">
     <asp:Label ID="AccessDeniedErrorLabel" runat="server" Text="Access denied. Contact your administrator." Visible="false" CssClass="b24-errortext"></asp:Label>
