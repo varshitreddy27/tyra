@@ -7,9 +7,9 @@ using System.Web.UI.WebControls;
 using B24.Common.Security;
 using B24.Common.Web;
 using B24.Common;
-using B24.Sales3.UI;
+using B24.Sales4.UI;
 
-namespace B24.Sales3.UserControls
+namespace B24.Sales4.UserControls
 {
     public partial class RecentlyUpdatedAccount : System.Web.UI.UserControl
     {
@@ -50,9 +50,9 @@ namespace B24.Sales3.UserControls
                 HyperLink manageAccount = (HyperLink)e.Row.FindControl("ManageAccount");
                 HyperLink reports = (HyperLink)e.Row.FindControl("Reports");
 
-                accountInfoHyperLink.NavigateUrl = "~/ManageAccount.aspx?module=" + Sales3Module.ModuleManageAccounts + "&submodule=" + Sales3Module.SubModuleManageAccountInfo + "&arg=" + subId;
-                manageAccount.NavigateUrl = "~/ManageAccount.aspx?module=" + Sales3Module.ModuleManageAccounts + "&submodule=" + Sales3Module.SubModuleSettings + "&arg=" + subId;
-                reports.NavigateUrl = "~/ManageAccount.aspx?module=" + Sales3Module.ModuleManageAccounts + "&submodule=" + Sales3Module.SubModuleReports + "&arg=" + subId;
+                accountInfoHyperLink.NavigateUrl = "~/ManageAccount.aspx?module=" + Sales4Module.ModuleManageAccounts + "&submodule=" + Sales4Module.SubModuleManageAccountInfo + "&arg=" + subId;
+                manageAccount.NavigateUrl = "~/ManageAccount.aspx?module=" + Sales4Module.ModuleManageAccounts + "&submodule=" + Sales4Module.SubModuleSettings + "&arg=" + subId;
+                reports.NavigateUrl = "~/ManageAccount.aspx?module=" + Sales4Module.ModuleManageAccounts + "&submodule=" + Sales4Module.SubModuleReports + "&arg=" + subId;
             }
         }
         #endregion
@@ -70,8 +70,8 @@ namespace B24.Sales3.UserControls
             RecentSubcriptionGridview.DataSource = reportList;
             RecentSubcriptionGridview.DataBind();
 
-            ManageUserLookupHyperLink.NavigateUrl = "~/ManageUser.aspx?module=" + Sales3Module.ModuleManageUsers;
-            ManageAccountLookupHyperLink.NavigateUrl = "~/ManageAccount.aspx?module=" + Sales3Module.ModuleManageAccounts;
+            ManageUserLookupHyperLink.NavigateUrl = "~/ManageUser.aspx?module=" + Sales4Module.ModuleManageUsers;
+            ManageAccountLookupHyperLink.NavigateUrl = "~/ManageAccount.aspx?module=" + Sales4Module.ModuleManageAccounts;
         }
         #endregion
     }

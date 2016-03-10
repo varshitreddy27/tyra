@@ -6,7 +6,7 @@ using System.Globalization;
 using System.Data.SqlClient;
 using System.Collections.ObjectModel;
 
-namespace B24.Sales3.UserControl
+namespace B24.Sales4.UserControl
 {
     public partial class RemoveRestoreUser : System.Web.UI.UserControl
     {
@@ -42,7 +42,7 @@ namespace B24.Sales3.UserControl
 
         #region Private Variable
 
-        private Sales3.UI.BasePage basePage;
+        private Sales4.UI.BasePage basePage;
         private Logger logger = new Logger(Logger.LoggerType.Sales3);
         private UserFactory userFactory;
         private User user;
@@ -101,7 +101,7 @@ namespace B24.Sales3.UserControl
                 {
                     return;
                 }
-                basePage = this.Page as Sales3.UI.BasePage;
+                basePage = this.Page as Sales4.UI.BasePage;
                 IntitializeControls();
             }
             catch (Exception ex)

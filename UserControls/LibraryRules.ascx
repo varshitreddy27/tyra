@@ -1,5 +1,5 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true"
-    Inherits="B24.Sales3.UserControl.LibraryRules" Codebehind="LibraryRules.ascx.cs" %>
+    Inherits="B24.Sales4.UserControl.LibraryRules" Codebehind="LibraryRules.ascx.cs" %>
 <asp:UpdatePanel ID="RulesUpdatePanel" runat="server">
     <ContentTemplate>
         <table>

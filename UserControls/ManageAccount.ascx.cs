@@ -8,9 +8,9 @@ using System.Data.SqlClient;
 using System.Globalization;
 using System.Data;
 using System.Web.UI.WebControls;
-using B24.Sales3.UI;
+using B24.Sales4.UI;
 
-namespace B24.Sales3.UserControl
+namespace B24.Sales4.UserControl
 {
     public partial class ManageAccount : System.Web.UI.UserControl
     {
@@ -106,7 +106,7 @@ namespace B24.Sales3.UserControl
                         HyperLink manageAccountHyperLink = new HyperLink();
                         manageAccountHyperLink.Text = "Manage Account";
                         manageAccountHyperLink.CssClass = "GoButton";
-                        manageAccountHyperLink.NavigateUrl = "~/ManageAccount.aspx?module=" + Sales3Module.ModuleManageAccounts + "&submodule=" + Sales3Module.SubModuleSettings + "&arg=" + subId;
+                        manageAccountHyperLink.NavigateUrl = "~/ManageAccount.aspx?module=" + Sales4Module.ModuleManageAccounts + "&submodule=" + Sales4Module.SubModuleSettings + "&arg=" + subId;
                         e.Row.Cells[cellNum].Controls.Add(manageAccountHyperLink);
 
                         e.Row.Cells[cellNum].Controls.Add(new LiteralControl("<BR>"));
@@ -114,7 +114,7 @@ namespace B24.Sales3.UserControl
                         HyperLink reportsHyperLink = new HyperLink();
                         reportsHyperLink.Text = "Reports";
                         reportsHyperLink.CssClass = "GoButton";
-                        reportsHyperLink.NavigateUrl = "~/ManageAccount.aspx?module=" + Sales3Module.ModuleManageAccounts + "&submodule=" + Sales3Module.SubModuleReports + "&arg=" + subId;
+                        reportsHyperLink.NavigateUrl = "~/ManageAccount.aspx?module=" + Sales4Module.ModuleManageAccounts + "&submodule=" + Sales4Module.SubModuleReports + "&arg=" + subId;
 
                         e.Row.Cells[cellNum].Controls.Add(reportsHyperLink);
                     }
@@ -129,7 +129,7 @@ namespace B24.Sales3.UserControl
                         HyperLink UserInfoHyperLink = new HyperLink();
                         UserInfoHyperLink.Text = "User Info";
                         UserInfoHyperLink.CssClass = "GoButton";
-                        UserInfoHyperLink.NavigateUrl = "~/ManageUser.aspx?module=" + Sales3Module.ModuleManageUsers + "&submodule=" + Sales3Module.SubModuleManageUserInfo + "&arg=" + endUserID;
+                        UserInfoHyperLink.NavigateUrl = "~/ManageUser.aspx?module=" + Sales4Module.ModuleManageUsers + "&submodule=" + Sales4Module.SubModuleManageUserInfo + "&arg=" + endUserID;
 
                         e.Row.Cells[cellNum].Controls.Add(UserInfoHyperLink);
 
@@ -138,7 +138,7 @@ namespace B24.Sales3.UserControl
                         HyperLink ManageUserHyperLink = new HyperLink();
                         ManageUserHyperLink.Text = "Manage User";
                         ManageUserHyperLink.CssClass = "GoButton";
-                        ManageUserHyperLink.NavigateUrl = "~/ManageUser.aspx?module=" + Sales3Module.ModuleManageUsers + "&submodule=" + Sales3Module.SubModuleEmailSettings + "&arg=" + endUserID;
+                        ManageUserHyperLink.NavigateUrl = "~/ManageUser.aspx?module=" + Sales4Module.ModuleManageUsers + "&submodule=" + Sales4Module.SubModuleEmailSettings + "&arg=" + endUserID;
                         e.Row.Cells[cellNum].Controls.Add(ManageUserHyperLink);
                     }
                 }

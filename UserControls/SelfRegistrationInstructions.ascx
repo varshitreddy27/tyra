@@ -1,5 +1,5 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true"
-    Inherits="B24.Sales3.UserControl.SelfRegistrationInstructions" Codebehind="SelfRegistrationInstructions.ascx.cs" %>
+    Inherits="B24.Sales4.UserControl.SelfRegistrationInstructions" Codebehind="SelfRegistrationInstructions.ascx.cs" %>
 <link href="App_Themes/Classic/sales3.css" rel="stylesheet" type="text/css" />
 <table cellpadding="1" cellspacing="1">
     <tr>

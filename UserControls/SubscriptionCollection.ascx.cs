@@ -16,13 +16,13 @@ using System.Collections.Generic;
 using B24.Common.Logs;
 
 
-namespace B24.Sales3.UserControl
+namespace B24.Sales4.UserControl
 {
     public partial class SubscriptionCollection : System.Web.UI.UserControl
     {
         #region Class Members
         private GlobalVariables global = GlobalVariables.GetInstance();
-        private Sales3.UI.BasePage basePage;
+        private Sales4.UI.BasePage basePage;
         private SubscriptionFactory subFac;
         private Logger logger = new Logger(Logger.LoggerType.AccountInfo);
         private Dictionary<int, string> accessListDict;
@@ -81,7 +81,7 @@ namespace B24.Sales3.UserControl
             {
                 return;
             }
-            basePage = this.Page as Sales3.UI.BasePage;
+            basePage = this.Page as Sales4.UI.BasePage;
 
             InintializeControls();
             // initialize the common data

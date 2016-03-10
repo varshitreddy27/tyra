@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 using B24.Common.Logs;
 using B24.Common;
 
-namespace B24.Sales3.UserControl
+namespace B24.Sales4.UserControl
 {
     /// <summary>
     /// To Update or Set the Self Registration Instructions
@@ -32,7 +32,7 @@ namespace B24.Sales3.UserControl
 
         #region Private Properties
 
-        private Sales3.UI.BasePage basePage;
+        private Sales4.UI.BasePage basePage;
         
         #endregion
 
@@ -42,7 +42,7 @@ namespace B24.Sales3.UserControl
             {
                 return;
             }
-            basePage = this.Page as Sales3.UI.BasePage;
+            basePage = this.Page as Sales4.UI.BasePage;
             if (!IsPostBack)
             {
                 LoadSelfRegistrationInstructions();

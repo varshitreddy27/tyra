@@ -8,7 +8,7 @@ using B24.Common;
 using B24.Common.Logs;
 using B24.Common.Web;
 
-namespace B24.Sales3.UserControl
+namespace B24.Sales4.UserControl
 {
     public partial class LibraryRules : System.Web.UI.UserControl
     {

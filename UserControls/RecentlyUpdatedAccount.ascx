@@ -1,5 +1,5 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="RecentlyUpdatedAccount.ascx.cs"
-    Inherits="B24.Sales3.UserControls.RecentlyUpdatedAccount" %>
+    Inherits="B24.Sales4.UserControls.RecentlyUpdatedAccount" %>
 <table>
     <tr>
         <td align="left">

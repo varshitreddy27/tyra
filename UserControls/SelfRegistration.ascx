@@ -1,5 +1,5 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true"
-    Inherits="B24.Sales3.UserControl.SelfRegistration" Codebehind="SelfRegistration.ascx.cs" %>
+    Inherits="B24.Sales4.UserControl.SelfRegistration" Codebehind="SelfRegistration.ascx.cs" %>
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
 
 

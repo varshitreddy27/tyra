@@ -7,7 +7,7 @@ using B24.Common;
 using B24.Common.Web;
 using B24.Common.Logs;
 
-namespace B24.Sales3.UserControl
+namespace B24.Sales4.UserControl
 {
     /// <summary>
     ///  To update Single sign on subscription
@@ -52,7 +52,7 @@ namespace B24.Sales3.UserControl
         public EventHandler UpdateInfo { get; set; }
         #endregion
 
-        private Sales3.UI.BasePage basePage;
+        private Sales4.UI.BasePage basePage;
 
         #region Events
 
@@ -62,7 +62,7 @@ namespace B24.Sales3.UserControl
             {
                 return;
             }
-            basePage = this.Page as Sales3.UI.BasePage;
+            basePage = this.Page as Sales4.UI.BasePage;
             if (!Page.IsPostBack)
             {
                 LoadSubscriptionData();

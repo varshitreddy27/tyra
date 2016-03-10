@@ -8,7 +8,7 @@ using B24.Common.Web;
 using B24.Common.Logs;
 using System.Data.SqlClient;
 
-namespace B24.Sales3.UserControl
+namespace B24.Sales4.UserControl
 {
     /// <summary>
     /// Partner logo upload
@@ -16,7 +16,7 @@ namespace B24.Sales3.UserControl
     public partial class PartnerLogo : System.Web.UI.UserControl
     {
         #region Private members
-        private Sales3.UI.BasePage basePage;
+        private Sales4.UI.BasePage basePage;
 
         #endregion
 
@@ -43,7 +43,7 @@ namespace B24.Sales3.UserControl
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            basePage = this.Page as Sales3.UI.BasePage;
+            basePage = this.Page as Sales4.UI.BasePage;
 
             if (string.IsNullOrEmpty(PassRoot))
             {

@@ -8,7 +8,7 @@ using System.Web.UI.WebControls;
 using System.Collections.Generic;
 
 
-namespace B24.Sales3.UserControl
+namespace B24.Sales4.UserControl
 {
     /// <summary>
     /// To Enable self registration and add or Remove domain rule
