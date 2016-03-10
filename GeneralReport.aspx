@@ -1,6 +1,5 @@
 <%@ Page Language="C#" MasterPageFile="~/BaseMaster.master" AutoEventWireup="true"
-    CodeBehind="GeneralReport.aspx.cs" Inherits="B24.Sales3.UI.GeneralReport" %>
-<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
+    CodeBehind="GeneralReport.aspx.cs" Inherits="B24.Sales4.UI.GeneralReport" %>
 <%@ Register Src="~/UserControls/AdvanceReport.ascx" TagName="AdvanceReportControl"
     TagPrefix="AdvanceReport" %>
 <%@ Register Src="~/UserControls/ManageAccount.ascx" TagName="AccountInfoControl"

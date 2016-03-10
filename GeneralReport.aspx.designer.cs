@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace B24.Sales3.UI {
+namespace B24.Sales4.UI {
     
     
     public partial class GeneralReport {
@@ -28,7 +28,7 @@ namespace B24.Sales3.UI {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::B24.Sales3.UserControl.ManageAccount ManageAccountUserControl;
+        protected global::B24.Sales4.UserControl.ManageAccount ManageAccountUserControl;
         
         /// <summary>
         /// AdvanceReportUpdatePanel control.
@@ -46,6 +46,6 @@ namespace B24.Sales3.UI {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::B24.Sales3.UserControl.AdvanceReport AdvanceReportUserControl;
+        protected global::B24.Sales4.UserControl.AdvanceReport AdvanceReportUserControl;
     }
 }

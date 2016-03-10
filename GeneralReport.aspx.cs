@@ -16,7 +16,7 @@ using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Globalization;
 
-namespace B24.Sales3.UI
+namespace B24.Sales4.UI
 {
     public partial class GeneralReport : BasePage
     {
@@ -137,7 +137,7 @@ namespace B24.Sales3.UI
         private bool CheckAccess()
         {
             bool hasAccess = true;
-            if (!CheckUserAccess(Sales3Module.ModuleGeneralReporting, 0))
+            if (!CheckUserAccess(Sales4Module.ModuleGeneralReporting, 0))
             {
                 hasAccess = false;
                 AccessDeniedErrorLabel.Visible = true;
