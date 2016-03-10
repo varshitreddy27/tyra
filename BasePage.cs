@@ -16,7 +16,7 @@ using System.Data.SqlClient;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace B24.Sales3.UI
+namespace B24.Sales4.UI
 {
   public class BasePage : B24.Common.Web.BasePage
   {
@@ -24,6 +24,7 @@ namespace B24.Sales3.UI
     private bool isSupport;
     private bool isSkillsoft;
     private int applicationId = 0;
+
     public StringDictionary SalesGroupDict
     {
       get { return salesGroupDict; }
