@@ -1,4 +1,4 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" Inherits="B24.Sales3.UserControl.AddUsers" Codebehind="AddUsers.ascx.cs" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true" Inherits="B24.Sales4.UserControl.AddUsers" Codebehind="AddUsers.ascx.cs" %>
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
 <table>
     <tr>

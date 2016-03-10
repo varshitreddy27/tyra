@@ -1,5 +1,5 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="AccountLookup.ascx.cs"
-    Inherits="B24.Sales3.UserControls.AccountLookup" %>
+    Inherits="B24.Sales4.UserControls.AccountLookup" %>
 
 <asp:Panel ID="LookupPanel" runat="server" Width="450" DefaultButton="FindButton">
     <p class="b24-doc-title">

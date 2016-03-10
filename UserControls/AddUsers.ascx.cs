@@ -9,7 +9,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Data.SqlClient;
 
-namespace B24.Sales3.UserControl
+namespace B24.Sales4.UserControl
 {
     /// <summary>
     /// To add the users in the subscription
@@ -108,7 +108,7 @@ namespace B24.Sales3.UserControl
             {
                 return;
             }
-            baseObject = this.Page as Sales3.UI.BasePage;
+            baseObject = this.Page as Sales4.UI.BasePage;
             if (!IsPostBack)
             {
                 InitializeControls();

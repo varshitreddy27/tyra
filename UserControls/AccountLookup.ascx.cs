@@ -7,9 +7,9 @@ using System.Web;
 using System.Web.UI.WebControls;
 using B24.Common;
 using B24.Common.Logs;
-using B24.Sales3.UI;
+using B24.Sales4.UI;
 
-namespace B24.Sales3.UserControls
+namespace B24.Sales4.UserControls
 {
     public partial class AccountLookup : System.Web.UI.UserControl
     {
@@ -96,9 +96,9 @@ namespace B24.Sales3.UserControls
                 HyperLink accountInfoHyperLink = (HyperLink)e.Row.FindControl("AccountInfoHyperLink");
                 HyperLink manageAccountHyperLink = (HyperLink)e.Row.FindControl("ManageAccountHyperLink");
                 HyperLink reportsHyperLink = (HyperLink)e.Row.FindControl("ReportsHyperLink");
-                accountInfoHyperLink.NavigateUrl = "~/ManageAccount.aspx?module=" + Sales3Module.ModuleManageAccounts + "&submodule=" + Sales3Module.SubModuleManageAccountInfo + "&arg=" + subId;
-                manageAccountHyperLink.NavigateUrl = "~/ManageAccount.aspx?module=" + Sales3Module.ModuleManageAccounts + "&submodule=" + Sales3Module.SubModuleSettings + "&arg=" + subId;
-                reportsHyperLink.NavigateUrl = "~/ManageAccount.aspx?module=" + Sales3Module.ModuleManageAccounts + "&submodule=" + Sales3Module.SubModuleReports + "&arg=" + subId;
+                accountInfoHyperLink.NavigateUrl = "~/ManageAccount.aspx?module=" + Sales4Module.ModuleManageAccounts + "&submodule=" + Sales4Module.SubModuleManageAccountInfo + "&arg=" + subId;
+                manageAccountHyperLink.NavigateUrl = "~/ManageAccount.aspx?module=" + Sales4Module.ModuleManageAccounts + "&submodule=" + Sales4Module.SubModuleSettings + "&arg=" + subId;
+                reportsHyperLink.NavigateUrl = "~/ManageAccount.aspx?module=" + Sales4Module.ModuleManageAccounts + "&submodule=" + Sales4Module.SubModuleReports + "&arg=" + subId;
                 Label expireLabel = (Label)e.Row.FindControl("EndDateLabel");
                 DateTime expireDate = Convert.ToDateTime(expireLabel.Text, CultureInfo.InvariantCulture);
                 if (expireDate < DateTime.Now)

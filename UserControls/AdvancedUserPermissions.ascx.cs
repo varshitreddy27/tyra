@@ -5,7 +5,7 @@ using B24.Common.Web;
 using B24.Common.Logs;
 using System.Data.SqlClient;
 
-namespace B24.Sales3.UserControl
+namespace B24.Sales4.UserControl
 {
     public partial class AdvancedUserPermissions : System.Web.UI.UserControl
     {
