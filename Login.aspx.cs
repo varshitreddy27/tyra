@@ -8,16 +8,31 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Web.UI.HtmlControls;
+using System.Collections.Generic;
 using B24.Common;
 using B24.Common.Web;
 using B24.Common.Web.Controls;
 using B24.Common.Security;
+using System.Collections.ObjectModel;
+using B24.Common.Logs;
+using System.Text.RegularExpressions;
 
 namespace B24.Sales4.UI
 {
+    public enum LoginView
+    {
+        NotSet = -1,
+        Login = 0,
+        ChangePassword = 1,
+        ForgotPassword = 2
+    }
+
   public partial class Login : BasePage
   {
     private BasePage basePage;
+    BLL.UserLoginManagement userLogin;
+
+    #region protected methods
     protected void Page_Load(object sender, EventArgs e)
     {
         try
@@ -27,21 +42,59 @@ namespace B24.Sales4.UI
             {
                 return;
             }
+
+            if (!IsPostBack)
+            {
+                LoginPageMultiView.ActiveViewIndex = (int)B24.Sales4.UI.LoginView.Login;
+            }
         }
         catch (NullReferenceException)
         {
-            this.basePage.B24Errors.Add(new B24Error(Resources.Resource.ErrorSales3));
+            this.basePage.B24Errors.Add(new B24Error(Resources.Resource.ErrorSales4));
         }
-      // Redirect the user to the home page if logged in already
-      B24Principal user = Context.User as B24Principal;
-      if (user != null && user.Identity.IsAuthenticated)
-      {
-          Response.Redirect("home.aspx");   
-      }
+
+   //   B24Principal user = Context.User as B24Principal;
+
     }
-    protected void B24Login_LoggedIn(object sender, EventArgs e)
+
+    protected void Login_Click(object sender, EventArgs e)
     {
-        if (B24Login.UserID != Guid.Empty)
+        Page.Validate();
+        if (!Page.IsValid)
+        {
+            this.basePage.B24Errors.Add(new B24Error(Resources.Resource.RequiredFieldsMissing));
+            return;
+        } 
+        if (userLogin == null)
+            userLogin = new BLL.UserLoginManagement(basePage.UserConnStr, basePage);
+        bool success = userLogin.LoginUser(usernameTbx1.Text.Trim(), passwordTbx.Text.Trim());
+
+        if (success)
+        {
+            initBasePage();
+            if(!String.IsNullOrEmpty(userLogin.ReturnURL))
+                Response.Redirect(userLogin.ReturnURL);
+        }
+        else
+        {
+            if (userLogin.MustChangePassword == true)
+            {
+                LoginPageMultiView.ActiveViewIndex = (int)B24.Sales4.UI.LoginView.ChangePassword;
+                usernameTbx.Focus();
+
+            }
+            else
+            {
+                B24Errors.Add(new B24.Common.Web.B24Error(userLogin.ErrorMessage));
+            }
+        }
+        
+    }
+
+
+    protected void initBasePage()
+    {
+        if (userLogin != null && userLogin.UserID != Guid.Empty)
         {
             if (!String.IsNullOrEmpty(ConfigurationManager.AppSettings["LibraryTrialSalesGroup1"]) && !String.IsNullOrEmpty(ConfigurationManager.AppSettings["LibraryTrialSalesGroup2"])
                  && !String.IsNullOrEmpty(ConfigurationManager.AppSettings["SupportSalesGroup"]))
@@ -78,5 +131,114 @@ namespace B24.Sales4.UI
             }
         }
     }
-}
+
+    protected void ChangeButton_Click(object sender, EventArgs e)
+    {
+        Page.Validate();
+        if (!Page.IsValid) // required field validation
+        {
+            this.basePage.B24Errors.Add(new B24Error(Resources.Resource.RequiredFieldsMissing));
+            return;
+        } 
+        if (IsValidPassword()) // more granular validation
+        {
+            if (userLogin == null)
+                userLogin = new BLL.UserLoginManagement(basePage.UserConnStr, basePage);
+
+            try
+            {
+                bool success = userLogin.ChangePassword(usernameTbx.Text.Trim(), txtNewPassword.Text.Trim(), tempPasswordTbx.Text.Trim());
+                if (success)
+                {
+                    initBasePage();
+                    Response.Redirect(userLogin.ReturnURL);
+                }
+                else
+                {
+                    B24Errors.Add(new B24.Common.Web.B24Error("Could not change password"));
+                }
+            }
+            catch (Exception ex)
+            {
+                B24Errors.Add(new B24.Common.Web.B24Error(ex.Message));
+            }
+        }
+    }
+
+    protected void Login_ForgotPassword(object sender, EventArgs e)
+    {
+        LoginPageMultiView.ActiveViewIndex = (int) B24.Sales4.UI.LoginView.ForgotPassword;
+        EmailAddressTbx.Focus();
+    }
+
+    protected void BackToLogin_Click(object sender, EventArgs e)
+    {
+        LoginPageMultiView.ActiveViewIndex = (int)B24.Sales4.UI.LoginView.Login;
+    }
+
+    protected void Login_EmailPassword(object sender, EventArgs e)
+    {
+        Page.Validate();
+        if (!Page.IsValid)
+        {
+            this.basePage.B24Errors.Add(new B24Error(Resources.Resource.RequiredFieldsMissing));
+            return;
+        } 
+        if (IsValidEmail(EmailAddressTbx.Text.Trim()))
+        {
+            UserFactory uf = new UserFactory(basePage.UserConnStr);
+            List<User> users = new List<User>();
+
+            try
+            {
+                uf.EmailPassword(EmailAddressTbx.Text.Trim());
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message == "Email account name not found")
+                    B24Errors.Add(new B24.Common.Web.B24Error(Resources.Resource.ForgotPasswordNoEmail));
+                else
+                    B24Errors.Add(new B24.Common.Web.B24Error("There has been an error processing your request. Please contact tech support."));
+             }
+        }
+        else
+        {
+            B24Errors.Add(new B24.Common.Web.B24Error(Resources.Resource.InvalidEmailAddress));
+        }
+    }
+    #endregion protected methods
+
+      #region private methods
+    // Verify the values before changing the password
+    private bool IsValidPassword()
+    {
+        // Verify matching passwords
+        if (txtNewPassword.Text.Trim() != txtConfirm.Text.Trim())
+        {
+           B24Errors.Add(new B24.Common.Web.B24Error(Resources.Resource.PasswordMatch));
+
+            return false;
+        }
+        //Verify the password length
+        if (txtNewPassword.Text.Trim().Length < 4 )
+        {
+            B24Errors.Add(new B24.Common.Web.B24Error(Resources.Resource.PasswordLengthShort));
+            return false;
+        }   
+        else if (txtNewPassword.Text.Trim().Length > 63)
+        {
+            B24Errors.Add(new B24.Common.Web.B24Error(Resources.Resource.PasswordLengthLong));
+            return false;
+        }
+        return true;
+    }
+
+    bool IsValidEmail(string strIn)
+    {
+        // Return true if strIn is in valid e-mail format.
+        return Regex.IsMatch(strIn, @"^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$");
+    }
+
+      #endregion
+  }
 }
