@@ -1,7 +1,7 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true"
     Inherits="B24.Sales4.UserControl.SubscriptionCollection" Codebehind="SubscriptionCollection.ascx.cs" %>
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
-<link href="App_Themes/Classic/sales3.css" rel="stylesheet" type="text/css" />
+<link href="App_Themes/Classic/sales4.css" rel="stylesheet" type="text/css" />
 <link href="App_Themes/Classic/Calendar.css" rel="stylesheet" type="text/css" />
 
 
@@ -128,7 +128,7 @@
                     <asp:Label ID="NewExpiryDateLabel" runat="server" Text="Collection Expiriation Date"></asp:Label>
                 </td>               
                 <td>
-                    <asp:Label ID="NewChapterDownLoadLabel" runat="server" Text="Chapter DownLoads Allowed"></asp:Label>
+                    <asp:Label ID="NewChapterDownLoadLabel" runat="server" Text="Chapter Downloads Allowed"></asp:Label>
                 </td>
                 <td>
                 </td>

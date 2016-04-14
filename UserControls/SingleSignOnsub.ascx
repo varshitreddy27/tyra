@@ -1,6 +1,6 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true"
     Inherits="B24.Sales4.UserControl.SingleSignOnsub" Codebehind="SingleSignOnsub.ascx.cs" %>
-<link href="App_Themes/Classic/sales3.css" rel="stylesheet" type="text/css" />
+<link href="App_Themes/Classic/sales4.css" rel="stylesheet" type="text/css" />
 <p id="HeaderText" runat="server" class="b24-doc-title" visible="false">
     Single Sign on Subscription</p>
 <table border="0" cellspacing="1" cellpadding="1">

@@ -1,6 +1,6 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true"
     Inherits="B24.Sales4.UserControl.SelfRegistrationInstructions" Codebehind="SelfRegistrationInstructions.ascx.cs" %>
-<link href="App_Themes/Classic/sales3.css" rel="stylesheet" type="text/css" />
+<link href="App_Themes/Classic/sales4.css" rel="stylesheet" type="text/css" />
 <table cellpadding="1" cellspacing="1">
     <tr>
         <td colspan="2">
