@@ -23,7 +23,7 @@ namespace B24.Sales4.UI
 
         #region Private Variables
 
-        Logger logger = new Logger(Logger.LoggerType.Sales3);
+        Logger logger = new Logger(Logger.LoggerType.Sales4);
         B24.Common.Web.BasePage basePage;
         Guid subId;
         Subscription subscription;
