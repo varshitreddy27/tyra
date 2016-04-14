@@ -43,7 +43,7 @@ namespace B24.Sales4.UserControl
         #region Private Variable
 
         private Sales4.UI.BasePage basePage;
-        private Logger logger = new Logger(Logger.LoggerType.Sales3);
+        private Logger logger = new Logger(Logger.LoggerType.Sales4);
         private UserFactory userFactory;
         private User user;
 
