@@ -42,7 +42,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AjaxControlToolkit, Version=3.0.30930.28736, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL" />
+    <Reference Include="AjaxControlToolkit, Version=3.0.30930.28736, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\AjaxControlToolkit.dll</HintPath>
+    </Reference>
     <Reference Include="B24.Common, Version=1.0.33.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\B24.Common\B24.Common\bin\Debug\B24.Common.dll</HintPath>
@@ -77,7 +80,7 @@
   <ItemGroup>
     <Content Include="App_Themes\Classic\Calendar.css" />
     <Content Include="App_Themes\Classic\jquery-ui-custom.css" />
-    <Content Include="App_Themes\Classic\sales3.css" />
+    <Content Include="App_Themes\Classic\sales4.css" />
     <Content Include="CreateTrial.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="images\b24saleslogo_sm.gif" />
@@ -183,6 +186,7 @@
       <DependentUpon>Resource.resx</DependentUpon>
     </Compile>
     <Compile Include="BLL\SubscriptionAlerts.cs" />
+    <Compile Include="BLL\UserLoginManagement.cs" />
     <Compile Include="Cart.aspx.cs">
       <DependentUpon>Cart.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -517,6 +521,7 @@
     <Content Include="App_GlobalResources\Resource.resx">
       <Generator>GlobalResourceProxyGenerator</Generator>
       <LastGenOutput>Resource.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </Content>
     <Content Include="Cart.aspx" />
     <Content Include="Error.aspx" />
@@ -648,6 +653,7 @@
     <Content Include="UserControls\RecentlyUpdatedAccount.ascx" />
     <Content Include="UserControls\UserLookup.ascx" />
     <Content Include="UserControls\UserRole.ascx" />
+    <Content Include="packages.config" />
     <None Include="sql\B24_GetCollections.sql" />
     <None Include="sql\B24_GetSubscriptionLookup.sql" />
     <None Include="sql\B24_GetUserLookup.sql" />
