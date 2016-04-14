@@ -130,15 +130,6 @@ namespace B24.Sales4.UserControl {
         protected global::System.Web.UI.WebControls.HiddenField DynamicFieldNames;
         
         /// <summary>
-        /// CancelButton control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button CancelButton;
-        
-        /// <summary>
         /// ReportDescriptionLabel control.
         /// </summary>
         /// <remarks>
@@ -155,6 +146,15 @@ namespace B24.Sales4.UserControl {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button AnotherDateRangeButton;
+        
+        /// <summary>
+        /// CancelLButton1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton CancelLButton1;
         
         /// <summary>
         /// ReportResultView control.
@@ -175,22 +175,22 @@ namespace B24.Sales4.UserControl {
         protected global::System.Web.UI.WebControls.PlaceHolder ReportResultViewPlaceHolder;
         
         /// <summary>
-        /// ResultOkButton control.
+        /// DownloadReportButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ResultOkButton;
+        protected global::System.Web.UI.WebControls.Button DownloadReportButton;
         
         /// <summary>
-        /// DownLoadReportButton control.
+        /// CancelLButton2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button DownLoadReportButton;
+        protected global::System.Web.UI.WebControls.LinkButton CancelLButton2;
         
         /// <summary>
         /// EndDateTextBox control.

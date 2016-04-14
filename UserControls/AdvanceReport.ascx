@@ -7,14 +7,18 @@
         document.getElementById("<%= ReportSPNameHiddenField.ClientID %>").value = reportname;
         document.getElementById("<%= TaskHiddenField.ClientID %>").value = task;
         document.getElementById("<%= ReportNameHiddenField.ClientID %>").value = reportDescription;
-        thisForm = document.Forms[0];
-        thisForm.submit();
+        if (document.Forms != undefined) {
+            thisForm = document.Forms[0];
+            thisForm.submit();
+        }
     }
     function SetReportQId(reportqid, task) {
         document.getElementById("<%= TaskHiddenField.ClientID %>").value = task;
         document.getElementById("<%=ReportQueueIDHiddenField.ClientID%>").value = reportqid;
-        thisForm = document.Forms[0];
-        thisForm.submit();
+        if (document.Forms != undefined) {
+            thisForm = document.Forms[0];
+            thisForm.submit();
+        }
     }
     function ChangeTask(task) {
         document.getElementById("<%= TaskHiddenField.ClientID %>").value = task;
@@ -26,7 +30,6 @@
         textBox.value = ddList.options[ddList.selectedIndex].value;
     }
 </script>
-
 <asp:MultiView ID="ReportView" runat="server">
     <asp:View runat="server" ID="ReportUserControlView">
       
@@ -121,7 +124,7 @@
                                 <ItemTemplate>
                                     <asp:HiddenField ID="ReportQidHiddenField" runat="server" Value='<%#Eval("ReportQid") %>' />
                                     <asp:LinkButton ID="ViewLinkButton" runat="server" CssClass="GoButton" Text="View" />
-                                    <asp:LinkButton ID="DownLoadLinkButton" runat="server" CssClass="GoButton" Text="DownLoad" />
+                                    <asp:LinkButton ID="DownloadLinkButton" runat="server" CssClass="GoButton" Text="Download" />
                                     <asp:LinkButton ID="DeleteLinkButton" runat="server" CssClass="GoButton" Text="Delete" />
                                 </ItemTemplate>
                                 </asp:TemplateField>
@@ -155,12 +158,7 @@
             <asp:Panel ID="ResultSubmittedPanel" runat="server" Visible="false">
             </asp:Panel>
             <asp:HiddenField ID="DynamicFieldNames" runat="server" />
-            <table>
-                <tr>
-                    <td>
-                        <asp:Button ID="CancelButton" runat="server" Text="Cancel" OnClientClick="ChangeTask('Cancel')" />
-                    </td>
-                </tr>
+            <table>        
                 <tr>
                     <td>
                         <asp:Label ID="ReportDescriptionLabel" runat="server" Text="Report"></asp:Label>
@@ -174,14 +172,20 @@
                 </tr>
             </table>
         </asp:PlaceHolder>
+        <div>      
+            <asp:LinkButton ID="CancelLButton1" runat="server" Text="Back to Report List" OnClientClick="ChangeTask('Cancel')"></asp:LinkButton>
+        </div>
     </asp:View>
     <asp:View runat="server" ID="ReportResultView">
-        <asp:PlaceHolder ID="ReportResultViewPlaceHolder" runat="server">
-            <asp:Button ID="ResultOkButton" runat="server" Text="Ok" OnClientClick="ChangeTask('Cancel')" />
-            <br />
-            <br />
-            <asp:Button ID="DownLoadReportButton" runat="server" Text="DownLoad Report" OnClientClick="ChangeTask('DownLoad')" />
+        <asp:PlaceHolder ID="ReportResultViewPlaceHolder" runat="server">  
+            <div class="buttondiv">
+                <asp:Button ID="DownloadReportButton" runat="server" CssClass="Button2" Text="Download Report XXX" OnClientClick="ChangeTask('Download')" />
+                <br />
+                <asp:LinkButton ID="CancelLButton2" runat="server" CssClass="Button2" Text="Back to Report List" OnClientClick="ChangeTask('Cancel')"></asp:LinkButton>
+                <br />
+            </div>
         </asp:PlaceHolder>
+
     </asp:View>
 </asp:MultiView>
 <asp:TextBox Visible="false" ID="EndDateTextBox" runat="server"

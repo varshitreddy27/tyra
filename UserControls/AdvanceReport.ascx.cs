@@ -20,7 +20,7 @@ namespace B24.Sales4.UserControl
     {
         #region Private Members
 
-        private Logger logger = new Logger(Logger.LoggerType.Sales3);
+        private Logger logger = new Logger(Logger.LoggerType.Sales4);
         private GlobalVariables global = GlobalVariables.GetInstance();
         private B24.Common.Web.BasePage baseObject;
         private string task = string.Empty;
@@ -47,7 +47,7 @@ namespace B24.Sales4.UserControl
         {
             ViewRun,
             Run,
-            DownLoad,
+            Download,
             Delete,
             View
         }
@@ -75,8 +75,16 @@ namespace B24.Sales4.UserControl
             {
                 baseObject = this.Page as B24.Common.Web.BasePage;
                 GetValuesFromHiddenField();
-                InitPopulate();
-                LoadReport();
+                string control = "";
+                if (Request.Form.GetValues("__EVENTTARGET") != null)
+                {
+                    control = Request.Form.GetValues("__EVENTTARGET")[0];
+                }
+                if (!String.Equals(control, "ctl00$sales4LoginStatus$ctl00")) // to prevent downloading reports on postback from logout
+                {
+                    InitPopulate();
+                    LoadReport();
+                }
             }
             catch (Exception exception)
             {
@@ -127,15 +135,17 @@ namespace B24.Sales4.UserControl
         {
             if (e.Row.RowType == DataControlRowType.DataRow)
             {
+                ScriptManager ScriptManager1 = ScriptManager.GetCurrent(this.Page);        
+
                 Label completedLabel = (Label)e.Row.FindControl("CompletedLabel");
-                LinkButton downLoadLinkButton = (LinkButton)e.Row.FindControl("DownLoadLinkButton");
+                LinkButton downloadLinkButton = (LinkButton)e.Row.FindControl("DownloadLinkButton");
                 LinkButton deleteLinkButton = (LinkButton)e.Row.FindControl("DeleteLinkButton");
                 LinkButton viewLinkButton = (LinkButton)e.Row.FindControl("ViewLinkButton");
 
                 if (completedLabel.Text == "Pending")
                 {
                     e.Row.Controls.Remove(viewLinkButton);
-                    e.Row.Controls.Remove(downLoadLinkButton);
+                    e.Row.Controls.Remove(downloadLinkButton);
                     e.Row.Controls.Remove(deleteLinkButton);
                     e.Row.Cells.RemoveAt(2);
                 }
@@ -144,7 +154,8 @@ namespace B24.Sales4.UserControl
                     HiddenField reportQIdHidden = (HiddenField)e.Row.FindControl("ReportQidHiddenField");
                     viewLinkButton.OnClientClick = "SetReportQId('" + reportQIdHidden.Value + "','View')";
                     deleteLinkButton.OnClientClick = "SetReportQId('" + reportQIdHidden.Value + "','Delete')";
-                    downLoadLinkButton.OnClientClick = "SetReportQId('" + reportQIdHidden.Value + "','DownLoad')";
+                    downloadLinkButton.OnClientClick = "SetReportQId('" + reportQIdHidden.Value + "','Download')";
+                    ScriptManager1.RegisterPostBackControl(downloadLinkButton);
                 }
             }
         }
@@ -195,6 +206,7 @@ namespace B24.Sales4.UserControl
             if (!string.IsNullOrEmpty(TaskHiddenField.Value))
             {
                 task = TaskHiddenField.Value;
+                TaskHiddenField.Value = "clear";
             }
             if (!string.IsNullOrEmpty(ReportSPNameHiddenField.Value))
             {
@@ -204,13 +216,14 @@ namespace B24.Sales4.UserControl
             {
                 reportQId = new Guid(ReportQueueIDHiddenField.Value);
             }
+            
         }
 
         /// <summary>
         /// Populate corresponding view and control load based on Tasks
         /// For Task = View -> Show the report result for give report id
         /// For Task = Run -> Run the report for given report name
-        /// For Task = DownLoad -> Provide report result as downloadable format
+        /// For Task = Download -> Provide report result as downloadable format
         /// For Task = ViewRun -> To Show the report parameter UI to run report
         /// For Task = Delete -> Delete the report for given report id
         /// </summary>
@@ -233,7 +246,7 @@ namespace B24.Sales4.UserControl
                         RunReport();
                     }
                     ResultSubmittedPanel.Visible = false;
-                    CancelButton.Text = "Cancel";
+              //      CancelButton.Text = "Cancel";
                     ReportDescriptionLabel.Text = ReportNameHiddenField.Value;
                     AnotherDateRangeButton.Visible = false;
                 }
@@ -241,10 +254,10 @@ namespace B24.Sales4.UserControl
                 {
                     RunReport();
                 }
-                else if (task == ReportTask.DownLoad.ToString())
+                else if (task == ReportTask.Download.ToString())
                 {
                     ReportFactory reportFactory = new ReportFactory(baseObject.UserConnStr);
-                    string reportString = reportFactory.GetReportView(reportQId, ReportTask.DownLoad.ToString());
+                    string reportString = reportFactory.GetReportView(reportQId, ReportTask.Download.ToString());
                     Response.Clear();
                     Response.AddHeader("content-disposition", "attachment;filename=b24_report_" + DateTime.Now.ToString("yyMMddHHmmss") + ".xls");
                     Response.Charset = "";
@@ -276,6 +289,8 @@ namespace B24.Sales4.UserControl
                     ReportFactory reportFactory = new ReportFactory(baseObject.UserConnStr);
                     string reportHTML = reportFactory.GetReportView(reportQId, ReportTask.View.ToString());
                     ReportResultViewPlaceHolder.Controls.Add(new LiteralControl(reportHTML));
+                    ScriptManager ScriptManager1 = ScriptManager.GetCurrent(this.Page);
+                    ScriptManager1.RegisterPostBackControl(DownloadReportButton);
                     ReportView.ActiveViewIndex = 2;
                 }
             }
@@ -319,7 +334,7 @@ namespace B24.Sales4.UserControl
                 ReportParameterPlaceHolder.Controls.Add(new LiteralControl("<tr>"));
                 ReportParameterPlaceHolder.Controls.Add(new LiteralControl("<td colspan='2'>"));
                 Button reportRunButton = new Button();
-                reportRunButton.ID = "RunButtton";
+                reportRunButton.ID = "RunButton";
                 reportRunButton.Text = "Run";
                 //reportRunButton.OnClientClick = "ChangeTask('ViewRun')" ;
                 ReportParameterPlaceHolder.Controls.Add(reportRunButton);
@@ -558,7 +573,7 @@ namespace B24.Sales4.UserControl
                 string runResult = reportFactory.RunReport(reportParameterDetails);
                 ResultSubmittedPanel.Controls.Add(new LiteralControl(runResult));
                 ResultSubmittedPanel.Visible = true;
-                CancelButton.Text = "Ok";
+             //   CancelLButton.Text = "Ok";
                 AnotherDateRangeButton.Visible = true;
                 ReportView.ActiveViewIndex = 1;
             }
