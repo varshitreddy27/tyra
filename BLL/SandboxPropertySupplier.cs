@@ -22,7 +22,7 @@ namespace B24.Sales4.BLL
         private SandboxProperties thisSandboxProperties = null;
         // corresponding to DB
         private SandboxProperties dbSandBoxProperties = null;
-        private Logger logger = new Logger(Logger.LoggerType.Sales3);
+        private Logger logger = new Logger(Logger.LoggerType.Sales4);
         private GlobalVariables global = GlobalVariables.GetInstance();
         private Sales4.UI.BasePage basePage;
         private Guid subscriptionId;
