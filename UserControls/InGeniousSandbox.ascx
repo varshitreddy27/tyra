@@ -1,7 +1,7 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true"
     Inherits="B24.Sales4.UserControl.IngeniousSandbox" Codebehind="IngeniousSandbox.ascx.cs" %>
-    <%@ Register Tagname="SandboxProperty" tagprefix="Sales3" src="~/UserControls/ChangeSandboxProperties.ascx"%>
-<link href="App_Themes/Classic/sales3.css" rel="stylesheet" type="text/css" />
+    <%@ Register Tagname="SandboxProperty" tagprefix="Sales4" src="~/UserControls/ChangeSandboxProperties.ascx"%>
+<link href="App_Themes/Classic/sales4.css" rel="stylesheet" type="text/css" />
 <table>
     <tr>
         <td>
@@ -137,4 +137,4 @@
         </td>
     </tr>
 </table>
-<%--<div><Sales3:SandboxProperty ID="SandboxPropertyUserControl" runat="server"/></div>--%>
+<%--<div><Sales4:SandboxProperty ID="SandboxPropertyUserControl" runat="server"/></div>--%>

@@ -14,7 +14,7 @@ namespace B24.Sales4.UserControl
     {
 
         #region private members
-        private Logger logger = new Logger(Logger.LoggerType.Sales3);
+        private Logger logger = new Logger(Logger.LoggerType.Sales4);
         private bool isB24 = true; // to identify if sub is B24 sub or not
         private Sales4.UI.BasePage basePage;
         #endregion
