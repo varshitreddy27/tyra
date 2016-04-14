@@ -31,13 +31,13 @@ namespace B24.Sales4.UI {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// Sales3ScriptManager control.
+        /// Sales4ScriptManager control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.ScriptManager Sales3ScriptManager;
+        protected global::System.Web.UI.ScriptManager Sales4ScriptManager;
         
         /// <summary>
         /// Logo control.
