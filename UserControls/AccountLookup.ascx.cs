@@ -17,7 +17,7 @@ namespace B24.Sales4.UserControls
 
         B24.Common.Web.BasePage baseObject;
         GlobalVariables global = GlobalVariables.GetInstance();
-        Logger logger = new Logger(Logger.LoggerType.Sales3);
+        Logger logger = new Logger(Logger.LoggerType.Sales4);
 
         #endregion
         
