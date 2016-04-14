@@ -1,5 +1,5 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" Inherits="B24.Sales4.UserControl.CostCenter" Codebehind="CostCenter.ascx.cs" %>
-<link href="../App_Themes/Classic/sales3.css" rel="stylesheet" type="text/css" />
+<link href="../App_Themes/Classic/sales4.css" rel="stylesheet" type="text/css" />
 
 <script language="javascript" type="text/javascript">
     function numberOnly(textString) {
