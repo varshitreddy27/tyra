@@ -16,8 +16,6 @@ namespace B24.Sales4.UI
   {
     protected void Page_Load(object sender, EventArgs e)
     {
-      // Kill the b24 session
-      this.AbandonSession();
         // Clear State
       State.Remove("errMsg");
       // Kill the .Net session and delete the "ticket" (cookie)
