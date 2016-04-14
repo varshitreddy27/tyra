@@ -10,7 +10,7 @@ namespace B24.Sales4.UI
     {
         #region Private variables
         private Guid subscriptionId;
-        Logger logger = new Logger(Logger.LoggerType.Sales3);
+        Logger logger = new Logger(Logger.LoggerType.Sales4);
         #endregion
 
         #region Events

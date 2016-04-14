@@ -17,7 +17,7 @@ namespace B24.Sales4.UI
         /// <summary>
         /// logger object is created 
         /// </summary>
-        Logger logger = new Logger(Logger.LoggerType.Sales3);
+        Logger logger = new Logger(Logger.LoggerType.Sales4);
         /// <summary>
         /// GlobalVariables boject is created 
         /// </summary>
