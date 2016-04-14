@@ -47,8 +47,8 @@ namespace B24.Sales4.UI
             subRow = (String.IsNullOrEmpty(Request.Form["SubGroup"])) ? -1 : Convert.ToInt32(Request.Form["SubGroup"]);
 
             // Initialize the factories
-            subFactory = new SubscriptionFactory(base.Sales3UserConnStr);
-            userFactory = new CartUserFactory(base.Sales3UserConnStr);
+            subFactory = new SubscriptionFactory(base.Sales4UserConnStr);
+            userFactory = new CartUserFactory(base.Sales4UserConnStr);
 
             // Load the list of carted users and subs
             subRowCount = 0;
@@ -313,7 +313,7 @@ namespace B24.Sales4.UI
         private bool IsInGenSub(Guid subID)
         {
             bool isInGenSub = false;
-            SubscriptionFlagFactory subFlagFactory = new SubscriptionFlagFactory(base.Sales3UserConnStr);
+            SubscriptionFlagFactory subFlagFactory = new SubscriptionFlagFactory(base.Sales4UserConnStr);
             List<SubscriptionFlag> subFlagList = subFlagFactory.GetActiveSubscriptionFlags(subID);
             if (subFlagList != null && subFlagList.Count > 0)
             {
