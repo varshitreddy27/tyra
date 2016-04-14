@@ -56,7 +56,7 @@ namespace B24.Sales4.UI
             {
 
                 logger.Log(Logger.LogLevel.Error, Resources.Resource.NullReference, ex);
-                this.basePage.B24Errors.Add(new B24Error(Resources.Resource.ErrorSales3));
+                this.basePage.B24Errors.Add(new B24Error(Resources.Resource.ErrorSales4));
             }
 
             //if ((basePage.State["salesgroup"] == null)|| 
