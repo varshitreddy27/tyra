@@ -105,7 +105,7 @@ namespace B24.Sales4.UserControl
             }
 
             //Verify the password length
-            if (txtNewPassword.Text.Trim().Length < 3 || txtNewPassword.Text.Trim().Length > 63)
+            if (txtNewPassword.Text.Trim().Length < 4 || txtNewPassword.Text.Trim().Length > 63)
             {
                 ChangePasswordError.Text = Resources.Resource.PasswordLength;
                 ChangePasswordError.Visible = true;
