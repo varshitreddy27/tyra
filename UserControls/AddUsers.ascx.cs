@@ -19,7 +19,7 @@ namespace B24.Sales4.UserControl
 
         #region Private Members
         GlobalVariables global = GlobalVariables.GetInstance();
-        Logger logger = new Logger(Logger.LoggerType.Sales3);
+        Logger logger = new Logger(Logger.LoggerType.Sales4);
         MasterDataFactory masterDataFactory;
         BasePage baseObject;
 
