@@ -15,6 +15,7 @@ using System.Collections.Specialized;
 using System.Data.SqlClient;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Principal;
 
 namespace B24.Sales4.UI
 {
@@ -24,6 +25,9 @@ namespace B24.Sales4.UI
     private bool isSupport;
     private bool isSkillsoft;
     private int applicationId = 0;
+    GlobalVariables globals = GlobalVariables.GetInstance();
+    private B24.Common.Logs.Logger logger = null;
+ 
 
     public StringDictionary SalesGroupDict
     {
@@ -53,14 +57,14 @@ namespace B24.Sales4.UI
     {
         get { return GetLoginAppName(); }
     }
-    public  string Sales3UserConnStr
+    public  string Sales4UserConnStr
     {
         get 
         { 
             return base.UserConnStr;
         }
     }
-    public  string Sales3AssetConnStr
+    public  string Sales4AssetConnStr
     {
         get { 
             return base.AssetConnStr;
@@ -79,6 +83,12 @@ namespace B24.Sales4.UI
               return new Guid(ConfigurationManager.AppSettings["B24IGEAdmin"].ToString());
           }
       }
+
+      public B24.Common.Logs.Logger Logger
+      {
+          get { return logger; }
+      }
+
 
       public int ApplicationId
       {
@@ -104,7 +114,6 @@ namespace B24.Sales4.UI
 
       // Get  the branding cookie
       BrandEm();
-
 
       //Response.Write("serverlocation: " + String.Format("{0}", this.WebServer.Location) + "<br>");
       //Response.Write("UserConnStr: " + this.UserConnStr + "<br>");
@@ -217,7 +226,7 @@ namespace B24.Sales4.UI
 
       try
       {
-        using (SqlConnection conn = new SqlConnection(Sales3UserConnStr))
+        using (SqlConnection conn = new SqlConnection(Sales4UserConnStr))
         {
           SqlCommand cmd = new SqlCommand("B24_GetSalesGroupsForUser", conn);
           cmd.Parameters.Add("@UserID", SqlDbType.UniqueIdentifier).Value = User.UserID;
@@ -273,31 +282,12 @@ namespace B24.Sales4.UI
       Label errorLabel = Utils.FindControlRecursive(this.Master, "ErrorLabel") as Label;
       if (errorLabel != null)
       {
-        errorLabel.Text = B24Errors.ToHTMLString();
+          errorLabel.Text = B24Errors.ToHTMLString();
       }
 
       base.OnLoadComplete(e);
     }
 
-    public override void AbandonSession()
-    {
-        HttpCookie sessionCookie = Context.Request.Cookies[BasePage.SessionCookie];
-        if (sessionCookie != null)
-        {
-            // Kill the session cookie under both default path and asp path
-            sessionCookie.Expires = DateTime.Now.AddDays(-1);
-            sessionCookie.Path = Utils.GetASPCookiePath(Context);
-            Context.Response.Cookies.Add(sessionCookie);
-            // Expire the session in the database
-            string sessionID = this.Server.UrlDecode(sessionCookie.Value);
-            B24Session session = new B24Session();
-            session.ConnectionString = this.UserConnStr;
-            if (!string.IsNullOrEmpty(sessionID))
-            {
-                session.AbandonSession(Guid.Empty, new Guid(sessionID));
-            }
-        }
-    }
 
     public Guid GetSandboxRequesterId(bool isB24)
     {
@@ -332,6 +322,23 @@ namespace B24.Sales4.UI
             }
         }
         return hasAccess;
+    }
+
+    public void SetLoggerProperties()
+    {
+
+        B24.Common.Logs.Logger.AppName = this.globals.AppName;
+        B24.Common.Logs.Logger.RequestUrl = String.Empty;
+
+        string serverIP = HttpContext.Current.Request.ServerVariables["LOCAL_ADDR"];
+        string serverName = HttpContext.Current.Request.ServerVariables["SERVER_NAME"];
+
+        Server webServer = new Server(serverIP, serverName);
+        B24.Common.Logs.Logger.Server = webServer;
+
+        // All above properties must be set before instantiating the logger.
+        logger = B24.Common.Logs.Logger.GetLogger(B24.Common.Logs.Logger.LoggerType.Sales4);
+
     }
 
    }
