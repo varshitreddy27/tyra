@@ -26,7 +26,7 @@ namespace B24.Sales4.UserControl
         private int nonSoftDeletedUserCount;
 
         //Create Logger object
-        private Logger logger = new Logger(Logger.LoggerType.Sales3);
+        private Logger logger = new Logger(Logger.LoggerType.Sales4);
 
         #endregion
 

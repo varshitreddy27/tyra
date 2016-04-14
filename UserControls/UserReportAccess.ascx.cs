@@ -17,7 +17,7 @@ namespace B24.Sales4.UserControl
         #region Private Members
         
         private Sales4.UI.BasePage basePage;
-        Logger logger = new Logger(Logger.LoggerType.Sales3);        
+        Logger logger = new Logger(Logger.LoggerType.Sales4);        
         Dictionary<int, ReportAccess> reportDictionary;
         Boolean editButtonView = false;
 

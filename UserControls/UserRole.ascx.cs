@@ -32,7 +32,7 @@ namespace B24.Sales4.UserControls
         private B24.Sales4.UI.BasePage basePage;
 
         //Create Logger object
-        private Logger logger = new Logger(Logger.LoggerType.Sales3);
+        private Logger logger = new Logger(Logger.LoggerType.Sales4);
 
         //Selected user role id from dropdownlist
         private int userRoleId;
