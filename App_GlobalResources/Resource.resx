@@ -234,8 +234,8 @@
   <data name="UsersNotAdded" xml:space="preserve">
     <value>Could not add one or more users</value>
   </data>
-  <data name="ErrorSales3" xml:space="preserve">
-    <value>Sales3 error</value>
+  <data name="ErrorSales4" xml:space="preserve">
+    <value>Sales4 error</value>
   </data>
   <data name="UsersAdded" xml:space="preserve">
     <value>Added users</value>
@@ -251,6 +251,9 @@
   </data>
   <data name="InvalidEmail" xml:space="preserve">
     <value>Invalid email</value>
+  </data>
+  <data name="InvalidEmailAddress" xml:space="preserve">
+    <value>Invalid email address</value>
   </data>
   <data name="PasswordFail" xml:space="preserve">
     <value>Fail to update password</value>
@@ -271,7 +274,7 @@
     <value>User details updated</value>
   </data>
   <data name="PasswordLength" xml:space="preserve">
-    <value>Password must be between 3 and 63 characters</value>
+    <value>Password must be between 4 and 63 characters</value>
   </data>
   <data name="ImpersonateFail" xml:space="preserve">
     <value>Impersonation failed</value>
@@ -431,5 +434,17 @@
   </data>
   <data name="WelcomeMessageUpdated" xml:space="preserve">
     <value>Welcome message sender is successfully modified</value>
+  </data>
+  <data name="PasswordLengthLong" xml:space="preserve">
+    <value>Password must not exceed 63 characters</value>
+  </data>
+  <data name="PasswordLengthShort" xml:space="preserve">
+    <value>Password must be at least 4 long</value>
+  </data>
+  <data name="ForgotPasswordNoEmail" xml:space="preserve">
+    <value>This email address is not associated with Sales 4 application</value>
+  </data>
+  <data name="RequiredFieldsMissing" xml:space="preserve">
+    <value>Please fill all the required fields</value>
   </data>
 </root>
