@@ -3,25 +3,25 @@
     CodeBehind="ManageAccount.aspx.cs" %>
 
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
-<%@ Register TagName="InfoDetails" TagPrefix="Sales3" Src="~/UserControls/InfoDetails.ascx" %>
-<%@ Register TagName="Lookup" TagPrefix="Sales3" Src="~/UserControls/AccountLookup.ascx" %>
-<%@ Register TagName="SSO" TagPrefix="Sales3" Src="~/UserControls/SingleSignOnsub.ascx" %>
-<%@ Register TagName="BrandLogo" TagPrefix="Sales3" Src="~/UserControls/PartnerLogo.ascx" %>
-<%@ Register TagName="SubFlag" TagPrefix="Sales3" Src="~/UserControls/SubscriptionFlag.ascx" %>
-<%@ Register TagName="ManageAcc" TagPrefix="Sales3" Src="~/UserControls/ManageAccount.ascx" %>
-<%@ Register TagName="SelfRegInstruction" TagPrefix="Sales3" Src="~/UserControls/SelfRegistrationInstructions.ascx" %>
-<%@ Register TagName="Collection" TagPrefix="Sales3" Src="~/UserControls/SubscriptionCollection.ascx" %>
-<%@ Register TagName="CostCenter" TagPrefix="Sales3" Src="~/UserControls/CostCenter.ascx" %>
-<%@ Register TagName="ExtendAttrib" TagPrefix="Sales3" Src="~/UserControls/ExtendAttributes.ascx" %>
-<%@ Register TagName="IGESandbox" TagPrefix="Sales3" Src="~/UserControls/InGeniousSandbox.ascx" %>
-<%@ Register TagName="AddUser" TagPrefix="Sales3" Src="~/UserControls/AddUsers.ascx" %>
-<%@ Register TagName="MsgSender" TagPrefix="Sales3" Src="~/UserControls/WelcomeMsgSender.ascx" %>
-<%@ Register TagName="SubNotes" TagPrefix="Sales3" Src="~/UserControls/SubscriptionNotes.ascx" %>
-<%@ Register TagName="SelfRegistration" TagPrefix="Sales3" Src="~/UserControls/SelfRegistration.ascx" %>
-<%@ Register TagName="Trail" TagPrefix="Sales3" Src="~/UserControls/ExtendTrail.ascx" %>
-<%@ Register TagName="UpdateAcc" TagPrefix="Sales3" Src="~/UserControls/UpdateAccount.ascx" %>
-<%@ Register TagName="AdvanceReportControl" TagPrefix="Sales3" Src="~/UserControls/AdvanceReport.ascx" %>
-<%@ Register TagName="AlertControl" TagPrefix="Sales3" Src="~/UserControls/Alerts.ascx" %>
+<%@ Register TagName="InfoDetails" TagPrefix="sales4" Src="~/UserControls/InfoDetails.ascx" %>
+<%@ Register TagName="Lookup" TagPrefix="sales4" Src="~/UserControls/AccountLookup.ascx" %>
+<%@ Register TagName="SSO" TagPrefix="sales4" Src="~/UserControls/SingleSignOnsub.ascx" %>
+<%@ Register TagName="BrandLogo" TagPrefix="sales4" Src="~/UserControls/PartnerLogo.ascx" %>
+<%@ Register TagName="SubFlag" TagPrefix="sales4" Src="~/UserControls/SubscriptionFlag.ascx" %>
+<%@ Register TagName="ManageAcc" TagPrefix="sales4" Src="~/UserControls/ManageAccount.ascx" %>
+<%@ Register TagName="SelfRegInstruction" TagPrefix="sales4" Src="~/UserControls/SelfRegistrationInstructions.ascx" %>
+<%@ Register TagName="Collection" TagPrefix="sales4" Src="~/UserControls/SubscriptionCollection.ascx" %>
+<%@ Register TagName="CostCenter" TagPrefix="sales4" Src="~/UserControls/CostCenter.ascx" %>
+<%@ Register TagName="ExtendAttrib" TagPrefix="sales4" Src="~/UserControls/ExtendAttributes.ascx" %>
+<%@ Register TagName="IGESandbox" TagPrefix="sales4" Src="~/UserControls/InGeniousSandbox.ascx" %>
+<%@ Register TagName="AddUser" TagPrefix="sales4" Src="~/UserControls/AddUsers.ascx" %>
+<%@ Register TagName="MsgSender" TagPrefix="sales4" Src="~/UserControls/WelcomeMsgSender.ascx" %>
+<%@ Register TagName="SubNotes" TagPrefix="sales4" Src="~/UserControls/SubscriptionNotes.ascx" %>
+<%@ Register TagName="SelfRegistration" TagPrefix="sales4" Src="~/UserControls/SelfRegistration.ascx" %>
+<%@ Register TagName="Trail" TagPrefix="sales4" Src="~/UserControls/ExtendTrail.ascx" %>
+<%@ Register TagName="UpdateAcc" TagPrefix="sales4" Src="~/UserControls/UpdateAccount.ascx" %>
+<%@ Register TagName="AdvanceReportControl" TagPrefix="sales4" Src="~/UserControls/AdvanceReport.ascx" %>
+<%@ Register TagName="AlertControl" TagPrefix="sales4" Src="~/UserControls/Alerts.ascx" %>
 
 <asp:Content ContentPlaceHolderID="Content" ID="ManageAccountContent" runat="server">
 
@@ -39,7 +39,7 @@
     </script>
     <asp:UpdatePanel ID="InfoDetailsUpdatePanel" runat="server" UpdateMode="Conditional">
         <ContentTemplate>
-            <Sales3:InfoDetails ID="SubscriptionInfoDetails" runat="server" />
+            <sales4:InfoDetails ID="SubscriptionInfoDetails" runat="server" />
         </ContentTemplate>
     </asp:UpdatePanel>
     <asp:UpdateProgress ID="UpdateProgress1" runat="server">
@@ -56,7 +56,7 @@
         <asp:View runat="server" ID="LookupView">
             <asp:UpdatePanel ID="LookupUpdatePanel" runat="server" UpdateMode="Conditional">
                 <ContentTemplate>
-                    <Sales3:Lookup ID="AccountLookupControl" runat="server" />
+                    <sales4:Lookup ID="AccountLookupControl" runat="server" />
                 </ContentTemplate>
             </asp:UpdatePanel>
         </asp:View>
@@ -64,7 +64,7 @@
             <asp:UpdatePanel ID="ManageAccountUpdatePanel" runat="server" UpdateMode="Conditional">
                 <ContentTemplate>
 
-                    <Sales3:ManageAcc ID="ManageAccountControl" runat="server" Visible="false" />
+                    <sales4:ManageAcc ID="ManageAccountControl" runat="server" Visible="false" />
 
                 </ContentTemplate>
             </asp:UpdatePanel>
@@ -76,7 +76,7 @@
                         <tr>
                             <td style="width: 30px"></td>
                             <td>
-                                <Sales3:Collection ID="CollectionUserControl" runat="server" Visible="false" />
+                                <sales4:Collection ID="CollectionUserControl" runat="server" Visible="false" />
                             </td>
                         </tr>
                     </table>
@@ -103,7 +103,7 @@
                                         <tr>
                                             <td style="width: 30px"></td>
                                             <td>
-                                                <Sales3:ManageAcc ID="ManageAccountEditControl" runat="server" />
+                                                <sales4:ManageAcc ID="ManageAccountEditControl" runat="server" />
                                             </td>
                                         </tr>
                                     </table>
@@ -126,7 +126,7 @@
                                         <tr>
                                             <td style="width: 30px"></td>
                                             <td>
-                                                <Sales3:SSO ID="SingleSignonUserControl" runat="server" />
+                                                <sales4:SSO ID="SingleSignonUserControl" runat="server" />
                                             </td>
                                         </tr>
                                     </table>
@@ -149,7 +149,7 @@
                                 <tr>
                                     <td style="width: 30px"></td>
                                     <td>
-                                        <Sales3:BrandLogo ID="BrandLogoUserControl" runat="server" />
+                                        <sales4:BrandLogo ID="BrandLogoUserControl" runat="server" />
                                     </td>
                                 </tr>
                             </table>
@@ -172,7 +172,7 @@
                                         <tr>
                                             <td style="width: 30px"></td>
                                             <td>
-                                                <Sales3:SubFlag ID="SubscriptionFlagUserControl" runat="server" />
+                                                <sales4:SubFlag ID="SubscriptionFlagUserControl" runat="server" />
                                             </td>
                                         </tr>
                                     </table>
@@ -195,7 +195,7 @@
                                         <tr>
                                             <td style="width: 30px"></td>
                                             <td>
-                                                <Sales3:SelfRegInstruction ID="SelfRegistrationInstructionUserControl" runat="server" />
+                                                <sales4:SelfRegInstruction ID="SelfRegistrationInstructionUserControl" runat="server" />
                                             </td>
                                         </tr>
                                     </table>
@@ -218,7 +218,7 @@
                                         <tr>
                                             <td style="width: 30px"></td>
                                             <td>
-                                                <Sales3:CostCenter ID="CostCenterUserControl" runat="server" />
+                                                <sales4:CostCenter ID="CostCenterUserControl" runat="server" />
                                             </td>
                                         </tr>
                                     </table>
@@ -241,7 +241,7 @@
                                         <tr>
                                             <td style="width: 30px"></td>
                                             <td>
-                                                <Sales3:ExtendAttrib ID="ExtendAttributesUserControl" runat="server" />
+                                                <sales4:ExtendAttrib ID="ExtendAttributesUserControl" runat="server" />
                                             </td>
                                         </tr>
                                     </table>
@@ -260,7 +260,7 @@
                                         <tr>
                                             <td style="width: 30px"></td>
                                             <td>
-                                                <Sales3:IGESandbox ID="IngeniousSandboxUserControl" runat="server" />
+                                                <sales4:IGESandbox ID="IngeniousSandboxUserControl" runat="server" />
                                             </td>
                                         </tr>
                                     </table>
@@ -278,7 +278,7 @@
                         <tr>
                             <td style="width: 30px"></td>
                             <td>
-                                <Sales3:AddUser ID="AddUsersControl" runat="server" Visible="false" />
+                                <sales4:AddUser ID="AddUsersControl" runat="server" Visible="false" />
                             </td>
                         </tr>
                     </table>
@@ -304,7 +304,7 @@
                                     <table>
                                         <tr>
                                             <td>
-                                                <Sales3:MsgSender ID="WelcomeMsgSenderControl" runat="server" />
+                                                <sales4:MsgSender ID="WelcomeMsgSenderControl" runat="server" />
                                             </td>
                                         </tr>
                                     </table>
@@ -327,7 +327,7 @@
                                         <tr>
                                             <td style="width: 30px"></td>
                                             <td>
-                                                <Sales3:SubNotes ID="SubscriptionNotesControl" runat="server" />
+                                                <sales4:SubNotes ID="SubscriptionNotesControl" runat="server" />
                                             </td>
                                         </tr>
                                     </table>
@@ -350,7 +350,7 @@
                                         <tr>
                                             <td style="width: 30px"></td>
                                             <td>
-                                                <Sales3:SelfRegistration ID="SelfRegistrationControl" runat="server" />
+                                                <sales4:SelfRegistration ID="SelfRegistrationControl" runat="server" />
                                             </td>
                                         </tr>
                                     </table>
@@ -373,7 +373,7 @@
                                         <tr>
                                             <td style="width: 30px"></td>
                                             <td>
-                                                <Sales3:Trail ID="ExtendTrailControl" runat="server" />
+                                                <sales4:Trail ID="ExtendTrailControl" runat="server" />
                                             </td>
                                         </tr>
                                     </table>
@@ -396,7 +396,7 @@
                                         <tr>
                                             <td style="width: 30px"></td>
                                             <td>
-                                                <Sales3:AlertControl ID="AlertsControl" runat="server" />
+                                                <sales4:AlertControl ID="AlertsControl" runat="server" />
                                             </td>
                                         </tr>
                                     </table>
@@ -410,7 +410,7 @@
         <asp:View runat="server" ID="ReportsView">
             <asp:UpdatePanel ID="AdvanceReportUpdatePanel" runat="server" UpdateMode="Conditional">
                 <ContentTemplate>
-                    <Sales3:AdvanceReportControl ID="AdvanceReportUserControl" runat="server" ShowHeaderText="True" Visible="false" />
+                    <sales4:AdvanceReportControl ID="AdvanceReportUserControl" runat="server" ShowHeaderText="True" Visible="false" />
                 </ContentTemplate>
             </asp:UpdatePanel>
         </asp:View>
@@ -421,7 +421,7 @@
                         <tr>
                             <td style="width: 30px"></td>
                             <td>
-                                <Sales3:UpdateAcc ID="UpdateAccountControl" runat="server" Visible="false" />
+                                <sales4:UpdateAcc ID="UpdateAccountControl" runat="server" Visible="false" />
                             </td>
                         </tr>
                     </table>
