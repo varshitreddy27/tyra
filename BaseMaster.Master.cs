@@ -133,7 +133,7 @@ namespace B24.Sales4.UI
         /// <summary>
         /// User logout
         /// </summary>
-        protected void Sales3LoginStatus_LoggingOut(object sender, LoginCancelEventArgs e)
+        protected void sales4LoginStatus_LoggingOut(object sender, LoginCancelEventArgs e)
         {
             Response.Redirect("AbandonSession.aspx");
         }

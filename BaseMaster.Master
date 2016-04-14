@@ -48,7 +48,7 @@
 </head>
 <body>
     <form id="MasterForm" runat="server">
-    <asp:ScriptManager ID="Sales3ScriptManager" runat="server">
+    <asp:ScriptManager ID="Sales4ScriptManager" runat="server">
     </asp:ScriptManager>
     <div class="salesgutterbg"> 
         <div id="Login" class="salesbg">
@@ -61,7 +61,7 @@
                     <asp:Label ID="TitleLabel" runat="server" Text="Books24x7 Sales"></asp:Label>
                 </td>  This isn't needed because it is in the logo--%>
                 <td colspan="2" class="salesusertext">
-                    <div><asp:Label ID="WelcomeUser" runat="server" Text="" ></asp:Label>&nbsp;|&nbsp;<asp:LoginStatus ID="Sales3LoginStatus" runat="server" OnLoggingOut="Sales3LoginStatus_LoggingOut" /></div>
+                    <div><asp:Label ID="WelcomeUser" runat="server" Text="" ></asp:Label>&nbsp;|&nbsp;<asp:LoginStatus ID="sales4LoginStatus" runat="server" OnLoggingOut="sales4LoginStatus_LoggingOut" /></div>
                 </td>               
             </tr>
             <tr>

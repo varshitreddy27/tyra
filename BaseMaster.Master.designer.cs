@@ -22,13 +22,13 @@ namespace B24.Sales4.UI {
         protected global::System.Web.UI.HtmlControls.HtmlForm MasterForm;
         
         /// <summary>
-        /// Sales3ScriptManager control.
+        /// Sales4ScriptManager control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.ScriptManager Sales3ScriptManager;
+        protected global::System.Web.UI.ScriptManager Sales4ScriptManager;
         
         /// <summary>
         /// Logo control.
@@ -49,13 +49,13 @@ namespace B24.Sales4.UI {
         protected global::System.Web.UI.WebControls.Label WelcomeUser;
         
         /// <summary>
-        /// Sales3LoginStatus control.
+        /// sales4LoginStatus control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LoginStatus Sales3LoginStatus;
+        protected global::System.Web.UI.WebControls.LoginStatus sales4LoginStatus;
         
         /// <summary>
         /// MenuUpdatePanel control.
