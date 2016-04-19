@@ -179,7 +179,7 @@
     <asp:View runat="server" ID="ReportResultView">
         <asp:PlaceHolder ID="ReportResultViewPlaceHolder" runat="server">  
             <div class="buttondiv">
-                <asp:Button ID="DownloadReportButton" runat="server" CssClass="Button2" Text="Download Report XXX" OnClientClick="ChangeTask('Download')" />
+                <asp:Button ID="DownloadReportButton" runat="server" CssClass="Button2" Text="Download Report" OnClientClick="ChangeTask('Download')" />
                 <br />
                 <asp:LinkButton ID="CancelLButton2" runat="server" CssClass="Button2" Text="Back to Report List" OnClientClick="ChangeTask('Cancel')"></asp:LinkButton>
                 <br />
