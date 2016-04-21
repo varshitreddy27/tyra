@@ -30,6 +30,7 @@ namespace B24.Sales4.UI
   public partial class Login : BasePage
   {
     private BasePage basePage;
+    private Logger logger = B24.Common.Logs.Logger.GetLogger(B24.Common.Logs.Logger.LoggerType.Authentication);
     BLL.UserLoginManagement userLogin;
 
     #region protected methods
@@ -51,6 +52,7 @@ namespace B24.Sales4.UI
         catch (NullReferenceException)
         {
             this.basePage.B24Errors.Add(new B24Error(Resources.Resource.ErrorSales4));
+            logger.Log(Logger.LogLevel.Error, Resources.Resource.ErrorSales4);
         }
 
    //   B24Principal user = Context.User as B24Principal;
@@ -64,7 +66,7 @@ namespace B24.Sales4.UI
         {
             this.basePage.B24Errors.Add(new B24Error(Resources.Resource.RequiredFieldsMissing));
             return;
-        } 
+        }
         if (userLogin == null)
             userLogin = new BLL.UserLoginManagement(basePage.UserConnStr, basePage);
         bool success = userLogin.LoginUser(usernameTbx1.Text.Trim(), passwordTbx.Text.Trim());
@@ -79,12 +81,14 @@ namespace B24.Sales4.UI
         {
             if (userLogin.MustChangePassword == true)
             {
+                logger.Log(Logger.LogLevel.Error, "The user has to change password");
                 LoginPageMultiView.ActiveViewIndex = (int)B24.Sales4.UI.LoginView.ChangePassword;
                 usernameTbx.Focus();
 
             }
             else
             {
+                logger.Log(Logger.LogLevel.Error, userLogin.ErrorMessage);
                 B24Errors.Add(new B24.Common.Web.B24Error(userLogin.ErrorMessage));
             }
         }
@@ -155,11 +159,13 @@ namespace B24.Sales4.UI
                 }
                 else
                 {
+                    logger.Log(Logger.LogLevel.Error, "Could not change password");
                     B24Errors.Add(new B24.Common.Web.B24Error("Could not change password"));
                 }
             }
             catch (Exception ex)
             {
+                logger.Log(Logger.LogLevel.Error, ex.Message);
                 B24Errors.Add(new B24.Common.Web.B24Error(ex.Message));
             }
         }
@@ -195,6 +201,7 @@ namespace B24.Sales4.UI
             }
             catch (Exception ex)
             {
+                logger.Log(Logger.LogLevel.Error, ex.Message);
                 if (ex.Message == "Email account name not found")
                     B24Errors.Add(new B24.Common.Web.B24Error(Resources.Resource.ForgotPasswordNoEmail));
                 else
@@ -203,6 +210,7 @@ namespace B24.Sales4.UI
         }
         else
         {
+            logger.Log(Logger.LogLevel.Error, Resources.Resource.InvalidEmailAddress);
             B24Errors.Add(new B24.Common.Web.B24Error(Resources.Resource.InvalidEmailAddress));
         }
     }
