@@ -335,10 +335,6 @@ namespace B24.Sales4.UI
 
         Server webServer = new Server(serverIP, serverName);
         B24.Common.Logs.Logger.Server = webServer;
-
-        // All above properties must be set before instantiating the logger.
-        logger = B24.Common.Logs.Logger.GetLogger(B24.Common.Logs.Logger.LoggerType.Sales4);
-
     }
 
    }
