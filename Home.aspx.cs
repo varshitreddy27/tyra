@@ -11,6 +11,7 @@ using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Xml.Linq;
 using B24.Common;
+using B24.Common.Logs;
 using B24.Common.Web;
 using B24.Common.Web.Controls;
 using B24.Common.Security;
@@ -19,6 +20,7 @@ namespace B24.Sales4.UI
 {
     public partial class Home : BasePage
     {
+        private Logger logger = new Logger(Logger.LoggerType.Sales4);
         #region Protected Events
         /// <summary>
         /// </summary>
@@ -48,6 +50,7 @@ namespace B24.Sales4.UI
                 hasAccess = false;
                 AccessDeniedErrorLabel.Visible = true;
                 RecentlyUpdated.Visible = false;
+                logger.Log(Logger.LogLevel.Error, "User has no access to any modules");
             }
             return hasAccess;
         }
