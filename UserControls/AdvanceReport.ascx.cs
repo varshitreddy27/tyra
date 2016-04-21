@@ -20,7 +20,7 @@ namespace B24.Sales4.UserControl
     {
         #region Private Members
 
-        private Logger logger = new Logger(Logger.LoggerType.Sales4);
+        private Logger logger = new Logger(Logger.LoggerType.AdvancedReport);
         private GlobalVariables global = GlobalVariables.GetInstance();
         private B24.Common.Web.BasePage baseObject;
         private string task = string.Empty;
@@ -88,6 +88,7 @@ namespace B24.Sales4.UserControl
             }
             catch (Exception exception)
             {
+                logger.Log(Logger.LogLevel.Error, exception.Message);
                 Response.Redirect("Error.aspx?message=" + exception.Message);
             }
         }
