@@ -259,7 +259,7 @@
     <value>Fail to update password</value>
   </data>
   <data name="PasswordMatch" xml:space="preserve">
-    <value>Confirm password must match with the new password</value>
+    <value>New Password and Confirm Password must match</value>
   </data>
   <data name="PasswordUpdate" xml:space="preserve">
     <value>Password updated</value>
@@ -436,10 +436,10 @@
     <value>Welcome message sender is successfully modified</value>
   </data>
   <data name="PasswordLengthLong" xml:space="preserve">
-    <value>Password must not exceed 63 characters</value>
+    <value>New Password cannot exceed a length of 64 characters</value>
   </data>
   <data name="PasswordLengthShort" xml:space="preserve">
-    <value>Password must be at least 4 long</value>
+    <value>New Password must be at least 4 characters in length</value>
   </data>
   <data name="ForgotPasswordNoEmail" xml:space="preserve">
     <value>This email address is not associated with Sales 4 application</value>

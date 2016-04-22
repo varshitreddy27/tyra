@@ -556,7 +556,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Password must not exceed 63 characters.
+        ///   Looks up a localized string similar to New Password cannot exceed a length of 64 characters.
         /// </summary>
         internal static string PasswordLengthLong {
             get {
@@ -565,7 +565,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Password must be at least 4 long.
+        ///   Looks up a localized string similar to New Password must be at least 4 characters in length.
         /// </summary>
         internal static string PasswordLengthShort {
             get {
@@ -574,7 +574,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Confirm password must match with the new password.
+        ///   Looks up a localized string similar to New Password and Confirm Password must match.
         /// </summary>
         internal static string PasswordMatch {
             get {
