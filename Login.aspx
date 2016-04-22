@@ -109,7 +109,7 @@
                 <div class="loginheader">
                     <asp:Label ID="ForgotPasswordTitleLbl" runat="server" Text="Forgot your Password?" CssClass="b24-doc-title"></asp:Label>
                 </div>
-                <div class="logininfo">Enter the email that you provided at registration to have a temporary password emailed to you.</div>
+                <div class="logininfo">Enter your email to have a temporary password emailed to you.</div>
                 <table>
                     <tr>
                         <td class="loginRegCell">

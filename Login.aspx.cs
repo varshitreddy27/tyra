@@ -159,8 +159,8 @@ namespace B24.Sales4.UI
                 }
                 else
                 {
-                    logger.Log(Logger.LogLevel.Error, "Could not change password");
-                    B24Errors.Add(new B24.Common.Web.B24Error("Could not change password"));
+                    logger.Log(Logger.LogLevel.Error, "Invalid username or temporary password");
+                    B24Errors.Add(new B24.Common.Web.B24Error("Invalid username or temporary password"));
                 }
             }
             catch (Exception ex)
