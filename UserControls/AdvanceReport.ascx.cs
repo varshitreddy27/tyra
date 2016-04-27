@@ -326,7 +326,7 @@ namespace B24.Sales4.UserControl
                         parameter.ParameterName != "@userid" &&
                         parameter.ParameterName != "@internalrequesterid" &&
                         parameter.ParameterName != "@noemail" &&
-                        parameter.ParameterName != "@pwdroot" &&
+                      //  parameter.ParameterName != "@pwdroot" &&
                         parameter.ParameterName != "@schedule")
                     {
                         CreateDynamicControls(parameter.ParameterName, reportParameterUI);
@@ -371,7 +371,8 @@ namespace B24.Sales4.UserControl
             {
                 foreach (ReportParameter reportParameter in reportParamterUI)
                 {
-                    if ("@" + reportParameter.ParameterName == paramName)
+                    StringComparer comparer = StringComparer.OrdinalIgnoreCase;
+                    if (comparer.Equals("@" + reportParameter.ParameterName, paramName))
                     {
                         string controlId = reportParameter.ParameterName;
                         if (userInputCount == 0)
