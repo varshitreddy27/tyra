@@ -258,16 +258,16 @@ namespace B24.Sales4.UserControl
                 else if (task == ReportTask.Download.ToString())
                 {
                     ReportFactory reportFactory = new ReportFactory(baseObject.UserConnStr);
-                    string reportString = reportFactory.GetReportView(reportQId, ReportTask.Download.ToString());
+                    string reportString = reportFactory.GetReportView(reportQId, ReportTask.Download.ToString(), true);
                     Response.Clear();
                     Response.AddHeader("content-disposition", "attachment;filename=b24_report_" + DateTime.Now.ToString("yyMMddHHmmss") + ".xls");
                     Response.Charset = "";
                     Response.ContentType = "application/vnd.xls";
                     string styleString = "<html> <head><style type='text/css'> .b24-doc-title {font-size:22px;font-weight:bold;color:#008000;}";
                     styleString += ".b24-report-banner {color:#003300;font-size:14px;font-weight:bold;margin-top:10px;margin-bottom:5px;}";
-                    styleString += ".b24-report {font-size:11px; background:#808080;color:#000000;margin-left:0px;margin-top:0px;margin-bottom:10px;}";
-                    styleString += ".b24-report-title {background:#99CC99; color:#000000;}";
-                    styleString += ".b24-report-data {font-size:9px;background:#FFFFFF;color:#000000;text-align:left;}";
+                    styleString += ".resultGrid {width: 100%; background-color: #ffffff;margin: 5px 0 10px 0;border: solid 1px #525252;border-collapse:collapse; }";
+                    styleString += ".resultGrid th {padding: 5px; background-color:/*#798bcd*/#8fb6e1; border: solid 1px #777777; font-size: 11px; color: #fafeff; }";
+                    styleString += ".resultGrid td {padding: 5px;border: solid 1px #c1c1c1; vertical-align:middle;font-size: 11px;}";
                     styleString += "</style> </head> <body>";
                     reportString = styleString + reportString + "</body> </html>";
                     Response.Write(reportString);
@@ -288,7 +288,7 @@ namespace B24.Sales4.UserControl
                 else if (task == ReportTask.View.ToString())
                 {
                     ReportFactory reportFactory = new ReportFactory(baseObject.UserConnStr);
-                    string reportHTML = reportFactory.GetReportView(reportQId, ReportTask.View.ToString());
+                    string reportHTML = reportFactory.GetReportView(reportQId, ReportTask.View.ToString(), true);
                     ReportResultViewPlaceHolder.Controls.Add(new LiteralControl(reportHTML));
                     ScriptManager ScriptManager1 = ScriptManager.GetCurrent(this.Page);
                     ScriptManager1.RegisterPostBackControl(DownloadReportButton);
