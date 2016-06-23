@@ -170,7 +170,7 @@ namespace B24.Sales4.UserControl
         /// </summary>
         private void LoadReport()
         {
-            int reportType = 5;
+            int reportType = 6;
             Guid availableResultGuidParam = baseObject.User.UserID;
             string paramPrefix = "availablegeneral ";
             if (subscription != null)
