@@ -107,7 +107,7 @@ public class GlobalVariables
         string key;                                                                // key to use for connection string lookup
 
         // Configure the asset and user connection strings (required)
-        key = String.Format("{0}", webServer.Location);
+        key = "sales3ODBC"; //String.Format("{0}", webServer.Location);
         try
         {
             foreach (ConnectionStringSettings settings in ConfigurationManager.ConnectionStrings)
