@@ -175,7 +175,7 @@ namespace B24.Sales4.BLL
                     BasePage.SessionID = session.SessionID;
                     // accessID = session.AccessID;
                     userID = session.UserID;
-                    // B24Session.WriteNewSessionCookie(sessionID);
+             //       B24Session.WriteNewSessionCookie(session.SessionID);
 
                     // create user data
                     UserData data = new UserData();
@@ -185,7 +185,7 @@ namespace B24.Sales4.BLL
                     // initialize FormsAuthentication
                     FormsAuthentication.Initialize();
                     // create a new ticket used for authentication
-                    FormsAuthenticationTicket authTicket = new FormsAuthenticationTicket(1, userLogin, DateTime.Now, DateTime.Now.AddMinutes(15), isPersistent, UserData.B24Serialize(data), FormsAuthentication.FormsCookiePath);
+                    FormsAuthenticationTicket authTicket = new FormsAuthenticationTicket(1, userLogin, DateTime.Now, DateTime.Now.AddMinutes(60), isPersistent, UserData.B24Serialize(data), FormsAuthentication.FormsCookiePath);
                     // Encrypt the ticket.
                     string encTicket = FormsAuthentication.Encrypt(authTicket);
                     // Create the cookie.
@@ -247,7 +247,7 @@ namespace B24.Sales4.BLL
                     // initialize FormsAuthentication
                     FormsAuthentication.Initialize();
                     // create a new ticket used for authentication
-                    authTicket = new FormsAuthenticationTicket(1, userLogin, DateTime.Now, DateTime.Now.AddMinutes(15), isPersistent, UserData.B24Serialize(data), FormsAuthentication.FormsCookiePath);
+                    authTicket = new FormsAuthenticationTicket(1, userLogin, DateTime.Now, DateTime.Now.AddMinutes(60), isPersistent, UserData.B24Serialize(data), FormsAuthentication.FormsCookiePath);
                     // Encrypt the ticket.
                     string encTicket = FormsAuthentication.Encrypt(authTicket);
                     // Create the cookie.
