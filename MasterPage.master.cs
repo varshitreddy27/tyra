@@ -25,6 +25,7 @@ namespace B24.Sales4.UI
             B24Principal user = Context.User as B24Principal;
             welcomeString = (user != null && user.Identity.IsAuthenticated) ? String.Format("{0} {1}", user.FirstName, user.LastName) : "";
             page = this.Page as BasePage;
+            BuildNumberLabel.Text = "v" + page.BuildNumber;
         }
 
         /// <summary>

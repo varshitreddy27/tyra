@@ -10,19 +10,28 @@
     </asp:ScriptManager>
       <div class="salesgutterbg">
           <div id="Login" class="salesbg">
+               <table style="width: 100%" cellpadding="0" cellspacing="0">
+            <tr>
+                <td >
+                    <div><asp:Image ID="Logo" runat="server" ImageUrl="~/images/salesapplogo-blue.png"/></div>
+                </td>
+                <%--<td style="font-family: Verdana,sans-serif !important;font-size: 2.0em;letter-spacing:2px; color:#FFFFFF;vertical-align:top;padding-top:8px">
+                    <asp:Label ID="TitleLabel" runat="server" Text="Books24x7 Sales"></asp:Label>
+                </td>  This isn't needed because it is in the logo--%>
+                <td  class="salesusertext">
+                    <div><asp:Label ID="BuildNumberLabel" runat="server" Text="" ></asp:Label></div>
+                </td>               
+            </tr>
 
-              <div class="salesloginlogo">
-                  <asp:Image ID="Logo" runat="server" ImageUrl="~/images/salesapplogo-blue.png" />
-              </div>
-          </div>
-
+                </table>
           
+          
+      </div>
           <!-- Content -->
           <div class="salescontentbg"> 
               <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
               </asp:ContentPlaceHolder>
           </div>
-      </div>
   </form>
 </body>
 </html>
