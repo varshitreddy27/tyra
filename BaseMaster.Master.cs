@@ -72,6 +72,7 @@ namespace B24.Sales4.UI
             welcomeString = (user != null && user.Identity.IsAuthenticated) ? String.Format("{0} {1}", user.FirstName, user.LastName) : "";
             page = this.Page as BasePage;
             WelcomeUser.Text = welcomeString;
+            BuildNumberLabel.Text = "v" + page.BuildNumber;
             if (!IsPostBack)
             {
                 IntializeControl();
