@@ -104,6 +104,17 @@ namespace B24.Sales4.UI
           }
       }
 
+      /// <summary>
+      /// Return the Build Number
+      /// </summary>
+      public string BuildNumber
+      {
+          get
+          {
+              return System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
+          }
+      }
+
     /// <summary>
     /// Load / Initialize the base page
     /// </summary>
